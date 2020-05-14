@@ -10,7 +10,7 @@
       
       
       
-      <link rel="shortcut icon" href="../../logo.svg">
+      <link rel="shortcut icon" href="../../favicon.svg">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.1.6">
     
     
@@ -579,6 +579,27 @@ this we will dispense with a description.</p>
 <p>It is also worth noting that larger customers (banks, cloud providers, etc) usually prefer to have their own racks in
 a separated gated are called a &ldquo;cage&rdquo; to which they control access.</p>
 <h3 id="the_anatomy_of_the_internet">The Anatomy of the Internet<a class="headerlink" href="#the_anatomy_of_the_internet" title="Permanent link">#</a></h3>
+<p>Once the physical infrastructure is set up there is also the question of how to connect the Internet. As mentioned
+before networks can be very complicated and there is no one size fits all solution. Smaller customers will typically
+use the network infrastructure provided by the datacenter, while larger customers will host their own network equipment.</p>
+<p><img alt="A diagram showing a typical datacenter networking setup." src="/lectures/1-cloud-intro/datacenter-cabling.svg" /></p>
+<p>Again, generally speaking racks will be equipped with a Top-of-Rack switch to provide
+<a href="https://en.wikipedia.org/wiki/Data_link_layer">layer 2 (Ethernet)</a> connectivity between servers. Several ToR may have
+interconnects between each other and are usually connected to one or more routers. Routers provide
+<a href="https://en.wikipedia.org/wiki/Network_layer">layer 3 (IP)</a> routing to other customers in the same datacenter,
+<a href="https://en.wikipedia.org/wiki/Internet_exchange_point">internet exchange</a>, or may be connected to dedicated fiber to
+another provider.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are not familiar with computer networks we recommend giving the
+<a href="https://geek-university.com/ccna/computer-network-explained/">Geek University CCNA course a quick read</a>.
+While you will not need everything, you <strong>will</strong> have to understand how IP addresses, netmasks, etc work in order to
+pass this course. </p>
+</div>
+<p>Providers on the internet exchange data about which network they are hosting using the
+<a href="https://en.wikipedia.org/wiki/Border_Gateway_Protocol">Border Gateway Protocol</a>. Each providers router announces the
+IP address ranges they are hosting to their peer providers, who in turn forward these announcements in an aggregated
+form to other providers.</p>
                 
               
               
