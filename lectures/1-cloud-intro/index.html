@@ -406,6 +406,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#drawbacks" class="md-nav__link">
+    Drawbacks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#regulations" class="md-nav__link">
     Regulations
   </a>
@@ -567,6 +574,13 @@
           <li class="md-nav__item">
   <a href="#benefits" class="md-nav__link">
     Benefits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drawbacks" class="md-nav__link">
+    Drawbacks
   </a>
   
 </li>
@@ -779,13 +793,62 @@ exceptionally simple to deploy Go applications into containers.</p>
 <p><strong>Typical cloud features:</strong></p>
 <ul>
 <li>API</li>
-<li>Can be classified into IaaS, PaaS and SaaS</li>
 <li>Dynamic scaling</li>
+<li>Can be classified into IaaS, PaaS and SaaS</li>
 </ul>
 </div>
+<p>All of the previously discussed things were available before the &ldquo;cloud&rdquo;. You could pay a provider to 
+give you access to a virtual machine where you could run your applications. What changed with the cloud, however, is
+the fact that you no longer had to write a support ticket for changed and everything became self service.</p>
+<p>The cloud age started with an infamous e-mail from <a href="https://en.wikipedia.org/wiki/Jeff_Bezos">Jeff Bezos</a> to his
+engineers in 2002 forcing them to use APIs to exchange data between teams. The exact e-mail is no longer available but
+it went along these lines:</p>
+<blockquote>
+<p>1) All teams will henceforth expose their data and functionality through service interfaces.</p>
+<p>2) Teams must communicate with each other through these interfaces.</p>
+<p>3) There will be no other form of interprocess communication allowed: no direct linking, no direct reads of another
+team’s data store, no shared-memory model, no back-doors whatsoever. The only communication allowed is via service
+interface calls over the network.</p>
+<p>4) It doesn’t matter what technology is used. HTTP, Corba, Pubsub, custom protocols — doesn’t matter.</p>
+<p>5) All service interfaces, without exception, must be designed from the ground up to be externalizable. That is to
+say, the team must plan and design to be able to expose the interface to developers in the outside world. No exceptions.</p>
+<p>6) Anyone who doesn’t do this will be fired.</p>
+</blockquote>
+<p>This marked the beginning of Amazon Web Services the first and also the most successful public cloud offering. The first
+public release of AWS was in 2004 with SQS their message queue service, and got completely overhauled in 2006 where the
+Elastic Compute (EC2) and the Simple Storage Service (S3) service made its first public appearance.</p>
+<p>The APIs provided by cloud providers allow for a large amount of flexibility. If new servers are needed they can be
+launched within a few minutes. If there are too many servers they can be deleted. The same goes for other services: 
+with the API (and the appropriate billing model) comes flexibility to adapt to change.</p>
+<p>The other factor that makes it easy to adapt to change is of course the fact that these services are managed. The 
+cloud customer doesn't need to hire a team of engineers to build a database service, for example, it can be consumed
+without knowing how exactly the database is set up. </p>
+<p>Generally speaking, cloud services can be classified into three categories: Infrastructure as a Service (IaaS) providing
+virtual machines and network infrastructure, Platform as a Service (PaaS) offering services for developers to use, and
+Software as a Service (SaaS) offering end-user services.</p>
+<p><img alt="A comparison of different cloud models. With self-managed the customer needs to take care of the application, runtime, operating, system, virtualization, hardware, network, power, cooling, fire suppression, and housing. With IaaS onl the application, runtime, and the operating system. With PaaS the customer only takes care of the application. With SaaS the customer takes care of nothing and only consumes the service." src="/lectures/1-cloud-intro/cloud-comparison.svg" /> </p>
 <h3 id="private_vs_public_cloud">Private vs. Public cloud<a class="headerlink" href="#private_vs_public_cloud" title="Permanent link">#</a></h3>
+<div class="admonition tldr">
+<p class="admonition-title">In a hurry?</p>
+<p><strong>Private cloud:</strong></p>
+<ul>
+<li>Hosted on-premises or in the public cloud using only private connections</li>
+<li>Large cloud providers offer their services &ldquo;in a box&rdquo; to host yourself</li>
+</ul>
+</div>
 <h3 id="managed_services">Managed Services<a class="headerlink" href="#managed_services" title="Permanent link">#</a></h3>
+<div class="admonition tldr">
+<p class="admonition-title">In a hurry?</p>
+<p><strong>Managed services:</strong></p>
+<ul>
+<li>Low entry cost</li>
+<li>Little in-house know-how required</li>
+<li>Vendor lock-in</li>
+<li>If problems arise they are hard to debug</li>
+</ul>
+</div>
 <h3 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">#</a></h3>
+<h3 id="drawbacks">Drawbacks<a class="headerlink" href="#drawbacks" title="Permanent link">#</a></h3>
 <h3 id="regulations">Regulations<a class="headerlink" href="#regulations" title="Permanent link">#</a></h3>
 <h3 id="business_models">Business Models<a class="headerlink" href="#business_models" title="Permanent link">#</a></h3>
                 
