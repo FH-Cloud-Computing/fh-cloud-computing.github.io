@@ -498,6 +498,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#automation" class="md-nav__link">
+    Automation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#benefits" class="md-nav__link">
     Benefits
   </a>
@@ -515,6 +522,40 @@
   <a href="#regulations" class="md-nav__link">
     Regulations
   </a>
+  
+    <nav class="md-nav" aria-label="Regulations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general_data_protection_regulation_eu" class="md-nav__link">
+    General Data Protection Regulation (EU)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clarifying_lawful_overseas_use_of_data_act_usa" class="md-nav__link">
+    Clarifying Lawful Overseas Use of Data Act (USA)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital_millennium_copyright_act_usa" class="md-nav__link">
+    Digital Millennium Copyright Act (USA)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#communications_decency_act_section_230_usa" class="md-nav__link">
+    Communications Decency Act, Section 230 (USA)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -719,6 +760,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#automation" class="md-nav__link">
+    Automation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#benefits" class="md-nav__link">
     Benefits
   </a>
@@ -736,6 +784,40 @@
   <a href="#regulations" class="md-nav__link">
     Regulations
   </a>
+  
+    <nav class="md-nav" aria-label="Regulations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general_data_protection_regulation_eu" class="md-nav__link">
+    General Data Protection Regulation (EU)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clarifying_lawful_overseas_use_of_data_act_usa" class="md-nav__link">
+    Clarifying Lawful Overseas Use of Data Act (USA)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital_millennium_copyright_act_usa" class="md-nav__link">
+    Digital Millennium Copyright Act (USA)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#communications_decency_act_section_230_usa" class="md-nav__link">
+    Communications Decency Act, Section 230 (USA)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1019,10 +1101,26 @@ internal traffic between availability zones.</p>
 <p class="admonition-title">In a hurry?</p>
 <p><strong>Private cloud:</strong></p>
 <ul>
-<li>Hosted on-premises or in the public cloud using only private connections</li>
-<li>Large cloud providers offer their services &ldquo;in a box&rdquo; to host yourself</li>
+<li>Hosted on-premises or in the public cloud using only private connections.</li>
+<li>Large cloud providers offer their services &ldquo;in a box&rdquo; to host yourself.</li>
 </ul>
 </div>
+<p>Most cloud applications will reside on a public cloud and be accessible from the Internet. However, for some usecases
+access over the public Internet is not desirable or even strictly forbidden by laws or regulations. In order cases
+companies may decide that it is their policy that certain systems must never be connected to the public Internet, or
+only connect via a self-hosted gateway.</p>
+<p>In these cases a private cloud is desirable to minimize the risk of cross-contamination or data exposure due to other
+tenants being on the same infrastructure. Such cross-contamination is not uncommon, for example in recent years there
+have been a litany of CPU bugs such as <a href="https://meltdownattack.com/">Meltdown and Spectre</a>.</p>
+<p>Public cloud providers have extended their offers to address these concerns. Their service offerings now include
+dedicated hypervisors to mitigate CPU bugs, the ability to
+<a href="https://aws.amazon.com/directconnect/">connect the cloud bypassing the Internet</a>, or <a href="https://aws.amazon.com/blogs/compute/introducing-amazon-api-gateway-private-endpoints/">accessing the cloud API's from
+a private network</a>. Some
+cloud providers even went as far offering a <a href="https://aws.amazon.com/outposts/">self-hosted setup</a> where the public
+cloud offering can be brought on-premises.</p>
+<p>These features, especially the connectivity-related features, also allow for the creation of a hybrid cloud where a
+traditional infrastructure can be connected to the cloud. This gives a company the ability to leverage the flexibility
+of the cloud but also keep static / legacy systems for financial or engineering reasons.</p>
 <h3 id="managed_services">Managed Services<a class="headerlink" href="#managed_services" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -1034,9 +1132,14 @@ internal traffic between availability zones.</p>
 <li>If problems arise they are hard to debug</li>
 </ul>
 </div>
+<h3 id="automation">Automation<a class="headerlink" href="#automation" title="Permanent link">#</a></h3>
 <h3 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">#</a></h3>
 <h3 id="drawbacks">Drawbacks<a class="headerlink" href="#drawbacks" title="Permanent link">#</a></h3>
 <h3 id="regulations">Regulations<a class="headerlink" href="#regulations" title="Permanent link">#</a></h3>
+<h4 id="general_data_protection_regulation_eu">General Data Protection Regulation (EU)<a class="headerlink" href="#general_data_protection_regulation_eu" title="Permanent link">#</a></h4>
+<h4 id="clarifying_lawful_overseas_use_of_data_act_usa">Clarifying Lawful Overseas Use of Data Act (USA)<a class="headerlink" href="#clarifying_lawful_overseas_use_of_data_act_usa" title="Permanent link">#</a></h4>
+<h4 id="digital_millennium_copyright_act_usa">Digital Millennium Copyright Act (USA)<a class="headerlink" href="#digital_millennium_copyright_act_usa" title="Permanent link">#</a></h4>
+<h4 id="communications_decency_act_section_230_usa">Communications Decency Act, Section 230 (USA)<a class="headerlink" href="#communications_decency_act_section_230_usa" title="Permanent link">#</a></h4>
                 
               
               
