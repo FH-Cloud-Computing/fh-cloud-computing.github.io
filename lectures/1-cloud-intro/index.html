@@ -171,6 +171,19 @@
   
 
       
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../exercises/" class="md-tabs__link">
+          Exercises
+        </a>
+      
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -426,6 +439,26 @@
     The Cloud
   </a>
   
+    <nav class="md-nav" aria-label="The Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure_as_a_service_iaas" class="md-nav__link">
+    Infrastructure as a Service (IaaS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managed_services_paas" class="md-nav__link">
+    Managed Services (PaaS)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -486,13 +519,6 @@
           <li class="md-nav__item">
   <a href="#private_vs_public_cloud" class="md-nav__link">
     Private vs. Public cloud
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#managed_services" class="md-nav__link">
-    Managed Services
   </a>
   
 </li>
@@ -624,6 +650,60 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Exercises
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Exercises" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Exercises
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../exercises/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../exercises/1-iaas/index.md" title="1. IaaS" class="md-nav__link">
+      1. IaaS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -688,6 +768,26 @@
     The Cloud
   </a>
   
+    <nav class="md-nav" aria-label="The Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure_as_a_service_iaas" class="md-nav__link">
+    Infrastructure as a Service (IaaS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managed_services_paas" class="md-nav__link">
+    Managed Services (PaaS)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -748,13 +848,6 @@
           <li class="md-nav__item">
   <a href="#private_vs_public_cloud" class="md-nav__link">
     Private vs. Public cloud
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#managed_services" class="md-nav__link">
-    Managed Services
   </a>
   
 </li>
@@ -1024,6 +1117,14 @@ exceptionally simple to deploy Go applications into containers.</p>
 <li>API</li>
 <li>Dynamic scaling</li>
 <li>Can be classified into IaaS, PaaS and SaaS</li>
+<li>IaaS service offerings typically include: <ul>
+<li>Virtualization.</li>
+<li>Network infrastructure.</li>
+<li>Everything required to run the above.</li>
+</ul>
+</li>
+<li>PaaS service offerings typically include a managed service ready to be consumed by a developer.</li>
+<li>SaaS service offerings typically include a managed service ready to be consumed by a non-technical end user.</li>
 </ul>
 </div>
 <p>All of the previously discussed things were available before the &ldquo;cloud&rdquo;. You could pay a provider to 
@@ -1056,6 +1157,54 @@ without knowing how exactly the database is set up. </p>
 virtual machines and network infrastructure, Platform as a Service (PaaS) offering services for developers to use, and
 Software as a Service (SaaS) offering end-user services.</p>
 <p><img alt="A comparison of different cloud models. With self-managed the customer needs to take care of the application, runtime, operating, system, virtualization, hardware, network, power, cooling, fire suppression, and housing. With IaaS onl the application, runtime, and the operating system. With PaaS the customer only takes care of the application. With SaaS the customer takes care of nothing and only consumes the service." src="/lectures/1-cloud-intro/cloud-comparison.svg" /> </p>
+<h4 id="infrastructure_as_a_service_iaas">Infrastructure as a Service (IaaS)<a class="headerlink" href="#infrastructure_as_a_service_iaas" title="Permanent link">#</a></h4>
+<p>The most basic of cloud service offerings is IaaS. IaaS means that the cloud provider will manage the infrastructure
+used by the customer. Infrastructure in this sense means the ability to manage (provision, start,stop) virtual machines.
+In very rare cases some providers also offer &ldquo;bare metal&rdquo; machines in this fashion. However, most bare metal
+providers do not offer a true IaaS as machines cannot be ordered using an API, have an up-front fee and are billed on a
+monthly basis.</p>
+<p>IaaS also includes the network connectivity to the Internet. Almost all IaaS providers also offer a built-in firewall,
+virtual private networks (VPC) that can be used to connect virtual machines together without sending the traffic over
+the Internet, and other network services.</p>
+<p>Note that network services can differ greatly. For example, some providers implement private networks on a regional
+basis while other providers offer private networks that can be used to connect virtual machines that are located in
+different regions. </p>
+<h4 id="managed_services_paas">Managed Services (PaaS)<a class="headerlink" href="#managed_services_paas" title="Permanent link">#</a></h4>
+<div class="admonition tldr">
+<p class="admonition-title">In a hurry?</p>
+<p><strong>Managed services:</strong></p>
+<ul>
+<li>The provider is typically responsible for provisioning, backups, monitoring and restoring the servce if needed.</li>
+<li>Low entry cost.</li>
+<li>Little in-house know-how required.</li>
+<li>Vendor lock-in for non-standard services.</li>
+<li>If problems arise they are hard to debug.</li>
+</ul>
+</div>
+<p>Apart from offering virtual machines and network infrastructure as a service many cloud providers also offer additional
+services that are typically used by developers such as managed databases. These services are managed in the sense that
+the developer does not need to run the operating system and the database software itself. However, the developer has to
+configure the database such that it works according to the needs of the application. The provider takes over duties like
+installing the service, making backups, monitoring, and restoring the service in case of an outage.</p>
+<div class="admonition tip">
+<p class="admonition-title">Did you know?</p>
+<p>There are purely PaaS providers that do not offer IaaS, only a developer-friendly platform to run software on.
+Your run of the mill average PHP web hosting provider does qualify if you can order the service using an API. One
+notable example that rose to prominence is <a href="https://www.heroku.com/">Heroku</a>.</p>
+</div>
+<p>The pricing of these managed services varies greatly but they usually follow the cloud model. Most cloud providers
+offer at least a low cost or even free entry version that has a small markup on top of the IaaS costs. </p>
+<p>The massive benefit of using these managed services is, of course, that you do not need to have in-house knowledge about
+how to operate them. You don't need an in-house database operator, you <em>&ldquo;just&rdquo;</em> need to know how to set up
+the database in the cloud. This lets your company focus on the core business they are trying to build and outsource the
+know-how required to build these services on top of the IaaS layer.</p>
+<p>As you might imagine managed servies also have downsides. Most importantly they present a clear vendor lock-in. This
+means that if you want to move to a different cloud provider you will have a hard time doing so if you are using one
+of the more specialized services. In other words the level of standardization across providers matters.</p>
+<p>It is also worth mentioning that managed services tend to work well for a large number of customers but a few number of
+customers can run into hard to debug problems. This debugging difficulty arises out of the inherent opacity of the
+services: you, the customer, don't see what's happening on the IaaS layer. If a database, for example, fills the
+available bandwidth may not be notified and are left guessing why your database misbehaves.</p>
 <h3 id="business_models">Business Models<a class="headerlink" href="#business_models" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -1121,17 +1270,6 @@ cloud offering can be brought on-premises.</p>
 <p>These features, especially the connectivity-related features, also allow for the creation of a hybrid cloud where a
 traditional infrastructure can be connected to the cloud. This gives a company the ability to leverage the flexibility
 of the cloud but also keep static / legacy systems for financial or engineering reasons.</p>
-<h3 id="managed_services">Managed Services<a class="headerlink" href="#managed_services" title="Permanent link">#</a></h3>
-<div class="admonition tldr">
-<p class="admonition-title">In a hurry?</p>
-<p><strong>Managed services:</strong></p>
-<ul>
-<li>Low entry cost</li>
-<li>Little in-house know-how required</li>
-<li>Vendor lock-in</li>
-<li>If problems arise they are hard to debug</li>
-</ul>
-</div>
 <h3 id="automation">Automation<a class="headerlink" href="#automation" title="Permanent link">#</a></h3>
 <h3 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">#</a></h3>
 <h3 id="drawbacks">Drawbacks<a class="headerlink" href="#drawbacks" title="Permanent link">#</a></h3>
