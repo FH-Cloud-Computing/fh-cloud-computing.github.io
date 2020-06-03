@@ -26,10 +26,6 @@
     
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Verdana:300,400,400i,700%7CCourier+New&display=fallback">
-        <style>body,input{font-family:"Verdana",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Courier New",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
     
     
     
@@ -1004,9 +1000,12 @@ well as the pitfalls which may come with such setups.</p>
 <p class="admonition-title">In a hurry?</p>
 <p><strong>Servers:</strong></p>
 <ul>
-<li>Redundant, hot-swap hardware (power supply, fans, etc)</li>
-<li>Flat build profile for rack mounts</li>
-<li>Out-Of-Bounds management interface for monitoring and remote management</li>
+<li>Nowadays either x86 or ARM architecture.</li>
+<li>Redundant, hot-swap hardware (power supply, fans, etc).</li>
+<li>Flat build profile for rack mounts.</li>
+<li>Out-Of-Bounds management interface for monitoring and remote management.</li>
+<li>Power consumption is a concern.</li>
+<li>Buying servers can take a long time and present an up-front investment.</li>
 </ul>
 </div>
 <p>In older times, servers were completely different from the machines we used for regular work. Not just in weight and
@@ -1041,17 +1040,22 @@ status to this OOB management interface which allows for the simultaneous monito
 more &ldquo;budget&rdquo; line of servers, or call certain components differently. HP, for example, calls their
 OOBM &ldquo;Integrated Lights Out&rdquo;, Dell &ldquo;DRAC - Dell Remote Access Control&rdquo;, etc.</p>
 </div>
+<p>When it comes to purchasing servers larger companies tend to go with the same components for a longer period of time
+and they also buy support from the vendor. This sometimes includes hardware replacement done entirely by the vendor
+in the datacenter without the need for the customer to have staff on site. However, purchasing a specific set of
+components or ordering larger quantities of servers presents a logistics challenge and can sometimes take up to 3-4
+months. Buying hardware is also an up-front investment which is hard to justify when demands change rapidly.</p>
 <h3 id="the_anatomy_of_a_datacenter">The Anatomy of a Datacenter<a class="headerlink" href="#the_anatomy_of_a_datacenter" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
 <p><strong>Datacenter components:</strong></p>
 <ul>
-<li>Racks to house servers</li>
-<li>Larger customers have cages for their racks</li>
-<li>Cabling under the floor</li>
-<li>Redundant cooling, fire suppression systems and power supply</li>
-<li>Eco friendliness is becoming a factor</li>
-<li>Some datacenters provide internet connectivity</li>
+<li>Racks to house servers.</li>
+<li>Larger customers have cages for their racks.</li>
+<li>Cabling under the floor.</li>
+<li>Redundant cooling, fire suppression systems and power supply.</li>
+<li>Some datacenters provide internet connectivity.</li>
+<li>Eco friendliness is becoming a factor.</li>
 </ul>
 </div>
 <p>Since the cloud is just somebody else's computer, that computer needs to be hosted somewhere. Servers are almost
@@ -1081,9 +1085,9 @@ a separated gated area called a &ldquo;cage&rdquo; to which they control access.
 <p class="admonition-title">In a hurry?</p>
 <p><strong>Internet:</strong></p>
 <ul>
-<li>IP ranges are advertised using BGP</li>
-<li>Providers connect direcly or using internet exchanges</li>
-<li>16 global providers form the backbone of the internet (tier 1)</li>
+<li>IP ranges are advertised using BGP.</li>
+<li>Providers connect direcly or using internet exchanges.</li>
+<li>16 global providers form the backbone of the internet (tier 1).</li>
 </ul>
 </div>
 <p>Once the physical infrastructure is set up there is also the question of how to connect to the Internet. As mentioned
@@ -1123,10 +1127,10 @@ to the tier 1 providers, while tier 3 is everyone else.</p>
 <p class="admonition-title">In a hurry?</p>
 <p><strong>Software stack:</strong></p>
 <ul>
-<li>Virtualization</li>
-<li>Operating system</li>
-<li>Application runtime</li>
-<li>Application</li>
+<li>Virtualization.</li>
+<li>Operating system.</li>
+<li>Application runtime.</li>
+<li>Application.</li>
 </ul>
 </div>
 <p>The purpose of all this is, of course, to run an application. Each server hosts an operating system which is 
@@ -1207,6 +1211,10 @@ without knowing how exactly the database is set up. </p>
 virtual machines and network infrastructure, Platform as a Service (PaaS) offering services for developers to use, and
 Software as a Service (SaaS) offering end-user services.</p>
 <p><img alt="A comparison of different cloud models. With self-managed the customer needs to take care of the application, runtime, operating, system, virtualization, hardware, network, power, cooling, fire suppression, and housing. With IaaS onl the application, runtime, and the operating system. With PaaS the customer only takes care of the application. With SaaS the customer takes care of nothing and only consumes the service." src="/lectures/1-cloud-intro/cloud-comparison.svg" /> </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SaaS will not be discussed in this course.</p>
+</div>
 <h4 id="infrastructure_as_a_service_iaas">Infrastructure as a Service (IaaS)<a class="headerlink" href="#infrastructure_as_a_service_iaas" title="Permanent link">#</a></h4>
 <p>The most basic of cloud service offerings is IaaS. IaaS means that the cloud provider will manage the infrastructure
 used by the customer. Infrastructure in this sense means the ability to manage (provision, start,stop) virtual machines.
@@ -1224,11 +1232,11 @@ different regions. </p>
 <p class="admonition-title">In a hurry?</p>
 <p><strong>Managed services:</strong></p>
 <ul>
-<li>The provider is typically responsible for provisioning, backups, monitoring and restoring the servce if needed.</li>
+<li>The provider is typically responsible for provisioning, backups, monitoring and restoring the service if needed.</li>
 <li>Low entry cost.</li>
 <li>Little in-house know-how required.</li>
 <li>Vendor lock-in for non-standard services.</li>
-<li>If problems arise they are hard to debug.</li>
+<li>If problems arise they can be hard to debug.</li>
 </ul>
 </div>
 <p>Apart from offering virtual machines and network infrastructure as a service many cloud providers also offer additional
@@ -1561,6 +1569,8 @@ invalid as the predecessor. </p>
       </script>
       
         <script src="../../player.js"></script>
+      
+        <script src="../../external.js"></script>
       
     
   </body>
