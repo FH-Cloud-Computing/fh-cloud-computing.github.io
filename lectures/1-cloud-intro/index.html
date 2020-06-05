@@ -1,992 +1,612 @@
 
+<!DOCTYPE html>
 
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      <link rel="shortcut icon" href="../../favicon.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
-    
-    
-      
-        <title>1. Introduction to the Cloud - Cloud Computing 2020</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a2408e81.min.css">
-      
-      
-    
-    
-    
-      
-    
-    
-    
-      <link rel="stylesheet" href="../../custom.css">
-    
-    
-      
-    
-    
-  </head>
-  
-  
-    <body dir="ltr">
-  
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#what_is_a_server" class="md-skip">
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../favicon.svg" rel="shortcut icon"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-5.2.2" name="generator"/>
+<title>1. Introduction to the Cloud - Cloud Computing 2020</title>
+<link href="../../assets/stylesheets/main.a2408e81.min.css" rel="stylesheet"/>
+<link href="../../custom.css" rel="stylesheet"/>
+</head>
+<body dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#what_is_a_server">
           Skip to content
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="Cloud Computing 2020" class="md-header-nav__button md-logo" aria-label="Cloud Computing 2020">
-      
-  <img src="../../logo-wide.svg" alt="logo">
-
-    </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
-    </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header-nav md-grid">
+<a aria-label="Cloud Computing 2020" class="md-header-nav__button md-logo" href="../.." title="Cloud Computing 2020">
+<img alt="logo" src="../../logo-wide.svg"/>
+</a>
+<label class="md-header-nav__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header-nav__title" data-md-component="header-title">
+<div class="md-header-nav__ellipsis">
+<span class="md-header-nav__topic md-ellipsis">
             Cloud Computing 2020
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+<span class="md-header-nav__topic md-ellipsis">
             
               1. Introduction to the Cloud
             
           </span>
-        </div>
-      
-    </div>
-    
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-      </label>
-      
+</div>
+</div>
+<label class="md-header-nav__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
 <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" data-md-component="search-reset" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list"></ol>
 </div>
-    
-    
-      <div class="md-header-nav__source">
-        
-<a href="https://github.com/fh-cloud-computing/website/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
+</div>
+</div>
+</div>
+</div>
+<div class="md-header-nav__source">
+<a class="md-source" href="https://github.com/fh-cloud-computing/website/" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
     GitHub
   </div>
 </a>
-      </div>
-    
-  </nav>
+</div>
+</nav>
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-        
-      
-      
-        
-          
-
-  
-
-<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../.." class="md-tabs__link">
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs md-tabs--active" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
           About the course
         </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../" class="md-tabs__link md-tabs__link--active">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../">
           Lectures
         </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../exercises/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../exercises/">
           Exercises
         </a>
-      
-    </li>
-  
-
-      
-    </ul>
-  </div>
+</li>
+</ul>
+</div>
 </nav>
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Cloud Computing 2020" class="md-nav__button md-logo" aria-label="Cloud Computing 2020">
-      
-  <img src="../../logo-wide.svg" alt="logo">
-
-    </a>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Cloud Computing 2020" class="md-nav__button md-logo" href="../.." title="Cloud Computing 2020">
+<img alt="logo" src="../../logo-wide.svg"/>
+</a>
     Cloud Computing 2020
   </label>
-  
-    <div class="md-nav__source">
-      
-<a href="https://github.com/fh-cloud-computing/website/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" href="https://github.com/fh-cloud-computing/website/" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
     GitHub
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
-    
-    <label class="md-nav__link" for="nav-1">
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" id="nav-1" type="checkbox"/>
+<label class="md-nav__link" for="nav-1">
       About the course
       <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="About the course" data-md-level="1">
-      <label class="md-nav__title" for="nav-1">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+</span>
+</label>
+<nav aria-label="About the course" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-1">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
         About the course
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Overview" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../.." title="Overview">
       Overview
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../grading/" title="Grading" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../grading/" title="Grading">
       Grading
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../projectwork/" title="Project work" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../projectwork/" title="Project work">
       Project work
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../deadlines/" title="Deadlines" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../deadlines/" title="Deadlines">
       Deadlines
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../testing/" title="Testing" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../testing/" title="Testing">
       Testing
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../help/" title="Getting help" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../help/" title="Getting help">
       Getting help
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
-    
-    <label class="md-nav__link" for="nav-2">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-2" id="nav-2" type="checkbox"/>
+<label class="md-nav__link" for="nav-2">
       Lectures
       <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Lectures" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+</span>
+</label>
+<nav aria-label="Lectures" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-2">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
         Lectures
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../" title="Overview" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../" title="Overview">
       Overview
     </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
         1. Introduction to the Cloud
         <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="1. Introduction to the Cloud" class="md-nav__link md-nav__link--active">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"></path></svg>
+</span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./" title="1. Introduction to the Cloud">
       1. Introduction to the Cloud
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what_is_a_server" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what_is_a_server">
     What is a Server?
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#the_anatomy_of_a_datacenter" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_anatomy_of_a_datacenter">
     The Anatomy of a Datacenter
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#the_anatomy_of_the_internet" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_anatomy_of_the_internet">
     The Anatomy of the Internet
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#software_stack" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#software_stack">
     Software Stack
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#the_cloud" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_cloud">
     The Cloud
   </a>
-  
-    <nav class="md-nav" aria-label="The Cloud">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#infrastructure_as_a_service_iaas" class="md-nav__link">
+<nav aria-label="The Cloud" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#infrastructure_as_a_service_iaas">
     Infrastructure as a Service (IaaS)
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#managed_services_paas" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#managed_services_paas">
     Managed Services (PaaS)
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#business_models" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#business_models">
     Business Models
   </a>
-  
-    <nav class="md-nav" aria-label="Business Models">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#on-off_usage" class="md-nav__link">
+<nav aria-label="Business Models" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#on-off_usage">
     On-off usage
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#growth_usage" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#growth_usage">
     Growth usage
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#sudden_spike_usage" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sudden_spike_usage">
     Sudden spike usage
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#periodic_spike_usage" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#periodic_spike_usage">
     Periodic spike usage
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#per-request_billing" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#per-request_billing">
     Per-request billing
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#cost_planning_with_the_cloud" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cost_planning_with_the_cloud">
     Cost planning with the cloud
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#private_vs_public_cloud" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#private_vs_public_cloud">
     Private vs. Public Cloud
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#automation" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automation">
     Automation
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#regulation" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regulation">
     Regulation
   </a>
-  
-    <nav class="md-nav" aria-label="Regulation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#general_data_protection_regulation_gdpr_eu" class="md-nav__link">
+<nav aria-label="Regulation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#general_data_protection_regulation_gdpr_eu">
     General Data Protection Regulation (G.D.P.R., EU)
   </a>
-  
-    <nav class="md-nav" aria-label="General Data Protection Regulation (G.D.P.R., EU)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#jurisdiction" class="md-nav__link">
+<nav aria-label="General Data Protection Regulation (G.D.P.R., EU)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jurisdiction">
     Jurisdiction
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#structure">
     Structure
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#purposes_of_data_processing" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#purposes_of_data_processing">
     Purposes of data processing
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#data_subjects_rights" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data_subjects_rights">
     Data subjects' rights
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#data_breaches" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data_breaches">
     Data breaches
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#clarifying_lawful_overseas_use_of_data_act_cloud_2018_usa" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clarifying_lawful_overseas_use_of_data_act_cloud_2018_usa">
     Clarifying Lawful Overseas Use of Data Act (C.L.O.U.D., 2018, USA)
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#digital_millennium_copyright_act_dmca_1998_usa" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#digital_millennium_copyright_act_dmca_1998_usa">
     Digital Millennium Copyright Act (D.M.C.A., 1998, USA)
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#communications_decency_act_section_230_cda_1996_usa" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#communications_decency_act_section_230_cda_1996_usa">
     Communications Decency Act, Section 230 (C.D.A., 1996, USA)
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#privacy_shield_2016_eu-us" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#privacy_shield_2016_eu-us">
     Privacy Shield (2016, EU-US)
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
+</ul>
 </nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../2-capabilities/" title="2. Cloud capabilities" class="md-nav__link">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2-capabilities/" title="2. Cloud capabilities">
       2. Cloud capabilities
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../3-iaas/" title="3. Infrastructure as a Service" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../3-iaas/" title="3. Infrastructure as a Service">
       3. Infrastructure as a Service
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../4-xaas/" title="4. Beyond IaaS: PaaS, SaaS" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../4-xaas/" title="4. Beyond IaaS: PaaS, SaaS">
       4. Beyond IaaS: PaaS, SaaS
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../5-cloud-native/" title="5. Cloud-native software development" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../5-cloud-native/" title="5. Cloud-native software development">
       5. Cloud-native software development
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
+<label class="md-nav__link" for="nav-3">
       Exercises
       <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Exercises" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+</span>
+</label>
+<nav aria-label="Exercises" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-3">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
         Exercises
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../exercises/" title="Overview" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercises/" title="Overview">
       Overview
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../exercises/1-iaas/" title="1. IaaS" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercises/1-iaas/" title="1. IaaS">
       1. IaaS
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-  </ul>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what_is_a_server" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what_is_a_server">
     What is a Server?
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#the_anatomy_of_a_datacenter" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_anatomy_of_a_datacenter">
     The Anatomy of a Datacenter
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#the_anatomy_of_the_internet" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_anatomy_of_the_internet">
     The Anatomy of the Internet
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#software_stack" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#software_stack">
     Software Stack
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#the_cloud" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_cloud">
     The Cloud
   </a>
-  
-    <nav class="md-nav" aria-label="The Cloud">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#infrastructure_as_a_service_iaas" class="md-nav__link">
+<nav aria-label="The Cloud" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#infrastructure_as_a_service_iaas">
     Infrastructure as a Service (IaaS)
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#managed_services_paas" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#managed_services_paas">
     Managed Services (PaaS)
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#business_models" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#business_models">
     Business Models
   </a>
-  
-    <nav class="md-nav" aria-label="Business Models">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#on-off_usage" class="md-nav__link">
+<nav aria-label="Business Models" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#on-off_usage">
     On-off usage
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#growth_usage" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#growth_usage">
     Growth usage
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#sudden_spike_usage" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sudden_spike_usage">
     Sudden spike usage
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#periodic_spike_usage" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#periodic_spike_usage">
     Periodic spike usage
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#per-request_billing" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#per-request_billing">
     Per-request billing
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#cost_planning_with_the_cloud" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cost_planning_with_the_cloud">
     Cost planning with the cloud
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#private_vs_public_cloud" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#private_vs_public_cloud">
     Private vs. Public Cloud
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#automation" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automation">
     Automation
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#regulation" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regulation">
     Regulation
   </a>
-  
-    <nav class="md-nav" aria-label="Regulation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#general_data_protection_regulation_gdpr_eu" class="md-nav__link">
+<nav aria-label="Regulation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#general_data_protection_regulation_gdpr_eu">
     General Data Protection Regulation (G.D.P.R., EU)
   </a>
-  
-    <nav class="md-nav" aria-label="General Data Protection Regulation (G.D.P.R., EU)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#jurisdiction" class="md-nav__link">
+<nav aria-label="General Data Protection Regulation (G.D.P.R., EU)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jurisdiction">
     Jurisdiction
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#structure">
     Structure
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#purposes_of_data_processing" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#purposes_of_data_processing">
     Purposes of data processing
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#data_subjects_rights" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data_subjects_rights">
     Data subjects' rights
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#data_breaches" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data_breaches">
     Data breaches
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#clarifying_lawful_overseas_use_of_data_act_cloud_2018_usa" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clarifying_lawful_overseas_use_of_data_act_cloud_2018_usa">
     Clarifying Lawful Overseas Use of Data Act (C.L.O.U.D., 2018, USA)
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#digital_millennium_copyright_act_dmca_1998_usa" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#digital_millennium_copyright_act_dmca_1998_usa">
     Digital Millennium Copyright Act (D.M.C.A., 1998, USA)
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#communications_decency_act_section_230_cda_1996_usa" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#communications_decency_act_section_230_cda_1996_usa">
     Communications Decency Act, Section 230 (C.D.A., 1996, USA)
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#privacy_shield_2016_eu-us" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#privacy_shield_2016_eu-us">
     Privacy Shield (2016, EU-US)
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                  <a href="https://github.com/fh-cloud-computing/website/edit/master/docs/lectures/1-cloud-intro/index.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                  
-                
-                
-                <div class="download">
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content">
+<article class="md-content__inner md-typeset"><a class="md-icon md-content__icon" download href="index.pdf" title="PDF Export"></a>
+<a class="md-content__button md-icon" href="https://github.com/fh-cloud-computing/website/edit/master/docs/lectures/1-cloud-intro/index.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<div class="download">
 <a href="fh-cloud-computing-lecture-1-intro.pptx"><button>Download PPTX 💻</button></a>
 <a href="fh-cloud-computing-lecture-1-intro.mp3"><button>Download MP3 🎧</button></a>
 <a href="fh-cloud-computing-lecture-1-intro.m4b"><button>Download M4B 🎧</button></a>
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
-
 <h1>Introduction to the Cloud</h1>
-
-<p><audio preload="none" controls src="audio/Introduction%20to%20the%20cloud.mp3"></audio></p>
+<p><audio controls="" preload="none" src="audio/Introduction%20to%20the%20cloud.mp3"></audio></p>
 <p>As the popular saying goes:</p>
 <blockquote>
 <p>The cloud is just somebody else's computer.</p>
@@ -995,7 +615,7 @@
 infrastructure. This lecture will teach you how a cloud is built and what the typical services are that they offer as
 well as the pitfalls which may come with such setups.</p>
 <h3 id="what_is_a_server">What is a Server?<a class="headerlink" href="#what_is_a_server" title="Permanent link">#</a></h3>
-<p><audio preload="none" controls src="audio/What%20is%20a%20server.mp3"></audio></p>
+<p><audio controls="" preload="none" src="audio/What%20is%20a%20server.mp3"></audio></p>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
 <p><strong>Servers:</strong></p>
@@ -1021,11 +641,11 @@ its low power consumption. In recent years there has been a small but noticeable
 hundreds, thousands or tens of thousands of servers, saving even a few percent of power will translate to huge cost
 savings.</p>
 <p>The difference in build is, however, quite apparent. While some servers, mainly built for office use, have the standard
-&ldquo;tower&rdquo; build, most servers have a flat profile designed to be mounted in racks as displayed on the picture.
+“tower” build, most servers have a flat profile designed to be mounted in racks as displayed on the picture.
 Since most servers are not high enough to take full size expansion cards (graphics cards, network cards, etc), servers
 may contain a separate removable component for these usually called a riser. </p>
-<p><img alt="A server in a rack, pulled out and the top taken off. The internal components, such as dual, hot-plug power supply units, hot-plug fans, CPU, the riser and hot-swap disks are visible." src="/lectures/1-cloud-intro/server-01.svg" />
-<em>An HP Proliant G5 server pulled out of its rack. Source: <a href="https://en.wikipedia.org/wiki/ProLiant#/media/File:Proliant380g5_3.jpeg">Wikipedia</a></em></p>
+<p><img alt="A server in a rack, pulled out and the top taken off. The internal components, such as dual, hot-plug power supply units, hot-plug fans, CPU, the riser and hot-swap disks are visible." src="/lectures/1-cloud-intro/server-01.svg">
+<em>An HP Proliant G5 server pulled out of its rack. Source: <a href="https://en.wikipedia.org/wiki/ProLiant#/media/File:Proliant380g5_3.jpeg">Wikipedia</a></em></img></p>
 <p>Server racks are standardized closets that have mounting screws for rails that allow pulling servers out even mid
 operation and replace components while the server is running.</p>
 <p>Servers also come with a high level of redundancy. While you may have a single power supply in your home computer,
@@ -1037,8 +657,8 @@ status to this OOB management interface which allows for the simultaneous monito
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is a fairly generic description of servers. Different vendors may chose to leave out certain features of their
-more &ldquo;budget&rdquo; line of servers, or call certain components differently. HP, for example, calls their
-OOBM &ldquo;Integrated Lights Out&rdquo;, Dell &ldquo;DRAC - Dell Remote Access Control&rdquo;, etc.</p>
+more “budget” line of servers, or call certain components differently. HP, for example, calls their
+OOBM “Integrated Lights Out”, Dell “DRAC - Dell Remote Access Control”, etc.</p>
 </div>
 <p>When it comes to purchasing servers larger companies tend to go with the same components for a longer period of time
 and they also buy support from the vendor. This sometimes includes hardware replacement done entirely by the vendor
@@ -1062,10 +682,10 @@ months. Buying hardware is also an up-front investment which is hard to justify 
 exclusively hosted in datacenters. Let's take a look at what is involved in running a datacenter.</p>
 <p>First of all, as mentioned above, most servers are going to be rack-mounted so you need a bunch of racks. These racks
 are installed in rows, often with a fake floor to allow for cabling to go under the floor.</p>
-<p><img alt="A data center containing a bunch of racks for servers" src="/lectures/1-cloud-intro/datacenter.jpg" />
-<em>A datacenter with racks. Source: <a href="https://en.wikipedia.org/wiki/Data_center#/media/File:Datacenter_de_ARSAT.jpg">Wikipedia</a></em></p>
+<p><img alt="A data center containing a bunch of racks for servers" src="/lectures/1-cloud-intro/datacenter.jpg">
+<em>A datacenter with racks. Source: <a href="https://en.wikipedia.org/wiki/Data_center#/media/File:Datacenter_de_ARSAT.jpg">Wikipedia</a></em></img></p>
 <p>Since servers produce a lot of heat, a datacenter also requires cooling. There are a variety of ways to solve cooling,
-some are more &ldquo;green&rdquo; than others. Some datacenters, for example, opt to install a &ldquo;cold aisles&rdquo;
+some are more “green” than others. Some datacenters, for example, opt to install a “cold aisles”
 where the cold air is pumped between two rack rows and is pushed through the racks to cool the servers.</p>
 <p>Apart from cooling, datacenters also require automated fire suppression systems simply because of the amount of
 electricity going through. Datacenters usually go with a non-destructive fire suppression system such as lowering the 
@@ -1079,7 +699,7 @@ ability to use their network uplink (also redundant), but larger customers will 
 equipment and negotiate their own internet uplink contracts. Since there is no generic rule for how datacenters handle
 this, we will dispense with a description.</p>
 <p>It is also worth noting that larger customers (banks, cloud providers, etc) usually prefer to have their own racks in
-a separated gated area called a &ldquo;cage&rdquo; to which they control access.</p>
+a separated gated area called a “cage” to which they control access.</p>
 <h3 id="the_anatomy_of_the_internet">The Anatomy of the Internet<a class="headerlink" href="#the_anatomy_of_the_internet" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -1093,7 +713,7 @@ a separated gated area called a &ldquo;cage&rdquo; to which they control access.
 <p>Once the physical infrastructure is set up there is also the question of how to connect to the Internet. As mentioned
 before, networks can be very complicated and there is no one size fits all solution. Smaller customers will typically
 use the network infrastructure provided by the datacenter while larger customers will host their own network equipment.</p>
-<p><img alt="A diagram showing a typical datacenter networking setup." src="/lectures/1-cloud-intro/datacenter-cabling.svg" /></p>
+<p><img alt="A diagram showing a typical datacenter networking setup." src="/lectures/1-cloud-intro/datacenter-cabling.svg"/></p>
 <p>Again, generally speaking racks will be equipped with a Top-of-Rack switch to provide
 <a href="https://en.wikipedia.org/wiki/Data_link_layer">layer 2 (Ethernet)</a> connectivity between servers. Several ToR may have
 interconnects between each other and are usually connected to one or more routers. Routers provide
@@ -1121,7 +741,7 @@ for a specific purpose.</p>
 present on every continent. They form the backbone of the Internet. At the time of writing there are
 <a href="https://en.wikipedia.org/wiki/Tier_1_network">16 such networks</a>. Tier 2 are the providers who are directly connected
 to the tier 1 providers, while tier 3 is everyone else.</p>
-<p><img alt="An illustration of how internet providers are connected. In this example Global A and Global B are two providers which are connected in the same level, Local A and Local B are connected to Global A, while Local C is connected to Global B. Local A and Local B also exchange data directly and Local B and C exchange data over a local internet exchange. The example datacenter customer is connected to Local B." src="/lectures/1-cloud-intro/internet-tiers.svg" /></p>
+<p><img alt="An illustration of how internet providers are connected. In this example Global A and Global B are two providers which are connected in the same level, Local A and Local B are connected to Global A, while Local C is connected to Global B. Local A and Local B also exchange data directly and Local B and C exchange data over a local internet exchange. The example datacenter customer is connected to Local B." src="/lectures/1-cloud-intro/internet-tiers.svg"/></p>
 <h3 id="software_stack">Software Stack<a class="headerlink" href="#software_stack" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -1151,7 +771,7 @@ to use list but you can look for the <code>AMD-V</code> feature on AMD CPUs.</p>
 <p class="admonition-title">Note</p>
 <p>Virtualization is different from containerization (which we will talk about later) in that with virtualization each
 guest operating system has its own kernel whereas containers share a kernel between them.</p>
-<p><img alt="" src="/lectures/1-cloud-intro/virtualization-containers.svg" /></p>
+<p><img alt="" src="/lectures/1-cloud-intro/virtualization-containers.svg"/></p>
 </div>
 <p>There is one more important aspect of finally getting an application to run: the runtime environment. Except for a few
 rare occasions applications need a runtime environment. If the application is compiled to machine code they still need
@@ -1181,7 +801,7 @@ exceptionally simple to deploy Go applications into containers.</p>
 <li>SaaS service offerings typically include a managed service ready to be consumed by a non-technical end user.</li>
 </ul>
 </div>
-<p>All of the previously discussed things were available before the &ldquo;cloud&rdquo;. You could pay a provider to 
+<p>All of the previously discussed things were available before the “cloud”. You could pay a provider to 
 give you access to a virtual machine where you could run your applications. What changed with the cloud, however, is
 the fact that you no longer had to write a support ticket for changed and everything became self service.</p>
 <p>The cloud age started with an infamous e-mail from <a href="https://en.wikipedia.org/wiki/Jeff_Bezos">Jeff Bezos</a> to his
@@ -1210,7 +830,7 @@ without knowing how exactly the database is set up. </p>
 <p>Generally speaking, cloud services can be classified into three categories: Infrastructure as a Service (IaaS) providing
 virtual machines and network infrastructure, Platform as a Service (PaaS) offering services for developers to use, and
 Software as a Service (SaaS) offering end-user services.</p>
-<p><img alt="A comparison of different cloud models. With self-managed the customer needs to take care of the application, runtime, operating, system, virtualization, hardware, network, power, cooling, fire suppression, and housing. With IaaS onl the application, runtime, and the operating system. With PaaS the customer only takes care of the application. With SaaS the customer takes care of nothing and only consumes the service." src="/lectures/1-cloud-intro/cloud-comparison.svg" /> </p>
+<p><img alt="A comparison of different cloud models. With self-managed the customer needs to take care of the application, runtime, operating, system, virtualization, hardware, network, power, cooling, fire suppression, and housing. With IaaS onl the application, runtime, and the operating system. With PaaS the customer only takes care of the application. With SaaS the customer takes care of nothing and only consumes the service." src="/lectures/1-cloud-intro/cloud-comparison.svg"/> </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>SaaS will not be discussed in this course.</p>
@@ -1218,7 +838,7 @@ Software as a Service (SaaS) offering end-user services.</p>
 <h4 id="infrastructure_as_a_service_iaas">Infrastructure as a Service (IaaS)<a class="headerlink" href="#infrastructure_as_a_service_iaas" title="Permanent link">#</a></h4>
 <p>The most basic of cloud service offerings is IaaS. IaaS means that the cloud provider will manage the infrastructure
 used by the customer. Infrastructure in this sense means the ability to manage (provision, start,stop) virtual machines.
-In very rare cases some providers also offer &ldquo;bare metal&rdquo; machines in this fashion. However, most bare metal
+In very rare cases some providers also offer “bare metal” machines in this fashion. However, most bare metal
 providers do not offer a true IaaS as machines cannot be ordered using an API, have an up-front fee and are billed on a
 monthly basis.</p>
 <p>IaaS also includes the network connectivity to the Internet. Almost all IaaS providers also offer a built-in firewall,
@@ -1253,7 +873,7 @@ notable example that rose to prominence is <a href="https://www.heroku.com/">Her
 <p>The pricing of these managed services varies greatly but they usually follow the cloud model. Most cloud providers
 offer at least a low cost or even free entry version that has a small markup on top of the IaaS costs. </p>
 <p>The massive benefit of using these managed services is, of course, that you do not need to have in-house knowledge about
-how to operate them. You don't need an in-house database operator, you <em>&ldquo;just&rdquo;</em> need to know how to set up
+how to operate them. You don't need an in-house database operator, you <em>“just”</em> need to know how to set up
 the database in the cloud. This lets your company focus on the core business they are trying to build and outsource the
 know-how required to build these services on top of the IaaS layer.</p>
 <p>As you might imagine managed servies also have downsides. Most importantly they present a clear vendor lock-in. This
@@ -1279,19 +899,19 @@ for only 5 minutes you will only pay for 5 minutes of runtime. This lets you opt
 <em>if</em> you use <strong>automation</strong> to start and stop machines or services on demand.</p>
 <p>Typically the cost savings are realized in these scenarios:</p>
 <h4 id="on-off_usage">On-off usage<a class="headerlink" href="#on-off_usage" title="Permanent link">#</a></h4>
-<p><img alt="A graph showing zero usage with two spikes when the service is used." src="/lectures/1-cloud-intro/scaling-on-off.svg" /></p>
+<p><img alt="A graph showing zero usage with two spikes when the service is used." src="/lectures/1-cloud-intro/scaling-on-off.svg"/></p>
 <p>This usage type is typical for batch processing. Machines are only started when there is a workload (e.g. video
 conversion, machine learning training job, etc.) </p>
 <h4 id="growth_usage">Growth usage<a class="headerlink" href="#growth_usage" title="Permanent link">#</a></h4>
-<p><img alt="A graph showing exponential growth." src="/lectures/1-cloud-intro/scaling-growth.svg" /></p>
+<p><img alt="A graph showing exponential growth." src="/lectures/1-cloud-intro/scaling-growth.svg"/></p>
 <p>Projects that see a growth curve often opt to use a cloud provider as well since buying hardware in larger quantities
 typically takes 2-4 months.</p>
 <h4 id="sudden_spike_usage">Sudden spike usage<a class="headerlink" href="#sudden_spike_usage" title="Permanent link">#</a></h4>
-<p><img alt="A graph showing a sudden usage spike." src="/lectures/1-cloud-intro/scaling-spike.svg" /></p>
+<p><img alt="A graph showing a sudden usage spike." src="/lectures/1-cloud-intro/scaling-spike.svg"/></p>
 <p>Cloud providers can also be useful if a service encounters a sudden load spike. This is typically the case for webshops
 around Black Friday and other sales events.</p>
 <h4 id="periodic_spike_usage">Periodic spike usage<a class="headerlink" href="#periodic_spike_usage" title="Permanent link">#</a></h4>
-<p><img alt="A graph showing periodic spikes." src="/lectures/1-cloud-intro/scaling-periodic.svg" /></p>
+<p><img alt="A graph showing periodic spikes." src="/lectures/1-cloud-intro/scaling-periodic.svg"/></p>
 <p>Almost every service has usage spikes depending on the time of day. This can be used to scale the service up and down.</p>
 <h4 id="per-request_billing">Per-request billing<a class="headerlink" href="#per-request_billing" title="Permanent link">#</a></h4>
 <p>IaaS services are typically priced based on an allocated amount of resources determined at the start of the virtual
@@ -1309,7 +929,7 @@ internal traffic between availability zones.</p>
 <p><strong>Private cloud:</strong></p>
 <ul>
 <li>Hosted on-premises or in the public cloud using only private connections.</li>
-<li>Large cloud providers offer their services &ldquo;in a box&rdquo; to host yourself.</li>
+<li>Large cloud providers offer their services “in a box” to host yourself.</li>
 </ul>
 </div>
 <p>Most cloud applications will reside on a public cloud and be accessible from the Internet. However, for some usecases
@@ -1447,7 +1067,7 @@ deals with the rights of the data subject. These are:</p>
 </ul>
 </li>
 <li><strong>The right to fix incorrect data.</strong></li>
-<li><strong>The right of deletion.</strong> <em>&ldquo;The right to be forgotten.&rdquo;</em>
+<li><strong>The right of deletion.</strong> <em>“The right to be forgotten.”</em>
    This right puts several architectural limites on cloud systems as, for example, backups must be built in such a way
    that deletion requests are repeated after a restore. Note that this right is not without limits, legal obligations,
    for example, override it.</li>
@@ -1462,7 +1082,7 @@ is probably the first legislation around the world that explicitly requires secu
 that handle personal data.
 <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN#d1e3434-1-1">Article 33</a> of this
 chapter specifically requires that data breaches must be disclosed to the supervisory authorities. Supervisory
-authorities in turn have the right to impose fines up to 4% or 20.000.000 &euro; of the global revenue of a company.</p>
+authorities in turn have the right to impose fines up to 4% or 20.000.000 € of the global revenue of a company.</p>
 <p>This means that companies can no longer sweep data breaches under the rug and must spend resources to secure their
 data processing. In the scope of the cloud this means that our cloud environment has to be set up in a secure way to
 avoid data breaches.</p>
@@ -1505,80 +1125,60 @@ is intend to protect the privacy of EU citizens when using US services or their 
 <p>The Privacy Shield has been enhanced in 2017 by the EU–US Umbrella Agreement which fixes many of the issues with the
 Privacy Shield. While there are still valid criticisms it remains to be seen if this agreement will also be declared
 invalid as the predecessor. </p>
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
-        </div>
-      </main>
-      
-        
+</article>
+</div>
+</div>
+</main>
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../" title="Overview" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
+<div class="md-footer-nav">
+<nav aria-label="Footer" class="md-footer-nav__inner md-grid">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../" rel="prev" title="Overview">
+<div class="md-footer-nav__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer-nav__title">
+<div class="md-ellipsis">
+<span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Overview
               </div>
-            </div>
-          </a>
-        
-        
-          <a href="../2-capabilities/" title="2. Cloud capabilities" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
+</div>
+</a>
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../2-capabilities/" rel="next" title="2. Cloud capabilities">
+<div class="md-footer-nav__title">
+<div class="md-ellipsis">
+<span class="md-footer-nav__direction">
                   Next
                 </span>
                 2. Cloud capabilities
               </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
+</div>
+<div class="md-footer-nav__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+</div>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
             Copyright © 2020 Janos Pasztor, Peter Wenzl, Günther Pospischil
           </div>
         
         Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
           Material for MkDocs
         </a>
-      </div>
-      
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    
-      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
-      
-      <script>
+</div>
+<script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+<script src="../../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script>
         app = initialize({
           base: "../..",
           features: ["tabs"],
@@ -1587,11 +1187,8 @@ invalid as the predecessor. </p>
           }, typeof search !== "undefined" && search)
         })
       </script>
-      
-        <script src="../../player.js"></script>
-      
-        <script src="../../external.js"></script>
-      
-    
-  </body>
+<script src="../../player.js"></script>
+<script src="../../external.js"></script>
+<script src="../../download.js"></script>
+</body>
 </html>
