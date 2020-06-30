@@ -16,6 +16,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#virtual_machines">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -211,9 +214,127 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        3. Infrastructure as a Service
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"></path></svg>
+</span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./" title="3. Infrastructure as a Service">
       3. Infrastructure as a Service
     </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#virtual_machines">
+    Virtual machines
+  </a>
+<nav aria-label="Virtual machines" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#virtualization_technology">
+    Virtualization technology
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#typical_instance_types">
+    Typical instance types
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automation">
+    Automation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#virtual_machine_pools">
+    Virtual machine pools
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#storage">
+    Storage
+  </a>
+<nav aria-label="Storage" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local_storage">
+    Local storage
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#block_storage">
+    Block storage
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#network_file_systems">
+    Network file systems
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#object_storage">
+    Object storage
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#network">
+    Network
+  </a>
+<nav aria-label="Network" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#firewalling">
+    Firewalling
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#network_load_balancers">
+    Network load balancers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#private_networks">
+    Private networks
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dns">
+    DNS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vpns_private_interconnects_and_routing_services">
+    VPNs, private interconnects, and routing services
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#monitoring">
+    Monitoring
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automation_1">
+    Automation
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../4-xaas/" title="4. Beyond IaaS: PaaS, SaaS">
@@ -286,12 +407,157 @@
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#virtual_machines">
+    Virtual machines
+  </a>
+<nav aria-label="Virtual machines" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#virtualization_technology">
+    Virtualization technology
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#typical_instance_types">
+    Typical instance types
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automation">
+    Automation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#virtual_machine_pools">
+    Virtual machine pools
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#storage">
+    Storage
+  </a>
+<nav aria-label="Storage" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local_storage">
+    Local storage
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#block_storage">
+    Block storage
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#network_file_systems">
+    Network file systems
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#object_storage">
+    Object storage
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#network">
+    Network
+  </a>
+<nav aria-label="Network" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#firewalling">
+    Firewalling
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#network_load_balancers">
+    Network load balancers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#private_networks">
+    Private networks
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dns">
+    DNS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vpns_private_interconnects_and_routing_services">
+    VPNs, private interconnects, and routing services
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#monitoring">
+    Monitoring
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automation_1">
+    Automation
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/fh-cloud-computing/website/edit/master/docs/lectures/3-iaas/index.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1>3. Infrastructure as a Service</h1>
+<div class="download"><a download href="index.pdf"><button>Download PDF 🖨️</button></a>
+<a href="fh-cloud-computing-lecture-3-iaas.pptx"><button>Download PPTX 💻</button></a>
+<a href="fh-cloud-computing-lecture-3-iaas.mp3"><button>Download MP3 🎧</button></a>
+<a href="fh-cloud-computing-lecture-3-iaas.m4b"><button>Download M4B 🎧</button></a>
+<a href="#"><button>Watch Video 🎬</button></a>
+</div>
+<h1>Infrastructure as a Service</h1>
+<p>Infrastructure as a Service, or IaaS is a service offering by most cloud providers that provides <em>virtual machines</em>
+and the accompanying infrastructure as a service. This lecture will discuss the details of how an IaaS service is
+built.</p>
+<h3 id="virtual_machines">Virtual machines<a class="headerlink" href="#virtual_machines" title="Permanent link">#</a></h3>
+<h4 id="virtualization_technology">Virtualization technology<a class="headerlink" href="#virtualization_technology" title="Permanent link">#</a></h4>
+<h4 id="typical_instance_types">Typical instance types<a class="headerlink" href="#typical_instance_types" title="Permanent link">#</a></h4>
+<h4 id="automation">Automation<a class="headerlink" href="#automation" title="Permanent link">#</a></h4>
+<h4 id="virtual_machine_pools">Virtual machine pools<a class="headerlink" href="#virtual_machine_pools" title="Permanent link">#</a></h4>
+<h3 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">#</a></h3>
+<h4 id="local_storage">Local storage<a class="headerlink" href="#local_storage" title="Permanent link">#</a></h4>
+<h4 id="block_storage">Block storage<a class="headerlink" href="#block_storage" title="Permanent link">#</a></h4>
+<h4 id="network_file_systems">Network file systems<a class="headerlink" href="#network_file_systems" title="Permanent link">#</a></h4>
+<h4 id="object_storage">Object storage<a class="headerlink" href="#object_storage" title="Permanent link">#</a></h4>
+<h3 id="network">Network<a class="headerlink" href="#network" title="Permanent link">#</a></h3>
+<h4 id="firewalling">Firewalling<a class="headerlink" href="#firewalling" title="Permanent link">#</a></h4>
+<h4 id="network_load_balancers">Network load balancers<a class="headerlink" href="#network_load_balancers" title="Permanent link">#</a></h4>
+<h4 id="private_networks">Private networks<a class="headerlink" href="#private_networks" title="Permanent link">#</a></h4>
+<h4 id="dns">DNS<a class="headerlink" href="#dns" title="Permanent link">#</a></h4>
+<h4 id="vpns_private_interconnects_and_routing_services">VPNs, private interconnects, and routing services<a class="headerlink" href="#vpns_private_interconnects_and_routing_services" title="Permanent link">#</a></h4>
+<h3 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">#</a></h3>
+<h3 id="automation_1">Automation<a class="headerlink" href="#automation_1" title="Permanent link">#</a></h3>
 </article>
 </div>
 </div>
