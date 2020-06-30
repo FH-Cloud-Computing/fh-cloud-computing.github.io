@@ -235,15 +235,11 @@
 <a class="md-nav__link" href="#virtual_machines">
     Virtual machines
   </a>
-<nav aria-label="Virtual machines" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#typical_instance_types">
     Typical instance types
   </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#automation">
@@ -267,8 +263,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#block_storage">
-    Block storage
+<a class="md-nav__link" href="#network_block_storage">
+    Network Block storage
   </a>
 </li>
 <li class="md-nav__item">
@@ -417,15 +413,11 @@
 <a class="md-nav__link" href="#virtual_machines">
     Virtual machines
   </a>
-<nav aria-label="Virtual machines" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#typical_instance_types">
     Typical instance types
   </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#automation">
@@ -449,8 +441,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#block_storage">
-    Block storage
+<a class="md-nav__link" href="#network_block_storage">
+    Network Block storage
   </a>
 </li>
 <li class="md-nav__item">
@@ -593,7 +585,7 @@ machines but they did so that a customer could order or cancel the service using
 (Later on AWS and other cloud providers moved to a per-second billing.)</p>
 <p>The presence of an API makes the difference between IaaS and plain old virtual machines as a service. IaaS allows
 a customer to scale their application dynamically according to their current demand.</p>
-<h4 id="typical_instance_types">Typical instance types<a class="headerlink" href="#typical_instance_types" title="Permanent link">#</a></h4>
+<h3 id="typical_instance_types">Typical instance types<a class="headerlink" href="#typical_instance_types" title="Permanent link">#</a></h3>
 <p>When the cloud became popular in the late 2000s several providers attempted to offer a service that was fully dynamic
 in their sizes. The customer could set how many GB of RAM they needed and how many CPU cores. However, this model has
 been phased out by most providers since it is difficult to manage such a dynamic environment.</p>
@@ -644,8 +636,18 @@ direct traffic to the dynamic number of instances. Some cloud providers integrat
 offering as well allowing you to run a custom function whenever a machine starts or stops. This can be used to, for
 example, update your own service discovery database.</p>
 <h3 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">#</a></h3>
+<p>Hopefully we have managed to convey the <em>dynamic nature</em> of the cloud in our description so far. This brings up the
+question of where data should be stored. This section will explain the different storage options that you can use
+to store <em>files</em> directly from your virtual machine. We will touch on databases and other storage options in a later
+section.</p>
 <h4 id="local_storage">Local storage<a class="headerlink" href="#local_storage" title="Permanent link">#</a></h4>
-<h4 id="block_storage">Block storage<a class="headerlink" href="#block_storage" title="Permanent link">#</a></h4>
+<p>The most obvious storage option, of course, is a local storage. By local storage we mean a hard drive (SSD or HDD) that
+is integrated directly into the machine that's running the hypervisor.</p>
+<p>This storage option has the benefit of offering a high performance disk at a relatively affordable price. The drawback
+is that the disk is local. If the physical machine running your VM has a problem your data may be lost.</p>
+<p>For all storage options the implementation of <em>backups</em> is critical but with local storage building redundancy on top
+of the virtual machine may be required to build a reliable system.</p>
+<h4 id="network_block_storage">Network Block storage<a class="headerlink" href="#network_block_storage" title="Permanent link">#</a></h4>
 <h4 id="network_file_systems">Network file systems<a class="headerlink" href="#network_file_systems" title="Permanent link">#</a></h4>
 <h4 id="object_storage">Object storage<a class="headerlink" href="#object_storage" title="Permanent link">#</a></h4>
 <h3 id="network">Network<a class="headerlink" href="#network" title="Permanent link">#</a></h3>
