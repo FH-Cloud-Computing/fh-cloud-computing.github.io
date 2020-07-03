@@ -760,14 +760,42 @@ multiple, medium-sized instances rather than few large sized ones.</p>
 <li>Fully dynamic network configuration that allows the customer to define their network setup and IP assignment
    dynamically. This is typically offered by IaaS providers that target enterprise customers who wish to migrate their
    classic on-premises infrastructure and require the flexibility they had when using their own hardware. This is the
-   case with <a href="https://www.ionos.com/">1&amp;1 IONOS</a>. </li>
+   case with <a href="https://www.ionos.com/">1&amp;1 IONOS</a>.</li>
 </ol>
 <p>TODO: Vultr? Linode? Deutsche Telekom Cloud? Alibaba Cloud?</p>
 <p>TODO: add illustration</p>
 <p>Out of group 2 it is worth mentioning that the services that are available on the public network
 (firewalls, load balancers) are often not available on private networks. </p>
 <h4 id="firewalling">Firewalling<a class="headerlink" href="#firewalling" title="Permanent link">#</a></h4>
+<p>IaaS providers often also offer network firewalls as a service, included in the platform. Firewalls generally have
+two rule types: INGRESS (from the Internet or other machines to the current VM) and EGRESS (From the current VM to)
+everywhere else.</p>
+<p>Firewall providers often employ the concept of <em>security groups</em>. The implementation varies greatly, but in general
+security groups are a reusable set of rules that can be applied to a VM.</p>
+<p>For most cloud providers you will need to create an explicit rule allowing traffic to flow between two machines
+in the same security group.</p>
+<p>The advantage of security groups is that the rules can be made in such a way that they reference other security
+groups rather than specific IP addresses. For example, the <code>database</code> security group could be set to allow connections
+only from the <code>appserver</code> security group but not from anywhere else. This can help with the dynamic nature of the cloud
+since you do not need to hard-code the IP addresses of the application servers.</p>
+<p>TODO: add screenshot of security group configuration</p>
 <h4 id="network_load_balancers">Network load balancers<a class="headerlink" href="#network_load_balancers" title="Permanent link">#</a></h4>
+<p>Network load balancers are an option some cloud providers offer. In contrast to Application Load Balancers they
+do not offer protocol decoding (such as routing requests to backends based on the requested web address), they only
+balance incoming connections to a pool of backends.</p>
+<p>TODO add illustration</p>
+<p>Depending on the cloud provider in question network load balancers may or may not offer terminating encrypted 
+connections (SSL/TLS), and may be bound to virtual machine pools. It is also cloud provider specific if load balancers
+are offered in private networks or not.</p>
+<p>When designing an architecture it is worth considering if the real IP address of the connecting client will be needed.
+If the backend needs to know the real IP address of the client and the network load balancer handles SSL/TLS termination
+that combination may not be suitable for the task unless a specific trick such as the
+<a href="https://www.digitalocean.com/blog/load-balancers-now-support-proxy-protocol/">proxy protocol from Digital Ocean</a>.
+Network load balancers without SSL/TLS termination should, in general, make the client IP available to the backends.</p>
+<p>When talking about load balancers an interesting question is the load balancing strategy. Most load balancers support
+either round robin (selecting the next backend in the list) or source hashing (routing the same connecting IP to the
+same backend). Most load balancers also support health checks to take backends that are not able to serve traffic out
+of the rotation.</p>
 <h4 id="vpns_private_interconnects_and_routing_services">VPNs, private interconnects, and routing services<a class="headerlink" href="#vpns_private_interconnects_and_routing_services" title="Permanent link">#</a></h4>
 <h4 id="dns">DNS<a class="headerlink" href="#dns" title="Permanent link">#</a></h4>
 <h3 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">#</a></h3>
