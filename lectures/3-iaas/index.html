@@ -292,6 +292,16 @@
 <nav aria-label="Network" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#how_cloud_networks_are_built">
+    How cloud networks are built
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#underlying_network_architectures_offered_by_cloud_providers">
+    Underlying network architectures offered by cloud providers
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#firewalling">
     Firewalling
   </a>
@@ -302,18 +312,13 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#private_networks">
-    Private networks
+<a class="md-nav__link" href="#vpns_private_interconnects_and_routing_services">
+    VPNs, private interconnects, and routing services
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#dns">
     DNS
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#vpns_private_interconnects_and_routing_services">
-    VPNs, private interconnects, and routing services
   </a>
 </li>
 </ul>
@@ -475,6 +480,16 @@
 <nav aria-label="Network" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#how_cloud_networks_are_built">
+    How cloud networks are built
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#underlying_network_architectures_offered_by_cloud_providers">
+    Underlying network architectures offered by cloud providers
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#firewalling">
     Firewalling
   </a>
@@ -485,18 +500,13 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#private_networks">
-    Private networks
+<a class="md-nav__link" href="#vpns_private_interconnects_and_routing_services">
+    VPNs, private interconnects, and routing services
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#dns">
     DNS
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#vpns_private_interconnects_and_routing_services">
-    VPNs, private interconnects, and routing services
   </a>
 </li>
 </ul>
@@ -723,11 +733,42 @@ application level. We will discuss object storage services in detail in our next
 underlying infrastructure is built. As indicated in the first lecture it is strongly recommended that you 
 familiarize yourself with the basics of computer networking, such as the Ethernet, IP and TCP protocols as you will
 need them to understand this section.</p>
+<h4 id="how_cloud_networks_are_built">How cloud networks are built<a class="headerlink" href="#how_cloud_networks_are_built" title="Permanent link">#</a></h4>
+<p>So, let's get started. Imagine a data center from the first lecture. Your task is to build an IaaS cloud provider.
+You put your servers that will serve as your hosts for virtual machines in the racks. These servers will be connected
+to the Top-of-Rack switches (yes, two for redundancy) using 10 GBit/s network cables. The switches are themselves
+connected among each other and across racks with several 100 GBit/s.</p>
+<p>Now comes the tricky part: how do you create private networks for each customer? One option would be to use 
+<a href="https://en.wikipedia.org/wiki/IEEE_802.1Q">802.11Q</a> VLAN tags separating each network from each other. However, that
+limits you to 2<sup>12</sup> = 4096 private networks. That may seem like much but for a public cloud provider that is
+not sufficient. Therefore, public cloud providers use overlay protocols like
+<a href="https://en.wikipedia.org/wiki/Virtual_Extensible_LAN">VXLAN</a> to work around this problem.</p>
+<p>We describe this not for you to learn but to highlight that public cloud networks are <em>complex</em>. A cloud provider
+cannot guarantee a fixed bandwidth between two virtual machines (unless they are put on the same physical server using
+affinity groups). This is one of the reasons that often the ideal setup for cloud architectures is one that uses
+multiple, medium-sized instances rather than few large sized ones.</p>
+<h4 id="underlying_network_architectures_offered_by_cloud_providers">Underlying network architectures offered by cloud providers<a class="headerlink" href="#underlying_network_architectures_offered_by_cloud_providers" title="Permanent link">#</a></h4>
+<p>When we look at the network offerings by cloud providers there are three types:</p>
+<ol>
+<li>Virtual machines receive private IP addresses and a gateway or load balancer handles the public-to-private IP
+   translations. This is the case with the larger cloud providers such as <a href="https://aws.amazon.com">AWS</a>,
+   <a href="https://azure.microsoft.com/en-us/">Azure</a> and <a href="https://cloud.google.com/">GCP</a> at the time of writing.</li>
+<li>Virtual machines have one public IP address on the first network interface and additional private networks
+   can be attached as new, separate network interfaces. This is the case with most smaller IaaS providers such as
+   <a href="https://www.digitalocean.com/">DigitalOcean</a>, <a href="https://upcloud.com/">Upcloud</a> or <a href="https://upcloud.com/">Exoscale</a>.</li>
+<li>Fully dynamic network configuration that allows the customer to define their network setup and IP assignment
+   dynamically. This is typically offered by IaaS providers that target enterprise customers who wish to migrate their
+   classic on-premises infrastructure and require the flexibility they had when using their own hardware. This is the
+   case with <a href="https://www.ionos.com/">1&amp;1 IONOS</a>. </li>
+</ol>
+<p>TODO: Vultr? Linode? Deutsche Telekom Cloud? Alibaba Cloud?</p>
+<p>TODO: add illustration</p>
+<p>Out of group 2 it is worth mentioning that the services that are available on the public network
+(firewalls, load balancers) are often not available on private networks. </p>
 <h4 id="firewalling">Firewalling<a class="headerlink" href="#firewalling" title="Permanent link">#</a></h4>
 <h4 id="network_load_balancers">Network load balancers<a class="headerlink" href="#network_load_balancers" title="Permanent link">#</a></h4>
-<h4 id="private_networks">Private networks<a class="headerlink" href="#private_networks" title="Permanent link">#</a></h4>
-<h4 id="dns">DNS<a class="headerlink" href="#dns" title="Permanent link">#</a></h4>
 <h4 id="vpns_private_interconnects_and_routing_services">VPNs, private interconnects, and routing services<a class="headerlink" href="#vpns_private_interconnects_and_routing_services" title="Permanent link">#</a></h4>
+<h4 id="dns">DNS<a class="headerlink" href="#dns" title="Permanent link">#</a></h4>
 <h3 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">#</a></h3>
 <h3 id="automation_1">Automation<a class="headerlink" href="#automation_1" title="Permanent link">#</a></h3>
 </article>
