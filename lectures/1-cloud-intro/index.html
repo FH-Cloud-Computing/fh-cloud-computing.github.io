@@ -381,18 +381,18 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../2-capabilities/" title="2. Cloud capabilities">
-      2. Cloud capabilities
+<a class="md-nav__link" href="../2-iaas/" title="2. Infrastructure as a Service">
+      2. Infrastructure as a Service
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../3-iaas/" title="3. Infrastructure as a Service">
-      3. Infrastructure as a Service
+<a class="md-nav__link" href="../3-xaas/" title="3. Beyond IaaS">
+      3. Beyond IaaS
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../4-xaas/" title="4. Beyond IaaS: PaaS, SaaS">
-      4. Beyond IaaS: PaaS, SaaS
+<a class="md-nav__link" href="../4-containers/" title="4. Containers">
+      4. Containers
     </a>
 </li>
 <li class="md-nav__item">
@@ -427,6 +427,31 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../exercises/1-iaas/" title="1. IaaS">
       1. IaaS
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercises/2-terraform/" title="2. Terraform">
+      2. Terraform
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercises/3-containers/" title="3. Containers">
+      3. Containers
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercises/4-prometheus/index.md" title="4. Prometheus">
+      4. Prometheus
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercises/5-grafana/" title="5. Grafana">
+      5. Grafana
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercises/6-api-integration/" title="6. API integration">
+      6. API integration
     </a>
 </li>
 </ul>
@@ -704,8 +729,8 @@ and they also buy support from the vendor. This sometimes includes hardware repl
 in the datacenter without the need for the customer to have staff on site. However, purchasing a specific set of
 components or ordering larger quantities of servers presents a logistics challenge and can sometimes take up to 3-4
 months. Buying hardware is also an up-front investment which is hard to justify when demands change rapidly.</p>
-<div class="admonition question"><p class="admonition-title">What components are redundant in a server?</p><div class="quiz__answers"><div class="quiz__answer"><input id="9e85801a-0d2b-41ed-8172-f8bd2141c973" type="checkbox"><label data-correct="" for="9e85801a-0d2b-41ed-8172-f8bd2141c973"> Power supply</label></input></div><div class="quiz__answer"><input id="b713d1b8-b3c5-4487-a23a-fe496c672782" type="checkbox"><label data-incorrect="" for="b713d1b8-b3c5-4487-a23a-fe496c672782"> CPU</label></input></div><div class="quiz__answer"><input id="b4a61466-6a59-45b9-bc58-89bbb8c887c9" type="checkbox"><label data-incorrect="" for="b4a61466-6a59-45b9-bc58-89bbb8c887c9"> RAM</label></input></div><div class="quiz__answer"><input id="47ca36ac-8f23-4561-832b-b2800b4b610b" type="checkbox"><label data-correct="" for="47ca36ac-8f23-4561-832b-b2800b4b610b"> Fan</label></input></div><div class="quiz__answer"><input id="c3a60036-369e-4b0f-9da3-b0b1001c5a0b" type="checkbox"><label data-incorrect="" for="c3a60036-369e-4b0f-9da3-b0b1001c5a0b"> OOBM</label></input></div></div></div>
-<div class="admonition question"><p class="admonition-title">What is the purpose of an OOBM?</p><div class="quiz__answers"><div class="quiz__answer"><input id="e61736c0-f06d-4967-ba5d-7856a926ec90" type="checkbox"><label data-correct="" for="e61736c0-f06d-4967-ba5d-7856a926ec90"> Remotely manage a server</label></input></div><div class="quiz__answer"><input id="7a570958-17c2-4ead-b1b9-d2ab6ab7a0a8" type="checkbox"><label data-correct="" for="7a570958-17c2-4ead-b1b9-d2ab6ab7a0a8"> Receive hardware malfunction alerts</label></input></div></div></div>
+<div class="admonition question"><p class="admonition-title">What components are redundant in a server?</p><div class="quiz__answers"><div class="quiz__answer"><input id="274b13ea-caac-4778-92a8-622375b756e3" type="checkbox"><label data-correct="" for="274b13ea-caac-4778-92a8-622375b756e3"> Power supply</label></input></div><div class="quiz__answer"><input id="c818ed6b-2d9f-41ce-9a20-6ea30b0575c6" type="checkbox"><label data-incorrect="" for="c818ed6b-2d9f-41ce-9a20-6ea30b0575c6"> CPU</label></input></div><div class="quiz__answer"><input id="0bd75b6b-7e31-4c4c-a804-1731100c2e2b" type="checkbox"><label data-incorrect="" for="0bd75b6b-7e31-4c4c-a804-1731100c2e2b"> RAM</label></input></div><div class="quiz__answer"><input id="b5bcad50-ef7c-4510-9bf9-c77cfcaf8c22" type="checkbox"><label data-correct="" for="b5bcad50-ef7c-4510-9bf9-c77cfcaf8c22"> Fan</label></input></div><div class="quiz__answer"><input id="a1d261ef-6e4c-40fb-a0e4-ac187c9178ca" type="checkbox"><label data-incorrect="" for="a1d261ef-6e4c-40fb-a0e4-ac187c9178ca"> OOBM</label></input></div></div></div>
+<div class="admonition question"><p class="admonition-title">What is the purpose of an OOBM?</p><div class="quiz__answers"><div class="quiz__answer"><input id="b3bc0648-3f3f-48b1-9f3b-54c4061ba93a" type="checkbox"><label data-correct="" for="b3bc0648-3f3f-48b1-9f3b-54c4061ba93a"> Remotely manage a server</label></input></div><div class="quiz__answer"><input id="9bce1b05-a474-41e7-bec1-11ae0fbbea77" type="checkbox"><label data-correct="" for="9bce1b05-a474-41e7-bec1-11ae0fbbea77"> Receive hardware malfunction alerts</label></input></div></div></div>
 <h3 id="the_anatomy_of_a_datacenter">The Anatomy of a Datacenter<a class="headerlink" href="#the_anatomy_of_a_datacenter" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -1193,13 +1218,13 @@ invalid as the predecessor. </p>
               </div>
 </div>
 </a>
-<a class="md-footer-nav__link md-footer-nav__link--next" href="../2-capabilities/" rel="next" title="2. Cloud capabilities">
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../2-iaas/" rel="next" title="2. Infrastructure as a Service">
 <div class="md-footer-nav__title">
 <div class="md-ellipsis">
 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                2. Cloud capabilities
+                2. Infrastructure as a Service
               </div>
 </div>
 <div class="md-footer-nav__button md-icon">

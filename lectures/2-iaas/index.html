@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../favicon.svg" rel="shortcut icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-5.4.0" name="generator"/>
-<title>3. Infrastructure as a Service - Cloud Computing 2020</title>
+<title>2. Infrastructure as a Service - Cloud Computing 2020</title>
 <link href="../../assets/stylesheets/main.fe0cca5b.min.css" rel="stylesheet"/>
 <link href="../../custom.css" rel="stylesheet"/>
 </head>
@@ -37,7 +37,7 @@
           </span>
 <span class="md-header-nav__topic md-ellipsis">
             
-              3. Infrastructure as a Service
+              2. Infrastructure as a Service
             
           </span>
 </div>
@@ -207,21 +207,16 @@
       1. Introduction to the Cloud
     </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../2-capabilities/" title="2. Cloud capabilities">
-      2. Cloud capabilities
-    </a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-        3. Infrastructure as a Service
+        2. Infrastructure as a Service
         <span class="md-nav__icon md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"></path></svg>
 </span>
 </label>
-<a class="md-nav__link md-nav__link--active" href="./" title="3. Infrastructure as a Service">
-      3. Infrastructure as a Service
+<a class="md-nav__link md-nav__link--active" href="./" title="2. Infrastructure as a Service">
+      2. Infrastructure as a Service
     </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -292,8 +287,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#underlying_network_architectures_offered_by_cloud_providers">
-    Underlying network architectures offered by cloud providers
+<a class="md-nav__link" href="#network_architectures_offered_by_cloud_providers">
+    Network architectures offered by cloud providers
   </a>
 </li>
 <li class="md-nav__item">
@@ -333,8 +328,13 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../4-xaas/" title="4. Beyond IaaS: PaaS, SaaS">
-      4. Beyond IaaS: PaaS, SaaS
+<a class="md-nav__link" href="../3-xaas/" title="3. Beyond IaaS">
+      3. Beyond IaaS
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../4-containers/" title="4. Containers">
+      4. Containers
     </a>
 </li>
 <li class="md-nav__item">
@@ -369,6 +369,31 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../exercises/1-iaas/" title="1. IaaS">
       1. IaaS
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercises/2-terraform/" title="2. Terraform">
+      2. Terraform
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercises/3-containers/" title="3. Containers">
+      3. Containers
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercises/4-prometheus/index.md" title="4. Prometheus">
+      4. Prometheus
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercises/5-grafana/" title="5. Grafana">
+      5. Grafana
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercises/6-api-integration/" title="6. API integration">
+      6. API integration
     </a>
 </li>
 </ul>
@@ -475,8 +500,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#underlying_network_architectures_offered_by_cloud_providers">
-    Underlying network architectures offered by cloud providers
+<a class="md-nav__link" href="#network_architectures_offered_by_cloud_providers">
+    Network architectures offered by cloud providers
   </a>
 </li>
 <li class="md-nav__item">
@@ -519,13 +544,13 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/fh-cloud-computing/website/edit/master/docs/lectures/3-iaas/index.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/fh-cloud-computing/website/edit/master/docs/lectures/2-iaas/index.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <div class="download"><a download href="index.pdf"><button>Download PDF 🖨️</button></a>
-<a href="fh-cloud-computing-lecture-3-iaas.pptx"><button>Download PPTX 💻</button></a>
-<a href="fh-cloud-computing-lecture-3-iaas.mp3"><button>Download MP3 🎧</button></a>
-<a href="fh-cloud-computing-lecture-3-iaas.m4b"><button>Download M4B 🎧</button></a>
+<a href="fh-cloud-computing-lecture-2-iaas.pptx"><button>Download PPTX 💻</button></a>
+<a href="fh-cloud-computing-lecture-2-iaas.mp3"><button>Download MP3 🎧</button></a>
+<a href="fh-cloud-computing-lecture-2-iaas.m4b"><button>Download M4B 🎧</button></a>
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
 <h1>Infrastructure as a Service</h1>
@@ -580,7 +605,7 @@ in ring 0 to the guest operating system. Some virtualization techniques, such as
 the guest operating system to run a modified kernel to facilitate them running in ring 3. Others employed
 <a href="https://en.wikipedia.org/wiki/X86_virtualization#Software-based_virtualization">a number of techniques</a> we won't go
 into here.</p>
-<p>While initially expensive hardware support followed suit. In 2005 Intel added the VT-x (Vanderpool) feature to its new
+<p>Hardware vendors, of course, followed suit. In 2005 Intel added the VT-x (Vanderpool) feature to its new
 Pentium 4 CPUs followed by AMDs SVM/AMD-V technology in 2006 in the Athlon 64, Athlon 64 X2, and Athlon 64 FX
 processors.</p>
 <p>VT-x and AMD-V added new ring -1 to accommodate <em>hypervisors</em>. This new ring allowed for separation between
@@ -590,14 +615,17 @@ network virtualization or even graphics card virtualization. These features allo
 virtualization and sharing hardware devices between several virtual machines.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Intel also introduced a ring -2 for the Intel Management Engine, a chip that functions as an OOBM in modern Intel
-chips. The ME runs its own operating system, a <a href="https://en.wikipedia.org/wiki/MINIX">MINIX</a> variant and has been
-the target of severe criticism for its secrecy and power over the machine. Several bugs have been found in the ME
-that let an attacker hide a malware inside the ME.</p>
+<p>Intel also introduced a ring -2 for the
+<a href="https://en.wikipedia.org/wiki/Intel_Management_Engine">Intel Management Engine</a>, a chip that functions as an OOBM
+in modern Intel chips. The ME runs its own operating system, a <a href="https://en.wikipedia.org/wiki/MINIX">MINIX</a> variant
+and has been the target of severe criticism for its secrecy and power over the machine. Several bugs have been found
+in the ME that let an attacker hide a
+<a href="https://youtu.be/3CQUNd3oKBM">malware inside the ME</a>.</p>
 </div>
 <p>Virtualization also gave rise to Infrastructure as a Service. <a href="https://aws.amazon.com/">AWS</a> was the first service
 that offered virtual machines as a service starting in 2006 with a Xen-based offer. They not only offered virtual
-machines but they did so that a customer could order or cancel the service using an Application Program Interface.</p>
+machines but they did so that a customer could order or cancel the service using an
+<a href="https://en.wikipedia.org/wiki/Application_programming_interface">Application Programming Interface</a>.</p>
 <p>This allowed customers to create virtual machines as they needed it and they were billed for it on an hourly basis.
 (Later on AWS and other cloud providers moved to a per-second billing.)</p>
 <p>The presence of an API makes the difference between IaaS and plain old virtual machines as a service. IaaS allows
@@ -606,7 +634,7 @@ a customer to scale their application dynamically according to their current dem
 <p>When the cloud became popular in the late 2000s several providers attempted to offer a service that was fully dynamic
 in their sizes. The customer could set how many GB of RAM they needed and how many CPU cores. However, this model has
 been phased out by most providers since it is difficult to manage such a dynamic environment.</p>
-<p>Instead cloud providers nowadays opt to offer fixed machine sizes (think of t-shirt sizes). To accommodate high-CPU
+<p>Instead most cloud providers nowadays opt to offer fixed machine sizes. To accommodate high-CPU
 and high RAM workloads there are several different instance types, typically:</p>
 <ul>
 <li><strong>Shared CPU:</strong> These are small instances where a single CPU core is shared between multiple virtual
@@ -621,7 +649,7 @@ and high RAM workloads there are several different instance types, typically:</p
   RAM with very little CPU.</li>
 <li><strong>Storage:</strong> These instance types contain large amounts of local storage (see below in the storage section).</li>
 <li><strong>Hardware-specific:</strong> These instance types offer access to dedicated hardware such as graphics cards (GPUs) or 
-  FPGAs. </li>
+  FPGAs.</li>
 </ul>
 <h3 id="automation">Automation<a class="headerlink" href="#automation" title="Permanent link">#</a></h3>
 <p>As discussed before, that makes an IaaS cloud provider a cloud provider is the fact that they offer an API to automate
@@ -718,37 +746,49 @@ need them to understand this section.</p>
 You put your servers that will serve as your hosts for virtual machines in the racks. These servers will be connected
 to the Top-of-Rack switches (yes, two for redundancy) using 10 GBit/s network cables. The switches are themselves
 connected among each other and across racks with several 100 GBit/s.</p>
-<p>Now comes the tricky part: how do you create private networks for each customer? One option would be to use 
-<a href="https://en.wikipedia.org/wiki/IEEE_802.1Q">802.11Q</a> VLAN tags separating each network from each other. However, that
-limits you to 2<sup>12</sup> = 4096 private networks. That may seem like much but for a public cloud provider that is
-not sufficient. Therefore, public cloud providers use overlay protocols like
-<a href="https://en.wikipedia.org/wiki/Virtual_Extensible_LAN">VXLAN</a> to work around this problem.</p>
-<p>We describe this not for you to learn but to highlight that public cloud networks are <em>complex</em>. A cloud provider
-cannot guarantee a fixed bandwidth between two virtual machines (unless they are put on the same physical server using
-affinity groups). This is one of the reasons that often the ideal setup for cloud architectures is one that uses
-multiple, medium-sized instances rather than few large sized ones.</p>
-<h4 id="underlying_network_architectures_offered_by_cloud_providers">Underlying network architectures offered by cloud providers<a class="headerlink" href="#underlying_network_architectures_offered_by_cloud_providers" title="Permanent link">#</a></h4>
+<p>This sounds like a lot of bandwidth available but keep in mind that your virtual machines get assigned to the physical
+machines as capacity allows. There is no cloud provider that can <em>guarantee</em> the bandwidth or latency between two
+virtual machines. Generally cloud providers only state the theoretical bandwidth of the connection a virtual machine
+has to the switching fabric, but not the specific bandwidth between two distinct virtual machines.</p>
+<p>This is part of the reason why in the cloud scaling horizontally (adding more machines) is preferred rather than
+creating huge instances with lots of resources.</p>
+<h4 id="network_architectures_offered_by_cloud_providers">Network architectures offered by cloud providers<a class="headerlink" href="#network_architectures_offered_by_cloud_providers" title="Permanent link">#</a></h4>
 <p>When we look at the network offerings by cloud providers there are three types:</p>
 <ol>
-<li>Virtual machines receive private IP addresses and a gateway or load balancer handles the public-to-private IP
-   translations. This is the case with the larger cloud providers such as <a href="https://aws.amazon.com">AWS</a>,
-   <a href="https://azure.microsoft.com/en-us/">Azure</a> and <a href="https://cloud.google.com/">GCP</a> at the time of writing.</li>
-<li>Virtual machines have one public IP address on the first network interface and additional private networks
-   can be attached as new, separate network interfaces. This is the case with most smaller IaaS providers such as
-   <a href="https://www.digitalocean.com/">DigitalOcean</a>, <a href="https://www.hetzner.de/">Hetzner</a>, <a href="https://upcloud.com/">Upcloud</a>,
-   or <a href="https://www.exoscale.com/">Exoscale</a>.</li>
-<li>Fully dynamic network configuration that allows the customer to define their network setup and IP assignment
-   dynamically. This is typically offered by IaaS providers that target enterprise customers who wish to migrate their
-   classic on-premises infrastructure and require the flexibility they had when using their own hardware. This is the
-   case with <a href="https://www.ionos.com/">1&amp;1 IONOS</a>.</li>
+<li><strong>Private-only network with NAT</strong>: This option is provided by the larger cloud providers such as
+   <a href="https://aws.amazon.com">AWS</a>, <a href="https://azure.microsoft.com/en-us/">Azure</a>, <a href="https://cloud.google.com/">GCP</a> and
+   <a href="https://www.ibm.com/cloud">IBM</a>. This setup gives each virtual machine a
+   <a href="https://en.wikipedia.org/wiki/Private_network">private IP address</a> on a private network only. When a public IP
+   address is needed that public IP is handled by the gateway provided by the cloud provider and the incoming traffic is
+   forwarded to the virtual machine on the private network using
+   <a href="https://en.wikipedia.org/wiki/Network_address_translation#DNAT">Destination NAT</a>. Multiple private networks (VPC's)
+   can be assigned to a virtual machine and they can work independently.</li>
+<li><strong>Default public IP</strong>: This option is provided by smaller IaaS providers such as 
+   <a href="https://www.digitalocean.com/">DigitalOcean</a>, <a href="https://www.exoscale.com/">Exoscale</a>,
+   <a href="https://www.hetzner.de/">Hetzner</a>, <a href="https://www.linode.com/">Linode</a>, <a href="https://upcloud.com/">Upcloud</a>,
+   and <a href="https://www.vultr.com/">Vultr</a>. In this setup each virtual machine is attached to a public network and is
+   directly assigned one public IP address. Optionally private networks can be attached as well but the first public IP
+   generally cannot be removed as it is required for user data to work.</li>
+<li><strong>Fully customizable:</strong> This setup allows the customer to design their network connectivity as they see fit. This 
+   setup is suitable for enterprise customers who want to move their on-premises setup into the cloud without
+   changing their architecture (lift-and-shift). This option is offered by <a href="https://www.ionos.com/">1&amp;1 IONOS</a>.
+   <img alt="The picture shows the user interface of IONOS where you can drag and servers, disks and network connections as you see fit." src="ionos.png"/></li>
 </ol>
-<p>TODO: Vultr? Linode? Deutsche Telekom Cloud? Alibaba Cloud?</p>
-<p>TODO: add illustration</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are several other cloud providers which we have no information on, such as the
+<a href="https://cloud.telekom.de/en">Deutsche/Open Telekom Cloud</a>, or the <a href="https://us.alibabacloud.com/">Alibaba Cloud</a>.
+You can classify any cloud provider you come across into these categories.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Out of group 2 it is worth mentioning that the services that are available on the public network
 (firewalls, load balancers) are often not available on private networks. </p>
+</div>
+<p>TODO: add illustration</p>
 <h4 id="firewalling">Firewalling<a class="headerlink" href="#firewalling" title="Permanent link">#</a></h4>
 <p>IaaS providers often also offer network firewalls as a service, included in the platform. Firewalls generally have
-two rule types: INGRESS (from the Internet or other machines to the current VM) and EGRESS (from the current VM to
+two rule types: <code>INGRESS</code> (from the Internet or other machines to the current VM) and <code>EGRESS</code> (from the current VM to
 everywhere else).</p>
 <p>Firewall providers often employ the concept of <em>security groups</em>. The implementation varies greatly, but in general
 security groups are a reusable set of rules that can be applied to a VM.</p>
@@ -787,7 +827,7 @@ of the rotation.</p>
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href="../2-capabilities/" rel="prev" title="2. Cloud capabilities">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../1-cloud-intro/" rel="prev" title="1. Introduction to the Cloud">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -796,17 +836,17 @@ of the rotation.</p>
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                2. Cloud capabilities
+                1. Introduction to the Cloud
               </div>
 </div>
 </a>
-<a class="md-footer-nav__link md-footer-nav__link--next" href="../4-xaas/" rel="next" title="4. Beyond IaaS: PaaS, SaaS">
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../3-xaas/" rel="next" title="3. Beyond IaaS">
 <div class="md-footer-nav__title">
 <div class="md-ellipsis">
 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                4. Beyond IaaS: PaaS, SaaS
+                3. Beyond IaaS
               </div>
 </div>
 <div class="md-footer-nav__button md-icon">
