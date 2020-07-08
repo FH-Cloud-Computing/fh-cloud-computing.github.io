@@ -817,7 +817,44 @@ either round robin (selecting the next backend in the list) or source hashing (r
 same backend). Most load balancers also support health checks to take backends that are not able to serve traffic out
 of the rotation.</p>
 <h4 id="vpns_private_interconnects_and_routing_services">VPNs, private interconnects, and routing services<a class="headerlink" href="#vpns_private_interconnects_and_routing_services" title="Permanent link">#</a></h4>
+<p>While it seems convenient at first to use only the public network several organizations have security models that
+prevent accidental public exposure of services not only by implementing the appropriate firewalls (e.g. with security
+groups) but also by not having private services on the public internet at all. To connect these internal services
+you must be on a private network.</p>
+<p>However, this presents a problem when moving data between several, geographically distributed locations. Most companies
+don't own continent-spanning fiber channel backbones where they could simply create a private network without going on
+the internet on. This means that most companies have to choose one of two methods if they want to create a private
+connectivity between locations (and the cloud): an
+<a href="https://en.wikipedia.org/wiki/Multiprotocol_Label_Switching">MPLS tunnel</a> or <a href="https://en.wikipedia.org/wiki/Virtual_private_network">VPN</a>.</p>
+<p>MPLS tunnels create a virtual connectivity that does not go on the Internet. While being expensive and slow to set up,
+it can offer a guaranteed bandwidth, latency and better security than a VPN.</p>
+<p>VPN's on the other hand create a virtual connectivity by sending data over the Internet in an encrypted form. Bandwidth
+or latency cannot be guaranteed, and there are several drawbacks (such as decreased
+<a href="https://en.wikipedia.org/wiki/Maximum_transmission_unit">MTU</a>) but it's a very affordable solution.</p>
+<p>Larger cloud providers tend to offer both options. MPLS is supported by the larger cloud providers (<a href="https://aws.amazon.com/directconnect/">AWS Direct connect</a>,
+<a href="https://azure.microsoft.com/en-us/services/expressroute/">Azure Express Route</a>, or <a href="https://cloud.google.com/network-connectivity/docs/interconnect">Google Cloud Interconnect</a>)
+and also some smaller ones (e.g. <a href="https://community.exoscale.com/documentation/compute/private-connect/">Exoscale Private Connect</a>).</p>
+<p>VPN is also offered mostly by large providers
+(<a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpn-connections.html">AWS VPC VPN</a>,
+<a href="https://azure.microsoft.com/en-us/services/vpn-gateway/">Azure VPN</a>, or
+<a href="https://cloud.google.com/network-connectivity/docs/vpn/concepts/overview">Google Cloud VPN</a>). However, keep in mind
+that this VPN is a site-to-site VPN built on <a href="https://en.wikipedia.org/wiki/IPsec">IPSec</a> and requires a fixed IP
+address on your side as well. In other words you can't use this VPN to connect from your laptop to the cloud on the go. 
+The only cloud service that offers a mobile device to cloud connectivity at the time of writing is Azure's
+<a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal">Point-to-Site VPN</a>.</p>
+<p>It is also worth noting that VPN's can be used to connect cloud providers together.</p>
 <h4 id="dns">DNS<a class="headerlink" href="#dns" title="Permanent link">#</a></h4>
+<p>The <a href="https://en.wikipedia.org/wiki/Domain_Name_System">Domain Name Service</a> is one of the services that are all but
+required for building an infrastructure. It provides domain name to IP address resolution, such as pointing your domain
+<code>example.com</code> to an IP address of your servers.</p>
+<p>There is a difference, however, between DNS services on offer. Some DNS services by cloud providers offer only simple
+resolution, other providers offer more advanced features. These features include being able to host the DNS service
+only on a private network without exposing it to the internet.</p>
+<p>More advanced features may include automatic DNS failover. This involves running regular health checks on your services
+and if your primary service fails the DNS service can automatically switch to the secondary IP. There are even services
+that offer advanced functionality such as routing traffic to different servers based on the geographic location of the
+client. This can be used for advanced builds such as
+<a href="https://pasztor.at/blog/building-your-own-cdn">building a custom CDN</a>.</p>
 <h3 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">#</a></h3>
 <h3 id="automation_1">Automation<a class="headerlink" href="#automation_1" title="Permanent link">#</a></h3>
 </article>
