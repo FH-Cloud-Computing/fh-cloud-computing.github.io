@@ -516,12 +516,33 @@
 <p>CDN's work around this problem by replicating content to servers closer to the users. When a user requests a certain file that request lands on the CDN's <em>edge node</em> first. If the CDN has the file in the cache the delivery is very fast. If, however, the CDN does not have the content in cache the delivery will take longer.</p>
 <p><img alt="An illustration showing that with the CDN the user gets the content from the CDN, which is much faster than fetching it from the origin server. However, when the CDN needs to fetch the data from the origin, delivery may even be slower." src="cdn.svg"/></p>
 <p>In essence, CDN's help with latency issues <em>if the content can be cached</em>. in other words, this helps mostly with static content, but in combination with functions as a service (see below) dynamic content can also be delivered from edge nodes to some extent.</p>
-<p>!!! tip Did you know?
+<p>!!! note Did you know?
     Low latency connections are important not just for delivering content. Stock exchanges benefit from very low latencies. For example, there is a <a href="https://arstechnica.com/information-technology/2016/11/private-microwave-networks-financial-hft/">private microwave network between Frankfurt and London</a> that has twice the speed of the public internet.</p>
-<p>!!! tip Did you know?
+<p>!!! note Did you know?
     SpaceX is building the <a href="https://techcrunch.com/2020/06/15/spacex-will-have-to-starlink-internets-low-latency-within-the-next-month-to-qualify-for-up-to-16b-in-federal-funding/">Starlink network</a> to provide lower latency connectivity across the globe.</p>
 <h3 id="object_storage">Object Storage<a class="headerlink" href="#object_storage" title="Permanent link">#</a></h3>
+<p>In the previous lecture we briefly mentioned object storages. As a reminder, traditional block storage devices and the filesystems implemented on top of them have several features you may consider advanced:</p>
+<ul>
+<li>Multiple programs can open the same file in parallel,</li>
+<li>Files can be read and written partially,</li>
+<li>Locks can be placed on files preventing other processes from accessing them.</li>
+</ul>
+<p>Object storages are different. The most popular <a href="https://en.wikipedia.org/wiki/Amazon_S3">Amazon S3</a> protocol offers the ability to up- and download, list and delete files. However, files can only be uploaded as a whole, partial reads
+or writes are not possible. Consistency is also not guaranteed when multiple programs are accessing the same files in parallel.</p>
+<p>However, due to the limited featureset object storages have a few unique abilities not afforded by traditional block storage:</p>
+<ul>
+<li>They are redundant over multiple servers by design. The loss of a single physical machine does not mean a data loss.</li>
+<li>The S3 protocol offers the ability to place ACL's (access control lists) on the objects uploaded to the object storage. This allows making files publicly accessible over the web without needing to maintain a server.</li>
+<li>Some object storage implementations offer the ability to keep <em>multiple versions</em> of files. Clients can be prevented from deleting older versions making versioning an effective data loss prevention mechanism.</li>
+<li>Some object storage implementations offer the ability to lock files from being modified in the future. This is especially important when adhering to corporate or government data retention requirements.</li>
+</ul>
 <h4 id="cold_storage">Cold storage<a class="headerlink" href="#cold_storage" title="Permanent link">#</a></h4>
+<p>Some providers offer an extension to their object storage system that puts data in cold storage (e.g. <a href="https://en.wikipedia.org/wiki/Magnetic_tape_data_storage">on tape</a>). Data can be uploaded directly via the API, or in the case of very large data amounts shipped to the provider on hard drives.</p>
+<div class="admonition note">
+<p class="admonition-title">Did you know?</p>
+<p>“Never underestimate the bandwidth of a truck full of hard drives.” — is an industry saying that kept its validity to this day.</p>
+</div>
+<p>Since the data is stored on offline (cold) storage the data retrieval is not as immediate as with the object storage. To retrieve data from cold storage you often need to wait several hours until the data becomes available. Therefore, an effective backup strategy to the cloud often involves moving data to the object storage first and only older backups to cold storage. Amazon, for example, allows for automating this process using <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">S3 lifecycle rules</a>. </p>
 <h3 id="databases_as_a_service_dbaas">Databases as a Service (DBaaS)<a class="headerlink" href="#databases_as_a_service_dbaas" title="Permanent link">#</a></h3>
 <h4 id="relational_databases_sql">Relational databases (SQL)<a class="headerlink" href="#relational_databases_sql" title="Permanent link">#</a></h4>
 <h4 id="document_databases">Document databases<a class="headerlink" href="#document_databases" title="Permanent link">#</a></h4>
