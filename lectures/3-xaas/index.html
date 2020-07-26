@@ -300,8 +300,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#stream_processing">
-    Stream processing
+<a class="md-nav__link" href="#stream_processing_and_business_intelligence_tools">
+    Stream processing and Business Intelligence tools
   </a>
 </li>
 <li class="md-nav__item">
@@ -488,8 +488,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#stream_processing">
-    Stream processing
+<a class="md-nav__link" href="#stream_processing_and_business_intelligence_tools">
+    Stream processing and Business Intelligence tools
   </a>
 </li>
 <li class="md-nav__item">
@@ -601,9 +601,24 @@ or writes are not possible. Consistency is also not guaranteed when multiple pro
 <h4 id="graph_databases">Graph databases<a class="headerlink" href="#graph_databases" title="Permanent link">#</a></h4>
 <p>Graph databases are special databases that store relationships of datasets with each other and allow making queries over them. These database types can be used for creating social graphs, interests, etc.</p>
 <h3 id="functions_as_a_service_faas_lambda">Functions as a Service (FaaS / Lambda)<a class="headerlink" href="#functions_as_a_service_faas_lambda" title="Permanent link">#</a></h3>
+<p>Functions as a Service or Lambdas are a way to run custom code without having to worry about the runtime environment. These pieces of code are triggered by events: a timer, a message in a message queue, or an incoming HTTP request.</p>
+<p>To make this easier to understand let's consider a hypothetical scenario: let's say you want to have an up to date list of IP addresses of all virtual machines you are running. In this case you have two options. Option one is to run a piece of code every few minutes to update the IP list. However, this may not be fast enough, and it may also not scale with a very large number of machines.</p>
+<p>So your other option is to use a FaaS function to <em>react</em> to the fact that a new instance has been launched or an instance has been destroyed. This function would be called every time there is a <em>change</em>.</p>
+<p>In a different scenario FaaS would give you the ability to run small amounts of program code on CDN edge nodes giving you the ability for fast, dynamic content delivery. One such service is <a href="https://aws.amazon.com/lambda/edge/">Lambda@Edge by Amazon</a>.</p>
+<p>However, keep in mind that FaaS may have limitations in terms of performance. To conserve processing power the cloud provider will shut down runtime environments not in use and a restart may take longer than usual. This may, for example, destroy the advantage edge node lambda functions have in terms of latency for low traffic sites.</p>
 <h3 id="containers_as_a_service_caas">Containers as a Service (CaaS)<a class="headerlink" href="#containers_as_a_service_caas" title="Permanent link">#</a></h3>
-<h3 id="stream_processing">Stream processing<a class="headerlink" href="#stream_processing" title="Permanent link">#</a></h3>
+<p>Containers are a way to run applications in an isolated environment without dedicating a full virtual machine to them. However, as you might imagine, containers are not magic and cannot automatically move from one physical server to another. This, and many other tasks are the job of container orchestrators such as Kubernetes.</p>
+<p>Since Kubernetes and its alternatives are incredibly complex to operate many cloud providers take on this burden, and offer containers as a service to customers.</p>
+<p>Note that containers are the topic of the next lecture so we won't cover them in detail here.</p>
+<h3 id="stream_processing_and_business_intelligence_tools">Stream processing and Business Intelligence tools<a class="headerlink" href="#stream_processing_and_business_intelligence_tools" title="Permanent link">#</a></h3>
+<p>One of the most complex setups to run in an on-premises environment is something nowadays known as a datalake. IT aggregates data from many different source databases  and allows data scientists to extract valuable information from it. It is not uncommon to see several dozen source database.</p>
+<p>What's more, some analysees require close to real time data processing.</p>
+<p>The tools usually seen in such as setup are <a href="https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html">HDFS</a>, <a href="https://spark.apache.org/">Apache Spark</a>, <a href="https://kafka.apache.org/">Kafka</a>, and several more. The number of source databases and the number of tools listed here should tell you how complex such a setup can be.</p>
+<p>This is one of the reasons why even large, traditional corporations are seriously considering moving their data analytics into the cloud.</p>
 <h3 id="deployment_pipelines">Deployment pipelines<a class="headerlink" href="#deployment_pipelines" title="Permanent link">#</a></h3>
+<p>While there are many, many more services on offer in the cloud we'd like to mention a final piece to the puzzle: CI/CD systems or deployment pipelines. These deployment pipelines allow a DevOps engineer to build automatic software deployment systems with relative ease.</p>
+<p>The general idea is that the code is handled in a version control system such as git. When the code is pushed into the version control system an automatic build and deployment process is started. This can involve compiling the source code to automatic tests running. The deployment pipeline then takes care of copying the software to the appropriate environment, such as creating a container and deploying it to the CaaS environment or creating virtual machines with the appropriate code.</p>
+<p>When this service is offered by the cloud provider that runs the infrastructure themselves, these are usually tightly integrated, allowing a prospective user to simply point-and-click to create the whole environment. It is debatable if such an automatically created environment is suitable for production use, but it may give a good starting point to customize the setup from.</p>
 </article>
 </div>
 </div>
