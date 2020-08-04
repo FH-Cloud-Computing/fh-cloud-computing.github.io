@@ -6,9 +6,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../favicon.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-5.5.0" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-5.5.3" name="generator"/>
 <title>4. Containers - Cloud Computing 2020</title>
-<link href="../../assets/stylesheets/main.b5d04df8.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.947af8d5.min.css" rel="stylesheet"/>
 <link href="../../custom.css" rel="stylesheet"/>
 </head>
 <body dir="ltr">
@@ -323,6 +323,35 @@
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
 <h1>Containers &amp; Kubernetes</h1>
+<p>In the <a href="../2-iaas/">second lecture</a> we have talked about how applications interact with the kernel and the hardware. By now you know that applications running in ring 3 do not have direct access to things like the disk. To access those details they need to execute a <a href="https://en.wikipedia.org/wiki/System_call">system call</a> to the kernel. The kernel will then give the application the details required, for example a file from the disk.</p>
+<p>Let's play a hypothetical game: process A wants to access a file called <code>test.txt</code>. It calls the kernel, the file is opened, and process A is now free to read the contents. When process B comes along and does the same, it will receive the same file.</p>
+<p>Or does it? In the Linux kernel the filesystem root directory (starting with <code>/</code>) is a virtual construct that can be changed on a per-process basis. It is possible to make process A see a completely different folder structure then process B. This mechanism is called <a href="https://en.wikipedia.org/wiki/Chroot">chroot</a>. It is, in fact, so old that it predates Linux by more than a decade and was first present in Version 7 Unix in 1979.</p>
+<div class="admonition tip">
+<p class="admonition-title">Try it out yourself!</p>
+<p>Run the following command on a 64 bit x86 Linux in an empty folder:</p>
+<div class="highlight"><pre><span></span><code>mkdir -p ./bin &amp;&amp;\
+curl "https://www.busybox.net/downloads/binaries/1.21.1/busybox-x86_64" -o ./bin/busybox &amp;&amp; \
+chmod +x ./bin/busybox &amp;&amp; \
+./bin/busybox --install ./bin &amp;&amp; \
+sudo chroot . /bin/sh
+</code></pre></div>
+<p>You should now be able to run <code>ls -la</code> or similar commands and see that you are in an almost empty filesystem with no ability to access the files outside. </p>
+</div>
+<p>This alone only isolates the two process on a filesystem level, there are still plenty of opportunities for two processes to interact, for example:</p>
+<ul>
+<li>On the network</li>
+<li>Interprocess Communication (IPC)</li>
+<li>Sending signals to each other by process ID</li>
+<li>etc.</li>
+</ul>
+<p>In the early 2000's there were two projects that attempted to implement process isolation in the Linux kernel: <a href="https://en.wikipedia.org/wiki/OpenVZ">OpenVZ</a> and <a href="https://en.wikipedia.org/wiki/Linux-VServer">Linux-VServer</a>. Running these projects required patching and recompiling the Linux kernel from source.</p>
+<p>Starting around 2006 several companies, including Google, IBM, SGI, Bull, and the OpenVZ project itself has put significant effort into taking OpenVZ apart and piece by piece and submitting it to the Linux kernel. The User Beancounters from OpenVZ, for example, became <a href="https://en.wikipedia.org/wiki/Cgroups">cgroups</a> and allow resource allocation to a group of processes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Do you want to know more about history?</p>
+<p>The history of containerization is surprisingly hard to piece together despite the relative young age of the technology. If you want a bit of a deeper dive take a look at <a href="https://www.youtube.com/watch?v=doUktZIcXF0">“A Brief History of Containers (by Jeff Victor &amp; Kir Kolyshkin)”</a>.</p>
+</div>
+<p>All these isolation technologies, together, form what's today known as Linux containers. Windows has undergone a similar development in recent years, and has <em>virtualized</em> the typical Windows interaction points between processe: job objects, process table, registry, filesystem, etc.</p>
+<p>In essence, <em>containers don't exist</em>. They are a collection of technologies that provide process-level isolation for an application.  </p>
 </article>
 </div>
 </div>
@@ -374,14 +403,14 @@
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.92ffa368.min.js"></script>
-<script src="../../assets/javascripts/bundle.5123e3d4.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../../assets/javascripts/vendor.c3dc8c49.min.js"></script>
+<script src="../../assets/javascripts/bundle.f9edbbd5.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
           base: "../..",
           features: ["tabs"],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+            worker: "../../assets/javascripts/worker/search.8e2cddea.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
