@@ -246,6 +246,16 @@
     The container lifecycle
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#container_networking">
+    Container networking
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#orchestration_swarm_kubernetes_etc">
+    Orchestration (Swarm, Kubernetes, etc)
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -361,6 +371,16 @@
     The container lifecycle
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#container_networking">
+    Container networking
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#orchestration_swarm_kubernetes_etc">
+    Orchestration (Swarm, Kubernetes, etc)
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -431,6 +451,13 @@ sudo chroot . /bin/sh
 <p>You can, of course, update a running container just as you would a traditional virtual machine. However, that is not the intended, or indeed, optimal way to use them. The intention of containers is <em>immutable infrastructure</em>. Immutable infrastructure means that containers are <em>never updated</em>. Instead, they are replaced. When a new version of a software needs to be installed the old container is shut down and a new one is launched from a new image.</p>
 <p>Immutable infrastructure presents a massive benefit: instead of having to deal with a downtime when the upgrade is ran, the updated version can be tested before it is launched.</p>
 <p>However, this concept reaches its limits when it comes to running software that needs to store data in a persistent fashion, for example, databases. For this purpose containers can designate special folders to be mounted as <em>volumes</em>. Volumes can be persisted by either mounting them as a folder from the host machine, or by mounting a network-based storage system.</p>
+<h3 id="container_networking">Container networking<a class="headerlink" href="#container_networking" title="Permanent link">#</a></h3>
+<p>As mentioned previously, containers regularly have their own, virtual network interfaces. This virtual network interface can be connected in a number of ways.</p>
+<p>If we take a look at Docker's default networking model the virtual network interface is connected to an internal <a href="https://en.wikipedia.org/wiki/Bridging_(networking)">network bridge</a>. This enables containers to connect to each other. For connections to the Internet a <a href="https://en.wikipedia.org/wiki/Network_address_translation">NAT</a> is performed.</p>
+<p><img alt='An image illustrating Docker networking. Four containers are connected to an internal docker0 bridge in a virtual machine. Each container sees their own virtual interface as "eth0". A NAT is performed when accessing the public internet.' src="docker-networking-01.svg"/></p>
+<p>More advanced options for container networking create a single virtual network across several hosts and connect the containers to this virtual network. This is an option with <a href="https://docs.docker.com/engine/swarm/">Docker Swarm</a> and is always the case with <a href="https://kubernetes.io/">Kubernetes</a>.</p>
+<p><img alt="An image illustrating Kubernetes networking. There are 3 virtual machines that have a common network that the virtual machines are connected to. The outbound connections are NAT'ed to the public IP of each virtual machine." src="kubernetes-networking-01.svg"/></p>
+<h3 id="orchestration_swarm_kubernetes_etc">Orchestration (Swarm, Kubernetes, etc)<a class="headerlink" href="#orchestration_swarm_kubernetes_etc" title="Permanent link">#</a></h3>
 </article>
 </div>
 </div>
