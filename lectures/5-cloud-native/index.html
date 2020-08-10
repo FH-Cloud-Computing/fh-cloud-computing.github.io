@@ -315,6 +315,16 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metrics_collection">
+    Metrics collection
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#health_checks">
+    Health checks
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -489,6 +499,16 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metrics_collection">
+    Metrics collection
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#health_checks">
+    Health checks
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -543,7 +563,14 @@
 <p>The <a href="https://12factor.net/logs">logs recommendation</a> should simply write logs to the standard output in a standardized form (e.g. JSON). Everything else, like routing or storing logs, is not the applications concern.</p>
 <p>In practice each application contains at least some basic logic to filter logs to make it easier to configure the logging level.</p>
 <h4 id="12_tooling">12. Tooling<a class="headerlink" href="#12_tooling" title="Permanent link">#</a></h4>
-<p>The <a href="https://12factor.net/admin-processes">admin process recommendation</a> concerns itself with the command line tools needed to operate the application. These are things like running database migrations, etc. The recommendation says that these tools should be runnable directly from the applications directory without much extra configuration or installation. </p>
+<p>The <a href="https://12factor.net/admin-processes">admin process recommendation</a> concerns itself with the command line tools needed to operate the application. These are things like running database migrations, etc. The recommendation says that these tools should be runnable directly from the applications directory without much extra configuration or installation.</p>
+<h3 id="metrics_collection">Metrics collection<a class="headerlink" href="#metrics_collection" title="Permanent link">#</a></h3>
+<p>The above 12 factors are, by necessity, limited in scope. The author(s) of those 12 factors have taken many things into account, yet left out others.</p>
+<p>One of these is metrics collection. As you will learn in the <a href="../../exercises/4-prometheus/">Prometheus exercise</a>, <a href="https://prometheus.io/">Prometheus</a> has established itself as a defacto standard for monitoring cloud-native applications.</p>
+<p>It is not uncommon to see applications include a small webserver that exposes internal metrics <a href="https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md">in the Prometheus data format</a>. This makes monitoring exceedingly easy compared to having to configure a separate monitoring service.</p>
+<h3 id="health_checks">Health checks<a class="headerlink" href="#health_checks" title="Permanent link">#</a></h3>
+<p>When dealing with containerized environments it is very important that applications report accurately when they are ready to serve traffic, and when they are having problems.</p>
+<p>This can be achieved by implementing the <a href="https://docs.docker.com/engine/reference/builder/#healthcheck"><code>HEALTHCHECK</code></a> directive in the <code>Dockerfile</code>, or by implementing <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/">Liveness, Readiness, and Startup Probles</a> in Kubernetes.</p>
 </article>
 </div>
 </div>
