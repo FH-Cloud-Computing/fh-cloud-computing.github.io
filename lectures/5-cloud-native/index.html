@@ -16,6 +16,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#the_enemy_of_scalability_state">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -221,9 +224,99 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        5. Cloud-native software development
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"></path></svg>
+</span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./" title="5. Cloud-native software development">
       5. Cloud-native software development
     </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_enemy_of_scalability_state">
+    The enemy of scalability: state
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_twelve_factor_app">
+    The Twelve Factor App
+  </a>
+<nav aria-label="The Twelve Factor App" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1_codebase">
+    1. Codebase
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2_dependencies">
+    2. Dependencies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3_configuration">
+    3. Configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4_backing_services">
+    4. Backing services
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5_the_build_process">
+    5. The build process
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6_stateless_processes">
+    6. Stateless processes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7_network_configuration">
+    7. Network configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#8_process_handling">
+    8. Process handling
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#9_disposability">
+    9. Disposability
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#10_developmentproduction_gap">
+    10. Development/production gap
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#11_logs">
+    11. Logs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#12_tooling">
+    12. Tooling
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -311,6 +404,96 @@
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_enemy_of_scalability_state">
+    The enemy of scalability: state
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_twelve_factor_app">
+    The Twelve Factor App
+  </a>
+<nav aria-label="The Twelve Factor App" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1_codebase">
+    1. Codebase
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2_dependencies">
+    2. Dependencies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3_configuration">
+    3. Configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4_backing_services">
+    4. Backing services
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5_the_build_process">
+    5. The build process
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6_stateless_processes">
+    6. Stateless processes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7_network_configuration">
+    7. Network configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#8_process_handling">
+    8. Process handling
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#9_disposability">
+    9. Disposability
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#10_developmentproduction_gap">
+    10. Development/production gap
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#11_logs">
+    11. Logs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#12_tooling">
+    12. Tooling
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/fh-cloud-computing/website/edit/master/docs/lectures/5-cloud-native/index.md" title="Edit this page">
@@ -323,6 +506,44 @@
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
 <h1>Cloud Native Software Development</h1>
+<p>Software development doesn't exist in a vacuum. The software will need to run somewhere. While not every software needs to, or indeed will, scale to Google levels, a little forethought can go a long way towards surviving the first contact with the customer hordes.</p>
+<h3 id="the_enemy_of_scalability_state">The enemy of scalability: state<a class="headerlink" href="#the_enemy_of_scalability_state" title="Permanent link">#</a></h3>
+<p>Any application that does not store or access data is easy to scale. Simply run more copies of it and put a load balancer in front of it.</p>
+<p>State can rear its ugly head in obvious, and in more subtle ways. The obvious point state is, for example, your database. When you have data in your database that's a form of state. You can run as many application servers as you want, if the database can't handle the load you're done. As we discussed in the <a href="../3-xaas/">third lecture</a> scaling databases can be quite tricky since the consistency model may not permit scaling.</p>
+<p>A second point of contention is the ability to store data. Integrating an object storage instead of simply writing data to the disk will, again, help with scaling.</p>
+<p>A more subtle point of contention may be the storage of sessions. Sessions are usually built by sending the user a session ID via a cookie and then storing a blob of data on the disk or in the database. The problem is not only the storage, but also that moving from a local filesystem to a database may <a href="https://pasztor.at/blog/stop-using-php-sessions/">create a race condition</a> that may present a security issue with your application.</p>
+<p>A similar issue arises when near-realtime data exchange is desired between a large amount of users (e.g. a chat application). While a single server can scale to tens of thousands of users, that server is neither redundant, nor will it serve an endless number of users. <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">PubSub</a> systems can help with that.</p>
+<h3 id="the_twelve_factor_app">The Twelve Factor App<a class="headerlink" href="#the_twelve_factor_app" title="Permanent link">#</a></h3>
+<p>Once we survive the first night after the launch of our application it often becomes time to deal with long-term architectural problems. The <a href="https://12factor.net/">12 factor app</a> is a concept that collects the current best practices of writing applications for the cloud. Keep in mind that these are just guidelines and you should never make a religious tyrade out of following these guidelines. Instead, apply common sense and be pragmatic about what to do.</p>
+<h4 id="1_codebase">1. Codebase<a class="headerlink" href="#1_codebase" title="Permanent link">#</a></h4>
+<p>This <a href="https://12factor.net/codebase">first guideline</a> is pretty simple: keep your application in a version control system. While this should be the default in 2020 it unfortunately still bears saying.  </p>
+<h4 id="2_dependencies">2. Dependencies<a class="headerlink" href="#2_dependencies" title="Permanent link">#</a></h4>
+<p>This <a href="https://12factor.net/dependencies">recommendation</a> deals with dependencies. Almost every programming language ecosystem nowadays has a dependency manager to handle downloading dependencies. These dependencies should be declared explicitly in the configuration file for the dependency manager (e.g. <code>package.json</code>, <code>composer.json</code>, <code>pom.xml</code>, etc.)</p>
+<p>Furthermore, these dependency managers often create a lock file (<code>npm-package-lock.json</code>, <code>composer.lock</code>, etc.). They record the exact versions, and sometimes hashes of the third party library. This ensures that the same exact version is installed in the development and production builds.</p>
+<h4 id="3_configuration">3. Configuration<a class="headerlink" href="#3_configuration" title="Permanent link">#</a></h4>
+<p>While in older times configuration files had many formats, modern, container-based applications distinctly move towards <a href="https://12factor.net/config">environment variables</a>. Environment variables are a cross-platform way to provide variables to an application and give a DevOps engineer a flexible way to configure a containerized application.</p>
+<h4 id="4_backing_services">4. Backing services<a class="headerlink" href="#4_backing_services" title="Permanent link">#</a></h4>
+<p>External databases, caches, etc. <a href="https://12factor.net/backing-services">should be treated as such</a>. This means that the connection options (server name, url, username, password, etc) should be configurable via environment variable and should also be replacable by a system administrator by simply reconfiguring the container.</p>
+<p>Testing the testability is especially important with services that are not as well standardized as a MySQL database. For example, many S3 implementations only support Amazon's version and cannot be configured to use alternative providers. An application following this recommendation should be tested against at least one other S3 provider.</p>
+<h4 id="5_the_build_process">5. The build process<a class="headerlink" href="#5_the_build_process" title="Permanent link">#</a></h4>
+<p>The <a href="https://12factor.net/build-release-run">build recommendation</a> says that the build process should be separated from the runtime configuration and the release process. In practice this means that you don't bake your configuration into your container. It also means that each release should have a version number or date, allowing you to roll back to a specific version.</p>
+<h4 id="6_stateless_processes">6. Stateless processes<a class="headerlink" href="#6_stateless_processes" title="Permanent link">#</a></h4>
+<p>The <a href="https://12factor.net/processes">processes recommendation</a> says that your application should run as a single program without any shared data between different copies of your application. Any state should be outsourced to an external database or system as mentioned before.</p>
+<h4 id="7_network_configuration">7. Network configuration<a class="headerlink" href="#7_network_configuration" title="Permanent link">#</a></h4>
+<p>The <a href="https://12factor.net/port-binding">port binding recommendation</a> says that an application is standalone and does not require an external webserver to run. (Typically PHP applications require a bit of legwork to satisfy this requirement.)</p>
+<h4 id="8_process_handling">8. Process handling<a class="headerlink" href="#8_process_handling" title="Permanent link">#</a></h4>
+<p>The <a href="https://12factor.net/concurrency">concurrency recommendation</a> defines a number of rules for process handling. It requires that it should be possible to run multiple copies of the application, optionally across several machines. It also requires that the application should not <a href="https://en.wikipedia.org/wiki/Daemon_(computing)">daemonize</a>.</p>
+<p>While this may seem as trivial with a green field project, it is definitely a challenge for legacy application.</p>
+<h4 id="9_disposability">9. Disposability<a class="headerlink" href="#9_disposability" title="Permanent link">#</a></h4>
+<p>This <a href="https://12factor.net/disposability">recommendation</a> states that an application should have a fast startup and should also shut down quickly when receiving the TERM signal. Applications should also be able to recover from unexpected crashes.</p>
+<h4 id="10_developmentproduction_gap">10. Development/production gap<a class="headerlink" href="#10_developmentproduction_gap" title="Permanent link">#</a></h4>
+<p>The <a href="https://12factor.net/dev-prod-parity">dev/prod parity</a> recommendation postulates that developers of apps should strive to have a continuous method of deployment that allows for rapid rollout of updates. This lowers the work a developer needs to go through to deploy and therefore promotes smaller change sets.</p>
+<p>Smaller change sets make tracking down issues with deployments easier, but can be impractical when working with larger, slower moving clients. (e.g. banks, telcos, etc.)</p>
+<h4 id="11_logs">11. Logs<a class="headerlink" href="#11_logs" title="Permanent link">#</a></h4>
+<p>The <a href="https://12factor.net/logs">logs recommendation</a> should simply write logs to the standard output in a standardized form (e.g. JSON). Everything else, like routing or storing logs, is not the applications concern.</p>
+<p>In practice each application contains at least some basic logic to filter logs to make it easier to configure the logging level.</p>
+<h4 id="12_tooling">12. Tooling<a class="headerlink" href="#12_tooling" title="Permanent link">#</a></h4>
+<p>The <a href="https://12factor.net/admin-processes">admin process recommendation</a> concerns itself with the command line tools needed to operate the application. These are things like running database migrations, etc. The recommendation says that these tools should be runnable directly from the applications directory without much extra configuration or installation. </p>
 </article>
 </div>
 </div>
