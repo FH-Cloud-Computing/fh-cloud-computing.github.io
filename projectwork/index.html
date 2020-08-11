@@ -318,10 +318,14 @@
 </a>
 <h1>Project work</h1>
 <p>You are the cloud architect for a small work-for-hire company. A client wants to hire you but they are sceptical about your abilities to build an <em>autoscaling</em> service. They propose a proof of concept: build a service that runs a web application that is <em>deliberately slow</em> and load test it. Your cloud management should automatically launch new cloud servers when the load is high and remove servers when demand is low.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not continuously run your setup on Exoscale or you will run out of budget! Budget limitations are part of building cloud system so you have to learn to deal with it.</p>
+</div>
 <p>After taking a look at the capabilities of the cloud provider and discussing the constraints with your colleagues you decide that the following approach would be best:</p>
 <ul>
 <li>You are going to use <a href="https://terraform.io">Terraform</a> to automate the setup and tear down of the cloud infrastructure. This is necessary because if you continuously use the cloud service you will not fit in the budget.</li>
-<li>You will use <a href="https://community.exoscale.com/documentation/compute/instance-pools/">instance pools</a> to manage the variable number of cloud servers and <a href="">Network Load Balancers</a> <strong>[TODO add link]</strong> to balance the traffic between them.</li>
+<li>You will use <a href="https://community.exoscale.com/documentation/compute/instance-pools/">instance pools</a> to manage the variable number of cloud servers and <a href="https://www.exoscale.com/syslog/network-load-balancer-release/">Network Load Balancers</a> to balance the traffic between them.</li>
 <li>You will set up a dedicated monitoring and management instance which will run <a href="https://prometheus.io/">Prometheus</a> to automatically monitor a varying number of servers. You will write a
   <a href="https://prometheus.io/blog/2015/06/01/advanced-service-discovery/#custom-service-discovery">custom service discovery</a> agent that creates a file with the IP addresses of the machines in the instance pool for Prometheus to consume.</li>
 <li>On the instance pool you will deploy the <a href="https://github.com/prometheus/node_exporter">Prometheus node exporter</a> to monitor CPU usage.</li>
@@ -330,6 +334,12 @@
 <li>You will write an application that receives this webhook and every 60 seconds scales the instance pool up or down if a webhook has been received.</li>
 </ul>
 <p>As you also have to demonstrate to the client that you can work in an agile methodology you agree in 4 week sprints with a demo at the end of each sprint as outlined in the <a href="/deadlines">deadlines</a> document.</p>
+<p>As a dummy service to generate load you will use <a href="https://github.com/FH-Cloud-Computing/http-load-generator">http-load-generator</a>.</p>
+<p>Optionally, you can make use of the following (incurs a point-penalty):</p>
+<ul>
+<li><a href="https://github.com/FH-Cloud-Computing/prometheus-sd-exoscale-instance-pools">prometheus-sd-exoscale-instance-pools</a> to feed instance pool data into Prometheus</li>
+<li><a href="https://github.com/FH-Cloud-Computing/exoscale-grafana-autoscaler">exoscale-grafana-autoscaler</a> to drive the autoscaling behavior.</li>
+</ul>
 </article>
 </div>
 </div>
