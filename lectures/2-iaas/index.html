@@ -319,11 +319,6 @@
     Monitoring
   </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#automation_1">
-    Automation
-  </a>
-</li>
 </ul>
 </nav>
 </li>
@@ -532,11 +527,6 @@
     Monitoring
   </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#automation_1">
-    Automation
-  </a>
-</li>
 </ul>
 </nav>
 </div>
@@ -630,6 +620,11 @@ machines but they did so that a customer could order or cancel the service using
 (Later on AWS and other cloud providers moved to a per-second billing.)</p>
 <p>The presence of an API makes the difference between IaaS and plain old virtual machines as a service. IaaS allows
 a customer to scale their application dynamically according to their current demand.</p>
+<div class="admonition question"><p class="admonition-title">What component of the software stack runs on Ring 2 in virtual mode?</p><div class="quiz__answers"><div class="quiz__answer"><input id="2ec2ba40-7c40-4ff5-a671-b21da3b81925" type="checkbox"><label data-correct="" for="2ec2ba40-7c40-4ff5-a671-b21da3b81925"> The application</label></input></div><div class="quiz__answer"><input id="0004cfa7-f832-4816-aae8-0bd3c806fd13" type="checkbox"><label data-incorrect="" for="0004cfa7-f832-4816-aae8-0bd3c806fd13"> The kernel</label></input></div><div class="quiz__answer"><input id="56f70b39-8e6c-4531-afc0-c63eadbcaa16" type="checkbox"><label data-incorrect="" for="56f70b39-8e6c-4531-afc0-c63eadbcaa16"> The hypervisor</label></input></div><div class="quiz__answer"><input id="f99c4d29-2e94-4489-a097-f103829b76a5" type="checkbox"><label data-incorrect="" for="f99c4d29-2e94-4489-a097-f103829b76a5"> The management engine</label></input></div></div></div>
+<div class="admonition question"><p class="admonition-title">What component of the software stack runs on Ring 0 in virtual mode?</p><div class="quiz__answers"><div class="quiz__answer"><input id="befd1005-8188-45e2-9c9e-656e5a715500" type="checkbox"><label data-incorrect="" for="befd1005-8188-45e2-9c9e-656e5a715500"> The application</label></input></div><div class="quiz__answer"><input id="a6414db0-2c25-45ae-8437-2cdd81e27027" type="checkbox"><label data-correct="" for="a6414db0-2c25-45ae-8437-2cdd81e27027"> The kernel</label></input></div><div class="quiz__answer"><input id="16faf83c-808a-43ee-bae4-14ef790177bb" type="checkbox"><label data-incorrect="" for="16faf83c-808a-43ee-bae4-14ef790177bb"> The hypervisor</label></input></div><div class="quiz__answer"><input id="93efe42e-821e-458d-84ee-c1ca0f5f16a1" type="checkbox"><label data-incorrect="" for="93efe42e-821e-458d-84ee-c1ca0f5f16a1"> The management engine</label></input></div></div></div>
+<div class="admonition question"><p class="admonition-title">What component of the software stack runs on Ring -1 in virtual mode?</p><div class="quiz__answers"><div class="quiz__answer"><input id="08d3be15-c442-4474-8710-78294e96d20b" type="checkbox"/><label data-incorrect="" for="08d3be15-c442-4474-8710-78294e96d20b"> The application</label></div><div class="quiz__answer"><input id="2a6dc29a-5d94-4878-9b98-79580b1098dd" type="checkbox"/><label data-incorrect="" for="2a6dc29a-5d94-4878-9b98-79580b1098dd"> The kernel</label></div><div class="quiz__answer"><input id="5c1f3f03-88b9-49bb-a621-767241cd76a5" type="checkbox"/><label data-correct="" for="5c1f3f03-88b9-49bb-a621-767241cd76a5"> The hypervisor</label></div><div class="quiz__answer"><input id="c9554792-fa3b-4043-9eee-9c5e74ff83ff" type="checkbox"/><label data-incorrect="" for="c9554792-fa3b-4043-9eee-9c5e74ff83ff"> The management engine</label></div></div></div>
+<div class="admonition question"><p class="admonition-title">What component of the software stack runs on Ring -2 in virtual mode?</p><div class="quiz__answers"><div class="quiz__answer"><input id="6027a21b-b14b-4cb0-9925-e4155c531b1d" type="checkbox"/><label data-incorrect="" for="6027a21b-b14b-4cb0-9925-e4155c531b1d"> The application</label></div><div class="quiz__answer"><input id="07fd136c-13ce-436e-9f35-6e6f608e3ca6" type="checkbox"/><label data-incorrect="" for="07fd136c-13ce-436e-9f35-6e6f608e3ca6"> The kernel</label></div><div class="quiz__answer"><input id="a2aca98a-d079-4b74-8dc9-3b15794bae2f" type="checkbox"/><label data-incorrect="" for="a2aca98a-d079-4b74-8dc9-3b15794bae2f"> The hypervisor</label></div><div class="quiz__answer"><input id="3e3de39f-57e0-4b31-82ff-90b96a9ecaf7" type="checkbox"/><label data-correct="" for="3e3de39f-57e0-4b31-82ff-90b96a9ecaf7"> The management engine</label></div></div></div>
+<div class="admonition question"><p class="admonition-title">What does virtualization mean?</p><div class="quiz__answers"><div class="quiz__answer"><input id="50cea7fb-d678-49f2-8f86-5e8761c4d4b9" type="checkbox"/><label data-incorrect="" for="50cea7fb-d678-49f2-8f86-5e8761c4d4b9"> Every instruction by a virtual machine is captured by the kernel and translated.</label></div><div class="quiz__answer"><input id="b876892d-d7af-4e4e-9e13-e4e2e0f8b7c4" type="checkbox"/><label data-incorrect="" for="b876892d-d7af-4e4e-9e13-e4e2e0f8b7c4"> Critical instructions like memory operations are captured or translated by the kernel.</label></div><div class="quiz__answer"><input id="d2de5071-19c7-416f-ba1b-75aa0e7a0d99" type="checkbox"/><label data-correct="" for="d2de5071-19c7-416f-ba1b-75aa0e7a0d99"> Critical instructions like memory operations are captured or translated by the CPU and the hypervisor.</label></div></div></div>
 <h3 id="typical_instance_types">Typical instance types<a class="headerlink" href="#typical_instance_types" title="Permanent link">#</a></h3>
 <p>When the cloud became popular in the late 2000s several providers attempted to offer a service that was fully dynamic
 in their sizes. The customer could set how many GB of RAM they needed and how many CPU cores. However, this model has
@@ -667,6 +662,7 @@ machine.</p>
 steps required.</p>
 <p>Tools like <a href="https://terraform.io/">Terraform</a> or <a href="https://www.ansible.com/">Ansible</a> assist with managing the whole 
 process of provisioning the virtual machines and supplying it with the correct user data script. </p>
+<div class="admonition question"><p class="admonition-title">What is the role of cloud-init?</p><div class="quiz__answers"><div class="quiz__answer"><input id="5b8eb6ef-aaae-4f29-ba76-5007fe406a3f" type="checkbox"/><label data-incorrect="" for="5b8eb6ef-aaae-4f29-ba76-5007fe406a3f"> It initializes a cloud account.</label></div><div class="quiz__answer"><input id="dd1651b0-790d-4d33-b4e8-ee2e820f083c" type="checkbox"/><label data-incorrect="" for="dd1651b0-790d-4d33-b4e8-ee2e820f083c"> It creates a virtual machine.</label></div><div class="quiz__answer"><input id="817cd792-e080-4c61-80cb-0249c3e28c7c" type="checkbox"/><label data-correct="" for="817cd792-e080-4c61-80cb-0249c3e28c7c"> It runs initial machine configuration on a virtual machine.</label></div></div></div>
 <h3 id="virtual_machine_pools">Virtual machine pools<a class="headerlink" href="#virtual_machine_pools" title="Permanent link">#</a></h3>
 <p>One other use of user data are virtual machine pools. Each cloud provider adopts a different name for them, ranging from
 instance pools to autoscaling groups. The concept is the same everywhere: you supply the cloud with a configuration
@@ -706,7 +702,8 @@ a hardware failure on they physical machine means that your data may become unav
 completely lost.</p>
 <p>It is therefore very advisable to solve redundancy on top of the virtual machine, e.g. by building a replicated database
 setup. If, however, your database is replicated anyway you may no longer need the more expensive storage options and 
-this can be a great way to save costs. </p>
+this can be a great way to save costs.</p>
+<div class="admonition question"><p class="admonition-title">Which of the following is provided by local storage?</p><div class="quiz__answers"><div class="quiz__answer"><input id="0e4eff13-8231-4bba-be7d-8db06a1f02da" type="checkbox"/><label data-incorrect="" for="0e4eff13-8231-4bba-be7d-8db06a1f02da"> Fault-tolerance in the face of a machine failure.</label></div><div class="quiz__answer"><input id="f2d15ba0-a5da-41ea-9d79-d62da47a2712" type="checkbox"/><label data-correct="" for="f2d15ba0-a5da-41ea-9d79-d62da47a2712"> High IO performance.</label></div><div class="quiz__answer"><input id="f5771be3-a14b-4824-9ab6-b8627ae8257c" type="checkbox"/><label data-incorrect="" for="f5771be3-a14b-4824-9ab6-b8627ae8257c"> The ability to move the data volume to a different machine.</label></div><div class="quiz__answer"><input id="922b5a57-68af-4544-8021-e40b51f995db" type="checkbox"/><label data-incorrect="" for="922b5a57-68af-4544-8021-e40b51f995db"> The ability to access the data volume from several machines at once.</label></div><div class="quiz__answer"><input id="071b1add-a48b-4748-89d7-b614c5b5a828" type="checkbox"/><label data-correct="" for="071b1add-a48b-4748-89d7-b614c5b5a828"> Data consistency.</label></div></div></div>
 <h4 id="network_block_storage">Network Block Storage<a class="headerlink" href="#network_block_storage" title="Permanent link">#</a></h4>
 <p>Network block storage means a block storage that is delivered over the network. The network here can mean a traditional
 IP network or a dedicated <a href="https://en.wikipedia.org/wiki/Fibre_Channel_Protocol">Fibre Channel</a> infrastructure.</p>
@@ -718,6 +715,7 @@ device from multiple virtual machines.</p>
 <a href="https://aws.amazon.com/ebs/">EBS by Amazon</a>, however, do offer redundancy.</p>
 <p>At any rate, using Network Block Storage does not absolve you from the duty to make backups and have a documented and
 tested disaster recovery strategy.</p>
+<div class="admonition question"><p class="admonition-title">Which of the following is provided by network block storage?</p><div class="quiz__answers"><div class="quiz__answer"><input id="2286b89c-d2c4-4d87-9275-dcd6d0281c32" type="checkbox"/><label data-correct="" for="2286b89c-d2c4-4d87-9275-dcd6d0281c32"> Fault-tolerance in the face of a machine failure.</label></div><div class="quiz__answer"><input id="960ef577-b71b-4d04-9d59-3a0e5f4792ec" type="checkbox"/><label data-incorrect="" for="960ef577-b71b-4d04-9d59-3a0e5f4792ec"> High IO performance.</label></div><div class="quiz__answer"><input id="a97aec92-8ec2-44e2-93b4-6f222ae670cb" type="checkbox"/><label data-correct="" for="a97aec92-8ec2-44e2-93b4-6f222ae670cb"> The ability to move the data volume to a different machine.</label></div><div class="quiz__answer"><input id="f1dfaf66-e916-41f5-81f8-811e0dc8d56b" type="checkbox"/><label data-incorrect="" for="f1dfaf66-e916-41f5-81f8-811e0dc8d56b"> The ability to access the data volume from several machines at once.</label></div><div class="quiz__answer"><input id="259d7603-9137-4242-a0f9-856cf5e1ab8b" type="checkbox"/><label data-correct="" for="259d7603-9137-4242-a0f9-856cf5e1ab8b"> Data consistency.</label></div></div></div>
 <h4 id="network_file_systems">Network File Systems<a class="headerlink" href="#network_file_systems" title="Permanent link">#</a></h4>
 <p>In contrast to network block storage network file systems offer access to data not on a block level, but on a file
 level. Over the various network file system protocols machines using these file systems can open, read and write files,
@@ -727,6 +725,7 @@ the same file in parallel the filesystem has to ensure that these writes are con
 file systems are either much slower than block-level access (e.g.
 <a href="https://en.wikipedia.org/wiki/Network_File_System">NFS</a>) or require a great deal more CPU and RAM to keep track of
 the changes across the network (e.g. <a href="https://docs.ceph.com/docs/master/cephfs/">CephFS</a>).</p>
+<div class="admonition question"><p class="admonition-title">Which of the following is provided by network filesystems?</p><div class="quiz__answers"><div class="quiz__answer"><input id="97381a10-6415-4965-bc4b-6b9ebbac0c62" type="checkbox"/><label data-correct="" for="97381a10-6415-4965-bc4b-6b9ebbac0c62"> Fault-tolerance in the face of a machine failure.</label></div><div class="quiz__answer"><input id="90cae9ab-3025-4e64-9b8b-fa8ff4fc4df2" type="checkbox"/><label data-incorrect="" for="90cae9ab-3025-4e64-9b8b-fa8ff4fc4df2"> High IO performance.</label></div><div class="quiz__answer"><input id="ad1ee925-2b50-49f5-b8fc-c8207b49dd01" type="checkbox"/><label data-correct="" for="ad1ee925-2b50-49f5-b8fc-c8207b49dd01"> The ability to move the data volume to a different machine.</label></div><div class="quiz__answer"><input id="b72069b8-5f3a-44c6-9b65-65504b3ccfba" type="checkbox"/><label data-correct="" for="b72069b8-5f3a-44c6-9b65-65504b3ccfba"> The ability to access the data volume from several machines at once.</label></div><div class="quiz__answer"><input id="769a7858-8692-4c66-86f1-2317a74492f2" type="checkbox"/><label data-correct="" for="769a7858-8692-4c66-86f1-2317a74492f2"> Data consistency.</label></div></div></div>
 <h4 id="object_storage">Object storage<a class="headerlink" href="#object_storage" title="Permanent link">#</a></h4>
 <p>Object storage systems are similar to network file systems in that they deal with files rather than blocks. However,
 they do not have the same synchronization capabilities as network file systems. Files can generally only be read 
@@ -736,6 +735,7 @@ or written as a whole and they also don't have the ability to lock a file.</p>
 and stability issues.</p>
 <p>Operating system level integration should only be used as a last resort and object storages should be integrated on the
 application level. We will discuss object storage services in detail in our next lesson.</p>
+<div class="admonition question"><p class="admonition-title">Which of the following is provided by object storages?</p><div class="quiz__answers"><div class="quiz__answer"><input id="5690479e-2a98-42d2-a7bd-0771d4cb8847" type="checkbox"/><label data-correct="" for="5690479e-2a98-42d2-a7bd-0771d4cb8847"> Fault-tolerance in the face of a machine failure.</label></div><div class="quiz__answer"><input id="7039c2a4-5a51-4d91-a184-18decf52b74e" type="checkbox"/><label data-incorrect="" for="7039c2a4-5a51-4d91-a184-18decf52b74e"> High IO performance.</label></div><div class="quiz__answer"><input id="710f3653-e6a3-4a4b-8e8a-b071ac1d3201" type="checkbox"/><label data-correct="" for="710f3653-e6a3-4a4b-8e8a-b071ac1d3201"> The ability to move the data volume to a different machine.</label></div><div class="quiz__answer"><input id="41f8a4bb-9853-45c2-905b-2e846c2224b7" type="checkbox"/><label data-correct="" for="41f8a4bb-9853-45c2-905b-2e846c2224b7"> The ability to access the data volume from several machines at once.</label></div><div class="quiz__answer"><input id="2fac5854-c469-4f6a-b809-98c87d0b56a5" type="checkbox"/><label data-incorrect="" for="2fac5854-c469-4f6a-b809-98c87d0b56a5"> Data consistency.</label></div></div></div>
 <h3 id="network">Network<a class="headerlink" href="#network" title="Permanent link">#</a></h3>
 <p>The next big topic concerning IaaS services is networks. Before we go into the cloud-aspect let's look at how the 
 underlying infrastructure is built. As indicated in the first lecture it is strongly recommended that you 
@@ -762,13 +762,15 @@ creating huge instances with lots of resources.</p>
    address is needed that public IP is handled by the gateway provided by the cloud provider and the incoming traffic is
    forwarded to the virtual machine on the private network using
    <a href="https://en.wikipedia.org/wiki/Network_address_translation#DNAT">Destination NAT</a>. Multiple private networks (VPC's)
-   can be assigned to a virtual machine and they can work independently.</li>
+   can be assigned to a virtual machine and they can work independently.
+   <img alt="An illustration of the private-only network with NAT schema. A virtual machine is connected only to a private network with a private IP and a cloud-operated NAT gateway provides internet access." src="private-only-nat.svg"/></li>
 <li><strong>Default public IP</strong>: This option is provided by smaller IaaS providers such as 
    <a href="https://www.digitalocean.com/">DigitalOcean</a>, <a href="https://www.exoscale.com/">Exoscale</a>,
    <a href="https://www.hetzner.de/">Hetzner</a>, <a href="https://www.linode.com/">Linode</a>, <a href="https://upcloud.com/">Upcloud</a>,
    and <a href="https://www.vultr.com/">Vultr</a>. In this setup each virtual machine is attached to a public network and is
    directly assigned one public IP address. Optionally private networks can be attached as well but the first public IP
-   generally cannot be removed as it is required for user data to work.</li>
+   generally cannot be removed as it is required for user data to work.
+   <img alt="An illustration of the default public IP schema. The illustration contains two virtual machines, each virtual machine connected to the public network with a public IP and a private network on the private IP." src="public-private-network.svg"/></li>
 <li><strong>Fully customizable:</strong> This setup allows the customer to design their network connectivity as they see fit. This 
    setup is suitable for enterprise customers who want to move their on-premises setup into the cloud without
    changing their architecture (lift-and-shift). This option is offered by <a href="https://www.ionos.com/">1&amp;1 IONOS</a>.
@@ -785,7 +787,6 @@ You can classify any cloud provider you come across into these categories.</p>
 <p>Out of group 2 it is worth mentioning that the services that are available on the public network
 (firewalls, load balancers) are often not available on private networks. </p>
 </div>
-<p>TODO: add illustration</p>
 <h4 id="firewalling">Firewalling<a class="headerlink" href="#firewalling" title="Permanent link">#</a></h4>
 <p>IaaS providers often also offer network firewalls as a service, included in the platform. Firewalls generally have
 two rule types: <code>INGRESS</code> (from the Internet or other machines to the current VM) and <code>EGRESS</code> (from the current VM to
@@ -798,12 +799,12 @@ in the same security group.</p>
 groups rather than specific IP addresses. For example, the <code>database</code> security group could be set to allow connections
 only from the <code>appserver</code> security group but not from anywhere else. This can help with the dynamic nature of the cloud
 since you do not need to hard-code the IP addresses of the application servers.</p>
-<p>TODO: add screenshot of security group configuration</p>
+<p><img alt='An illustration of adding a firewall rule to a security group called "backend" allowing access to port 3306 from the security group "frontend".' src="sg.png"/></p>
 <h4 id="network_load_balancers">Network load balancers<a class="headerlink" href="#network_load_balancers" title="Permanent link">#</a></h4>
 <p>Network load balancers are an option some cloud providers offer. In contrast to Application Load Balancers they
 do not offer protocol decoding (such as routing requests to backends based on the requested web address), they only
 balance incoming connections to a pool of backends.</p>
-<p>TODO add illustration</p>
+<p><img alt="An illustration of a network load balancer sending data to multiple virtual machines." src="nlb.png"/></p>
 <p>Depending on the cloud provider in question network load balancers may or may not offer terminating encrypted 
 connections (SSL/TLS), and may be bound to virtual machine pools. It is also cloud provider specific if load balancers
 are offered in private networks or not.</p>
@@ -860,7 +861,8 @@ client. This can be used for advanced builds such as
 monitoring agents you can install on your virtual machine to get more data in the monitoring interface. With some
 cloud providers monitoring alerts can be integrated with virtual machine pools to provide automatic scaling, either
 automatically or using lambdas/FaaS, which we will talk about in the <a href="/lectures/3-xaas/">next lecture</a>.</p>
-<h3 id="automation_1">Automation<a class="headerlink" href="#automation_1" title="Permanent link">#</a></h3>
+<p>Often times the monitoring facilities offered by cloud providers are not sufficient for keeping an application running
+and more detailed systems are needed. These will be discussed in greater detail in the <a href="/lectures/5-cloud-native/">lecture 5</a>.</p>
 </article>
 </div>
 </div>
