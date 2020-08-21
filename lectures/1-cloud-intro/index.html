@@ -6,9 +6,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../favicon.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-5.5.6" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-5.5.7" name="generator"/>
 <title>1. Introduction to the Cloud - Cloud Computing 2020</title>
-<link href="../../assets/stylesheets/main.63b94e9e.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.b8ac9624.min.css" rel="stylesheet"/>
 <link href="../../custom.css" rel="stylesheet"/>
 </head>
 <body dir="ltr">
@@ -675,9 +675,7 @@
 <blockquote>
 <p>The cloud is just somebody else's computer.</p>
 </blockquote>
-<p>There is no magic, just using the cloud does not magically solve problems we are having with a traditional
-infrastructure. This lecture will teach you how a cloud is built and what the typical services are that they offer as
-well as the pitfalls which may come with such setups.</p>
+<p>There is no magic, just using the cloud does not magically solve problems we are having with a traditional infrastructure. This lecture will teach you how a cloud is built and what the typical services are that they offer as well as the pitfalls which may come with such setups.</p>
 <h3 id="what_is_a_server">What is a Server?<a class="headerlink" href="#what_is_a_server" title="Permanent link">#</a></h3>
 <p><audio controls="" preload="none" src="audio/What%20is%20a%20server.mp3"></audio></p>
 <div class="admonition tldr">
@@ -692,45 +690,23 @@ well as the pitfalls which may come with such setups.</p>
 <li>Buying servers can take a long time and present an up-front investment.</li>
 </ul>
 </div>
-<p>In older times, servers were completely different from the machines we used for regular work. Not just in weight and
-form factor, but in architecture. The landscape would stretch from <a href="https://en.wikipedia.org/wiki/SPARC">SPARC</a> and
-<a href="https://en.wikipedia.org/wiki/IBM_POWER_microprocessors">Power</a> architectures to the x86 architecture we use in our
-PCs.</p>
-<p>Over time, however, the x86 architecture took over to the point where a server today, from an architectural standpoint,
-is exactly the same as the machine you are using right now. This means that you can copy the machine you are using onto
-a server and chances are it will run without any modification.</p>
-<p>The only notable exception is the rise of the ARM architecture which is popular in phones and tables and is known for 
-its low power consumption. In recent years there has been a small but noticeable trend to run ARM in a datacenter.</p>
-<p>At home it may not matter if your computer uses 200 or 300 watts of power. In a datacenter, at the scale of 
-hundreds, thousands or tens of thousands of servers, saving even a few percent of power will translate to huge cost
-savings.</p>
-<p>The difference in build is, however, quite apparent. While some servers, mainly built for office use, have the standard
-“tower” build, most servers have a flat profile designed to be mounted in racks as displayed on the picture.
-Since most servers are not high enough to take full size expansion cards (graphics cards, network cards, etc), servers
-may contain a separate removable component for these usually called a riser. </p>
+<p>In older times, servers were completely different from the machines we used for regular work. Not just in weight and form factor, but in architecture. The landscape would stretch from <a href="https://en.wikipedia.org/wiki/SPARC">SPARC</a> and <a href="https://en.wikipedia.org/wiki/IBM_POWER_microprocessors">Power</a> architectures to the x86 architecture we use in our PCs.</p>
+<p>Over time, however, the x86 architecture took over to the point where a server today, from an architectural standpoint, is exactly the same as the machine you are using right now. This means that you can copy the machine you are using onto a server and chances are it will run without any modification.</p>
+<p>The only notable exception is the rise of the ARM architecture which is popular in phones and tables and is known for its low power consumption. In recent years there has been a small but noticeable trend to run ARM in a datacenter.</p>
+<p>At home it may not matter if your computer uses 200 or 300 watts of power. In a datacenter, at the scale of hundreds, thousands or tens of thousands of servers, saving even a few percent of power will translate to huge cost savings.</p>
+<p>The difference in build is, however, quite apparent. While some servers, mainly built for office use, have the standard “tower” build, most servers have a flat profile designed to be mounted in racks as displayed on the picture. Since most servers are not high enough to take full size expansion cards (graphics cards, network cards, etc), servers may contain a separate removable component for these usually called a riser. </p>
 <p><img alt="A server in a rack, pulled out and the top taken off. The internal components, such as dual, hot-plug power supply units, hot-plug fans, CPU, the riser and hot-swap disks are visible." src="/lectures/1-cloud-intro/server-01.svg">
 <em>An HP Proliant G5 server pulled out of its rack. Source: <a href="https://en.wikipedia.org/wiki/ProLiant#/media/File:Proliant380g5_3.jpeg">Wikipedia</a></em></img></p>
-<p>Server racks are standardized closets that have mounting screws for rails that allow pulling servers out even mid
-operation and replace components while the server is running.</p>
-<p>Servers also come with a high level of redundancy. While you may have a single power supply in your home computer,
-servers typically have two that are able to take power from different power inputs. This makes sure that the server 
-keeps running even if one of the two power supplies fail, or if one of the two power inputs goes down.</p>
-<p>Also in contrast to your home setup these servers contain an Out-Of-Bounds Management interface that allows remote
-management of servers even when they are turned off. The hardware components built into the server report their health
-status to this OOB management interface which allows for the simultaneous monitoring of thousands of machines.</p>
+<p>Server racks are standardized closets that have mounting screws for rails that allow pulling servers out even mid operation and replace components while the server is running.</p>
+<p>Servers also come with a high level of redundancy. While you may have a single power supply in your home computer, servers typically have two that are able to take power from different power inputs. This makes sure that the server keeps running even if one of the two power supplies fail, or if one of the two power inputs goes down.</p>
+<p>Also in contrast to your home setup these servers contain an Out-Of-Bounds Management interface that allows remote management of servers even when they are turned off. The hardware components built into the server report their health status to this OOB management interface which allows for the simultaneous monitoring of thousands of machines.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is a fairly generic description of servers. Different vendors may chose to leave out certain features of their
-more “budget” line of servers, or call certain components differently. HP, for example, calls their
-OOBM “Integrated Lights Out”, Dell “DRAC - Dell Remote Access Control”, etc.</p>
+<p>This is a fairly generic description of servers. Different vendors may chose to leave out certain features of their more “budget” line of servers, or call certain components differently. HP, for example, calls their OOBM “Integrated Lights Out”, Dell “DRAC - Dell Remote Access Control”, etc.</p>
 </div>
-<p>When it comes to purchasing servers larger companies tend to go with the same components for a longer period of time
-and they also buy support from the vendor. This sometimes includes hardware replacement done entirely by the vendor
-in the datacenter without the need for the customer to have staff on site. However, purchasing a specific set of
-components or ordering larger quantities of servers presents a logistics challenge and can sometimes take up to 3-4
-months. Buying hardware is also an up-front investment which is hard to justify when demands change rapidly.</p>
-<div class="admonition question"><p class="admonition-title">What components are redundant in a server?</p><div class="quiz__answers"><div class="quiz__answer"><input id="60cfafeb-51c9-455c-8477-71225a3362ce" type="checkbox"><label data-correct="" for="60cfafeb-51c9-455c-8477-71225a3362ce"> Power supply</label></input></div><div class="quiz__answer"><input id="1bfb016a-c372-4afa-9a23-fff46045711a" type="checkbox"><label data-incorrect="" for="1bfb016a-c372-4afa-9a23-fff46045711a"> CPU</label></input></div><div class="quiz__answer"><input id="66b23d25-140a-4016-9e50-2af79f2477a6" type="checkbox"><label data-incorrect="" for="66b23d25-140a-4016-9e50-2af79f2477a6"> RAM</label></input></div><div class="quiz__answer"><input id="8d68894b-6b3c-4402-843b-763b72ec0e2d" type="checkbox"><label data-correct="" for="8d68894b-6b3c-4402-843b-763b72ec0e2d"> Fan</label></input></div><div class="quiz__answer"><input id="42f41518-26fd-44f5-a6a1-9d75e9f70e51" type="checkbox"><label data-incorrect="" for="42f41518-26fd-44f5-a6a1-9d75e9f70e51"> OOBM</label></input></div></div></div>
-<div class="admonition question"><p class="admonition-title">What is the purpose of an OOBM?</p><div class="quiz__answers"><div class="quiz__answer"><input id="24036f00-919e-4cf9-a326-30f3defd65b4" type="checkbox"><label data-correct="" for="24036f00-919e-4cf9-a326-30f3defd65b4"> Remotely manage a server</label></input></div><div class="quiz__answer"><input id="306c8e2c-2fb0-4c91-9542-01f253cf4a3c" type="checkbox"><label data-correct="" for="306c8e2c-2fb0-4c91-9542-01f253cf4a3c"> Receive hardware malfunction alerts</label></input></div></div></div>
+<p>When it comes to purchasing servers larger companies tend to go with the same components for a longer period of time and they also buy support from the vendor. This sometimes includes hardware replacement done entirely by the vendor in the datacenter without the need for the customer to have staff on site. However, purchasing a specific set of components or ordering larger quantities of servers presents a logistics challenge and can sometimes take up to 3-4 months. Buying hardware is also an up-front investment which is hard to justify when demands change rapidly.</p>
+<div class="admonition question"><p class="admonition-title">What components are redundant in a server?</p><div class="quiz__answers"><div class="quiz__answer"><input id="e0238f95-b56f-4be2-990d-3a5924fd883c" type="checkbox"><label data-correct="" for="e0238f95-b56f-4be2-990d-3a5924fd883c"> Power supply</label></input></div><div class="quiz__answer"><input id="a321df8a-b4fb-43e3-98a1-2adf18c1bff1" type="checkbox"><label data-incorrect="" for="a321df8a-b4fb-43e3-98a1-2adf18c1bff1"> CPU</label></input></div><div class="quiz__answer"><input id="0c951021-7927-4c1b-82ba-ba2216b4fbdc" type="checkbox"><label data-incorrect="" for="0c951021-7927-4c1b-82ba-ba2216b4fbdc"> RAM</label></input></div><div class="quiz__answer"><input id="337d273f-cd9b-4364-96c5-4c276cddfc9e" type="checkbox"><label data-correct="" for="337d273f-cd9b-4364-96c5-4c276cddfc9e"> Fan</label></input></div><div class="quiz__answer"><input id="43ad0089-d43f-460e-8a61-4e1f98eeb025" type="checkbox"><label data-incorrect="" for="43ad0089-d43f-460e-8a61-4e1f98eeb025"> OOBM</label></input></div></div></div>
+<div class="admonition question"><p class="admonition-title">What is the purpose of an OOBM?</p><div class="quiz__answers"><div class="quiz__answer"><input id="dea3a347-a464-4be1-8bf9-b32720fa4047" type="checkbox"><label data-correct="" for="dea3a347-a464-4be1-8bf9-b32720fa4047"> Remotely manage a server</label></input></div><div class="quiz__answer"><input id="3db45e3b-a1a8-4ef9-86e3-d92cea75a325" type="checkbox"><label data-correct="" for="3db45e3b-a1a8-4ef9-86e3-d92cea75a325"> Receive hardware malfunction alerts</label></input></div></div></div>
 <h3 id="the_anatomy_of_a_datacenter">The Anatomy of a Datacenter<a class="headerlink" href="#the_anatomy_of_a_datacenter" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -744,28 +720,15 @@ months. Buying hardware is also an up-front investment which is hard to justify 
 <li>Eco friendliness is becoming a factor.</li>
 </ul>
 </div>
-<p>Since the cloud is just somebody else's computer, that computer needs to be hosted somewhere. Servers are almost
-exclusively hosted in datacenters. Let's take a look at what is involved in running a datacenter.</p>
-<p>First of all, as mentioned above, most servers are going to be rack-mounted so you need a bunch of racks. These racks
-are installed in rows, often with a fake floor to allow for cabling to go under the floor.</p>
+<p>Since the cloud is just somebody else's computer, that computer needs to be hosted somewhere. Servers are almost exclusively hosted in datacenters. Let's take a look at what is involved in running a datacenter.</p>
+<p>First of all, as mentioned above, most servers are going to be rack-mounted so you need a bunch of racks. These racks are installed in rows, often with a fake floor to allow for cabling to go under the floor.</p>
 <p><img alt="A data center containing a bunch of racks for servers" src="/lectures/1-cloud-intro/datacenter.jpg">
 <em>A datacenter with racks. Source: <a href="https://en.wikipedia.org/wiki/Data_center#/media/File:Datacenter_de_ARSAT.jpg">Wikipedia</a></em></img></p>
-<p>Since servers produce a lot of heat, a datacenter also requires cooling. There are a variety of ways to solve cooling,
-some are more “green” than others. Some datacenters, for example, opt to install a “cold aisles”
-where the cold air is pumped between two rack rows and is pushed through the racks to cool the servers.</p>
-<p>Apart from cooling, datacenters also require automated fire suppression systems simply because of the amount of
-electricity going through. Datacenters usually go with a non-destructive fire suppression system such as lowering the 
-oxygen content of the air enough to stop the fire.</p>
-<p>All critical systems in a datacenter (power, cooling, fire suppression systems) are usually built in a redundant fashion
-because the loss of either of those systems will potentially mean a complete shutdown for the datacenter. Datacenter 
-operators usually have further contingency plans in place, too, such as a UPS (battery) system, diesel generator, fuel 
-truck on standby, hotline to the fire department, etc. to make sure the datacenter can keep its required uptime.</p>
-<p>On the networking side of things, matters get slightly more complicated. Some datacenter providers also offer you the
-ability to use their network uplink (also redundant), but larger customers will prefer to host their own networking
-equipment and negotiate their own internet uplink contracts. Since there is no generic rule for how datacenters handle
-this, we will dispense with a description.</p>
-<p>It is also worth noting that larger customers (banks, cloud providers, etc) usually prefer to have their own racks in
-a separated gated area called a “cage” to which they control access.</p>
+<p>Since servers produce a lot of heat, a datacenter also requires cooling. There are a variety of ways to solve cooling, some are more “green” than others. Some datacenters, for example, opt to install a “cold aisles” where the cold air is pumped between two rack rows and is pushed through the racks to cool the servers.</p>
+<p>Apart from cooling, datacenters also require automated fire suppression systems simply because of the amount of electricity going through. Datacenters usually go with a non-destructive fire suppression system such as lowering the oxygen content of the air enough to stop the fire.</p>
+<p>All critical systems in a datacenter (power, cooling, fire suppression systems) are usually built in a redundant fashion because the loss of either of those systems will potentially mean a complete shutdown for the datacenter. Datacenter operators usually have further contingency plans in place, too, such as a UPS (battery) system, diesel generator, fuel truck on standby, hotline to the fire department, etc. to make sure the datacenter can keep its required uptime.</p>
+<p>On the networking side of things, matters get slightly more complicated. Some datacenter providers also offer you the ability to use their network uplink (also redundant), but larger customers will prefer to host their own networking equipment and negotiate their own internet uplink contracts. Since there is no generic rule for how datacenters handle this, we will dispense with a description.</p>
+<p>It is also worth noting that larger customers (banks, cloud providers, etc) usually prefer to have their own racks in a separated gated area called a “cage” to which they control access.</p>
 <h3 id="the_anatomy_of_the_internet">The Anatomy of the Internet<a class="headerlink" href="#the_anatomy_of_the_internet" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -776,38 +739,21 @@ a separated gated area called a “cage” to which they control access.</p>
 <li>16 global providers form the backbone of the internet (tier 1).</li>
 </ul>
 </div>
-<p>Once the physical infrastructure is set up there is also the question of how to connect to the Internet. As mentioned
-before, networks can be very complicated and there is no one size fits all solution. Smaller customers will typically
-use the network infrastructure provided by the datacenter while larger customers will host their own network equipment.</p>
+<p>Once the physical infrastructure is set up there is also the question of how to connect to the Internet. As mentioned before, networks can be very complicated and there is no one size fits all solution. Smaller customers will typically use the network infrastructure provided by the datacenter while larger customers will host their own network equipment.</p>
 <p><img alt="A diagram showing a typical datacenter networking setup." src="/lectures/1-cloud-intro/datacenter-cabling.svg"/></p>
-<p>Again, generally speaking racks will be equipped with a Top-of-Rack switch to provide
-<a href="https://en.wikipedia.org/wiki/Data_link_layer">layer 2 (Ethernet)</a> connectivity between servers. Several ToR may have
-interconnects between each other and are usually connected to one or more routers. Routers provide
-<a href="https://en.wikipedia.org/wiki/Network_layer">layer 3 (IP)</a> routing to other customers in the same datacenter,
-<a href="https://en.wikipedia.org/wiki/Internet_exchange_point">internet exchange</a>, or may be connected via dedicated fiber to
-another provider.</p>
+<p>Again, generally speaking racks will be equipped with a Top-of-Rack switch to provide <a href="https://en.wikipedia.org/wiki/Data_link_layer">layer 2 (Ethernet)</a> connectivity between servers. Several ToR may have interconnects between each other and are usually connected to one or more routers. Routers provide <a href="https://en.wikipedia.org/wiki/Network_layer">layer 3 (IP)</a> routing to other customers in the same datacenter, <a href="https://en.wikipedia.org/wiki/Internet_exchange_point">internet exchange</a>, or may be connected via dedicated fiber to another provider.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are not familiar with computer networks we recommend giving the
-<a href="https://geek-university.com/ccna/computer-network-explained/">Geek University CCNA course a quick read</a>.
-While you will not need everything, you <strong>will</strong> have to understand how IP addresses, netmasks, etc work in order to
-pass this course. </p>
+<p>If you are not familiar with computer networks we recommend giving the <a href="https://geek-university.com/ccna/computer-network-explained/">Geek University CCNA course a quick read</a>. While you will not need everything, you <strong>will</strong> have to understand how IP addresses, netmasks, etc work in order to pass this course. </p>
 </div>
-<p>Providers on the internet exchange data about which network they are hosting using the
-<a href="https://en.wikipedia.org/wiki/Border_Gateway_Protocol">Border Gateway Protocol</a>. Each provider's router announces the
-IP address ranges they are hosting to their peer providers, who in turn forward these announcements in an aggregated
-form to other providers.</p>
-<p>Providers have agreements with each other, or with an Internet Exchange, about exchanging a certain amount of traffic.
-These agreements may be paid if the traffic is very asymmetric or one provider is larger than the other. Alternatively
-providers can come to an arrangement to exchange traffic for free. Internet exchanges facilitate the exchange between
-many providers for a modest fee allowing cost-effective exchange of data. Depending on the exchange the rules are 
-different. Local exchanges, for example, may only allow advertising local (in-country) addresses, while others are built
-for a specific purpose.</p>
-<p>Generally speaking providers can be classified into 3 categories. Tier 1 providers are the global players that are 
-present on every continent. They form the backbone of the Internet. At the time of writing there are
-<a href="https://en.wikipedia.org/wiki/Tier_1_network">16 such networks</a>. Tier 2 are the providers who are directly connected
-to the tier 1 providers, while tier 3 is everyone else.</p>
+<p>Providers on the internet exchange data about which network they are hosting using the <a href="https://en.wikipedia.org/wiki/Border_Gateway_Protocol">Border Gateway Protocol</a>. Each provider's router announces the IP address ranges they are hosting to their peer providers, who in turn forward these announcements in an aggregated form to other providers.</p>
+<p>Providers have agreements with each other, or with an Internet Exchange, about exchanging a certain amount of traffic. These agreements may be paid if the traffic is very asymmetric or one provider is larger than the other. Alternatively
+providers can come to an arrangement to exchange traffic for free. Internet exchanges facilitate the exchange between many providers for a modest fee allowing cost-effective exchange of data. Depending on the exchange the rules are 
+different. Local exchanges, for example, may only allow advertising local (in-country) addresses, while others are built for a specific purpose.</p>
+<p>Generally speaking providers can be classified into 3 categories. Tier 1 providers are the global players that are present on every continent. They form the backbone of the Internet. At the time of writing there are
+<a href="https://en.wikipedia.org/wiki/Tier_1_network">16 such networks</a>. Tier 2 are the providers who are directly connected to the tier 1 providers, while tier 3 is everyone else.</p>
 <p><img alt="An illustration of how internet providers are connected. In this example Global A and Global B are two providers which are connected in the same level, Local A and Local B are connected to Global A, while Local C is connected to Global B. Local A and Local B also exchange data directly and Local B and C exchange data over a local internet exchange. The example datacenter customer is connected to Local B." src="/lectures/1-cloud-intro/internet-tiers.svg"/></p>
+<div class="admonition question"><p class="admonition-title">Given there are 3 providers A, B, and C. B is connected to A and C, but A and C are not directly connected. Which of the following is true?</p><div class="quiz__answers"><div class="quiz__answer"><input id="b00cbb98-75ee-492f-b5ed-ed234a272957" type="checkbox"><label data-incorrect="" for="b00cbb98-75ee-492f-b5ed-ed234a272957"> A and C directly exchange IP address range information via BGP.</label></input></div><div class="quiz__answer"><input id="6a4bf940-bc49-456a-a0a6-1cdc50f0f6fa" type="checkbox"/><label data-correct="" for="6a4bf940-bc49-456a-a0a6-1cdc50f0f6fa"> A and B directly exchange IP address range information via BGP.</label></div><div class="quiz__answer"><input id="8b6a48c1-b443-4ce5-9837-27d9944654ce" type="checkbox"/><label data-correct="" for="8b6a48c1-b443-4ce5-9837-27d9944654ce"> B and C directly exchange IP address range information via BGP.</label></div><div class="quiz__answer"><input id="a672dd61-bbc8-4bc3-acc0-816ae984cda2" type="checkbox"/><label data-incorrect="" for="a672dd61-bbc8-4bc3-acc0-816ae984cda2"> A and C cannot communicate.</label></div><div class="quiz__answer"><input id="30303f82-9272-4567-b53e-05f456463f96" type="checkbox"/><label data-correct="" for="30303f82-9272-4567-b53e-05f456463f96"> A and C can communicate.</label></div><div class="quiz__answer"><input id="96a3d36c-c7c7-4b9e-91d3-9965bc2f60cb" type="checkbox"/><label data-incorrect="" for="96a3d36c-c7c7-4b9e-91d3-9965bc2f60cb"> A forwards IP address range information from B to C</label></div><div class="quiz__answer"><input id="a0da13eb-5eba-48a1-83c6-0419d1664811" type="checkbox"/><label data-incorrect="" for="a0da13eb-5eba-48a1-83c6-0419d1664811"> A forwards IP address range information from C to B</label></div><div class="quiz__answer"><input id="48ede3c2-0b28-4706-b743-79816d84d0a7" type="checkbox"/><label data-correct="" for="48ede3c2-0b28-4706-b743-79816d84d0a7"> B forwards IP address range information from A to C</label></div><div class="quiz__answer"><input id="9f66aacd-92dc-4ca1-bdde-25be3b8d13f5" type="checkbox"/><label data-correct="" for="9f66aacd-92dc-4ca1-bdde-25be3b8d13f5"> B forwards IP address range information from C to A</label></div><div class="quiz__answer"><input id="5f60cd75-0999-4720-9f0b-051e290e7f3b" type="checkbox"/><label data-incorrect="" for="5f60cd75-0999-4720-9f0b-051e290e7f3b"> C forwards IP address range information from A to B</label></div><div class="quiz__answer"><input id="c33be4f4-dea5-4a8b-b7ec-bbb1d7d3f7b3" type="checkbox"/><label data-incorrect="" for="c33be4f4-dea5-4a8b-b7ec-bbb1d7d3f7b3"> C forwards IP address range information from B to A</label></div></div></div>
 <h3 id="software_stack">Software Stack<a class="headerlink" href="#software_stack" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -819,36 +765,20 @@ to the tier 1 providers, while tier 3 is everyone else.</p>
 <li>Application.</li>
 </ul>
 </div>
-<p>The purpose of all this is, of course, to run an application. Each server hosts an operating system which is 
-responsible for managing the hardware. Operating systems provide a simplified API for applications to do
-hardware-related operations such as dealing with files or talking to the network. This part of the operating system is
-called the kernel. Other parts form the userland. The userland includes user applications such as a logging software.
-Specifically on Linux and Unix systems the userland also contains a package manager used to install other software.</p>
-<p>Modern x86 server CPUs (and some desktop CPUs) also have a number of features that help with virtualization.
-Virtualization lets the server administrator run multiple guest operating systems efficiently and share the
-server resources between them.</p>
+<p>The purpose of all this is, of course, to run an application. Each server hosts an operating system which is responsible for managing the hardware. Operating systems provide a simplified API for applications to do hardware-related operations such as dealing with files or talking to the network. This part of the operating system is called the kernel. Other parts form the userland. The userland includes user applications such as a logging software. Specifically on Linux and Unix systems the userland also contains a package manager used to install other software.</p>
+<p>Modern x86 server CPUs (and some desktop CPUs) also have a number of features that help with virtualization. Virtualization lets the server administrator run multiple guest operating systems efficiently and share the server resources between them.</p>
 <div class="admonition tip">
 <p class="admonition-title">Did you know?</p>
-<p>You can find out if an Intel CPU supports hardware virtualization by looking for the <code>VT-x</code> feature on the
-<a href="https://ark.intel.com/content/www/us/en/ark.html#@Processors">Intel ARK</a>. Unfortunately AMD does not have an easy
-to use list but you can look for the <code>AMD-V</code> feature on AMD CPUs.</p>
+<p>You can find out if an Intel CPU supports hardware virtualization by looking for the <code>VT-x</code> feature on the <a href="https://ark.intel.com/content/www/us/en/ark.html#@Processors">Intel ARK</a>. Unfortunately AMD does not have an easy to use list but you can look for the <code>AMD-V</code> feature on AMD CPUs.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Virtualization is different from containerization (which we will talk about later) in that with virtualization each
-guest operating system has its own kernel whereas containers share a kernel between them.</p>
-<p><img alt="" src="/lectures/1-cloud-intro/virtualization-containers.svg"/></p>
+<p>Virtualization is different from containerization (which we will talk about later) in that with virtualization each guest operating system has its own kernel whereas containers share a kernel between them.</p>
+<p><img alt='An image showing the difference between containers and virtual machines. At the bottom of the image there is a box labeled "Hardware". On top of the hardware there is a colored box symbolizing the virtual machine. Inside the virtual machine there is another box labeled "Kernel", and on top of that there are two boxes labeled "Application. On the other side there is a similar setup on top of "Hardware", but in this case only the "Application" box is highlighted symbolizing a container.' src="/lectures/1-cloud-intro/virtualization-containers.svg"/></p>
 </div>
-<p>There is one more important aspect of finally getting an application to run: the runtime environment. Except for a few
-rare occasions applications need a runtime environment. If the application is compiled to machine code they still need
-so-called shared libraries. Shared libraries are common across multiple applications and can be installed and
-updated independently from the application itself. This makes for a more efficient update process, but also means
-that the right set of libraries need to be installed for applications.</p>
-<p>If the applications are written higher level languages like Java, Javascript, PHP, etc. they need the appropriate
-runtime environment for that language.</p>
-<p>One notable exception to the runtime environment requirement is the programming language <a href="https://golang.org/">Go</a>. Go
-compiles everything normally located in libraries into a single binary along with the application. This makes it
-exceptionally simple to deploy Go applications into containers.</p>
+<p>There is one more important aspect of finally getting an application to run: the runtime environment. Except for a few rare occasions applications need a runtime environment. If the application is compiled to machine code they still need so-called shared libraries. Shared libraries are common across multiple applications and can be installed and updated independently from the application itself. This makes for a more efficient update process, but also means that the right set of libraries need to be installed for applications.</p>
+<p>If the applications are written higher level languages like Java, Javascript, PHP, etc. they need the appropriate runtime environment for that language.</p>
+<p>One notable exception to the runtime environment requirement is the programming language <a href="https://golang.org/">Go</a>. Go compiles everything normally located in libraries into a single binary along with the application. This makes it exceptionally simple to deploy Go applications into containers.</p>
 <h3 id="the_cloud">The Cloud<a class="headerlink" href="#the_cloud" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -867,12 +797,8 @@ exceptionally simple to deploy Go applications into containers.</p>
 <li>SaaS service offerings typically include a managed service ready to be consumed by a non-technical end user.</li>
 </ul>
 </div>
-<p>All of the previously discussed things were available before the “cloud”. You could pay a provider to 
-give you access to a virtual machine where you could run your applications. What changed with the cloud, however, is
-the fact that you no longer had to write a support ticket for changed and everything became self service.</p>
-<p>The cloud age started with an infamous e-mail from <a href="https://en.wikipedia.org/wiki/Jeff_Bezos">Jeff Bezos</a> to his
-engineers in 2002 forcing them to use APIs to exchange data between teams. The exact e-mail is no longer available but
-it went along these lines:</p>
+<p>All of the previously discussed things were available before the “cloud”. You could pay a provider to give you access to a virtual machine where you could run your applications. What changed with the cloud, however, is the fact that you no longer had to write a support ticket for changed and everything became self service.</p>
+<p>The cloud age started with an infamous e-mail from <a href="https://en.wikipedia.org/wiki/Jeff_Bezos">Jeff Bezos</a> to his engineers in 2002 forcing them to use APIs to exchange data between teams. The exact e-mail is no longer available but it went along these lines:</p>
 <blockquote>
 <p>1) All teams will henceforth expose their data and functionality through service interfaces.</p>
 <p>2) Teams must communicate with each other through these interfaces.</p>
@@ -884,35 +810,35 @@ interface calls over the network.</p>
 say, the team must plan and design to be able to expose the interface to developers in the outside world. No exceptions.</p>
 <p>6) Anyone who doesn’t do this will be fired.</p>
 </blockquote>
-<p>This marked the beginning of Amazon Web Services the first and also the most successful public cloud offering. The first
-public release of AWS was in 2004 with SQS their message queue service, and got completely overhauled in 2006 where the
+<p>This marked the beginning of Amazon Web Services the first and also the most successful public cloud offering. The first public release of AWS was in 2004 with SQS their message queue service, and got completely overhauled in 2006 where the
 Elastic Compute (EC2) and the Simple Storage Service (S3) service made its first public appearance.</p>
-<p>The APIs provided by cloud providers allow for a large amount of flexibility. If new servers are needed they can be
-launched within a few minutes. If there are too many servers they can be deleted. The same goes for other services: 
-with the API (and the appropriate billing model) comes flexibility to adapt to change.</p>
-<p>The other factor that makes it easy to adapt to change is of course the fact that these services are managed. The 
-cloud customer doesn't need to hire a team of engineers to build a database service, for example, it can be consumed
-without knowing how exactly the database is set up. </p>
-<p>Generally speaking, cloud services can be classified into three categories: Infrastructure as a Service (IaaS) providing
-virtual machines and network infrastructure, Platform as a Service (PaaS) offering services for developers to use, and
-Software as a Service (SaaS) offering end-user services.</p>
+<p>The APIs provided by cloud providers allow for a large amount of flexibility. If new servers are needed they can be launched within a few minutes. If there are too many servers they can be deleted. The same goes for other services: with the API (and the appropriate billing model) comes flexibility to adapt to change.</p>
+<p>The other factor that makes it easy to adapt to change is of course the fact that these services are managed. The cloud customer doesn't need to hire a team of engineers to build a database service, for example, it can be consumed without knowing how exactly the database is set up.</p>
+<p>If you want a consice description of what cloud computing is the US National Institute for Standards and Technologies has described cloud computing in <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf">publication 800-145</a> as follows:</p>
+<blockquote>
+<p>Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction.</p>
+</blockquote>
+<p>In more detail, NIST has defined the following characteristics:</p>
+<ol>
+<li>On-demand self-service.</li>
+<li>Broad network access.</li>
+<li>Resource pooling.</li>
+<li>Rapid elasticity.</li>
+<li>Measured service.</li>
+</ol>
+<p>Generally speaking, cloud services can be classified into three categories: Infrastructure as a Service (IaaS) providing virtual machines and network infrastructure, Platform as a Service (PaaS) offering services for developers to use, and Software as a Service (SaaS) offering end-user services. This is also described in the above NIST publication.</p>
 <p><img alt="A comparison of different cloud models. With self-managed the customer needs to take care of the application, runtime, operating, system, virtualization, hardware, network, power, cooling, fire suppression, and housing. With IaaS onl the application, runtime, and the operating system. With PaaS the customer only takes care of the application. With SaaS the customer takes care of nothing and only consumes the service." src="/lectures/1-cloud-intro/cloud-comparison.svg"/> </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>SaaS will not be discussed in this course.</p>
 </div>
+<div class="admonition question"><p class="admonition-title">Which of the following can be considered cloud providers?</p><div class="quiz__answers"><div class="quiz__answer"><input id="8bc064de-2219-47a3-b62b-c1ff0834e9cc" type="checkbox"/><label data-incorrect="" for="8bc064de-2219-47a3-b62b-c1ff0834e9cc"> An in-house team that provides you with virtual machines when requested via ticket.</label></div><div class="quiz__answer"><input id="8f070798-199e-4750-8ac9-354d882c4345" type="checkbox"/><label data-incorrect="" for="8f070798-199e-4750-8ac9-354d882c4345"> A company that providers virtual machines as a service that are billed on a per-month basis.</label></div><div class="quiz__answer"><input id="59009774-a676-4aeb-87b0-1822f0432e5f" type="checkbox"/><label data-incorrect="" for="59009774-a676-4aeb-87b0-1822f0432e5f"> A company that offers a databases as a service on a monthly basis.</label></div><div class="quiz__answer"><input id="03a02d9a-ba50-4a8e-919d-92bb389859e7" type="checkbox"/><label data-correct="" for="03a02d9a-ba50-4a8e-919d-92bb389859e7"> An in-house service where you and other in-house teams can create virtual machines via an API or user interface automatically.</label></div><div class="quiz__answer"><input id="913d8b7b-d88a-4c71-9c80-f090b52ab334" type="checkbox"/><label data-correct="" for="913d8b7b-d88a-4c71-9c80-f090b52ab334"> A company that provides video conversion on a per-video price upon upload.</label></div></div></div>
+<div class="admonition question"><p class="admonition-title">When determining if a company is a true cloud provider which of the following do you look for?</p><div class="quiz__answers"><div class="quiz__answer"><input id="d47a2150-8ac7-460f-ac44-c08203c08850" type="checkbox"/><label data-correct="" for="d47a2150-8ac7-460f-ac44-c08203c08850"> An API and/or user interface</label></div><div class="quiz__answer"><input id="487ff9cf-edc7-4066-90db-491deba55600" type="checkbox"/><label data-correct="" for="487ff9cf-edc7-4066-90db-491deba55600"> Can I create resources (servers, etc) immediately?</label></div><div class="quiz__answer"><input id="6533691a-782f-4f8b-a417-50f34b454fc8" type="checkbox"/><label data-correct="" for="6533691a-782f-4f8b-a417-50f34b454fc8"> Are my resources billed based on usage or per-minute/second</label></div></div></div>
 <h4 id="infrastructure_as_a_service_iaas">Infrastructure as a Service (IaaS)<a class="headerlink" href="#infrastructure_as_a_service_iaas" title="Permanent link">#</a></h4>
-<p>The most basic of cloud service offerings is IaaS. IaaS means that the cloud provider will manage the infrastructure
-used by the customer. Infrastructure in this sense means the ability to manage (provision, start,stop) virtual machines.
-In very rare cases some providers also offer “bare metal” machines in this fashion. However, most bare metal
-providers do not offer a true IaaS as machines cannot be ordered using an API, have an up-front fee and are billed on a
-monthly basis.</p>
-<p>IaaS also includes the network connectivity to the Internet. Almost all IaaS providers also offer a built-in firewall,
-virtual private networks (VPC) that can be used to connect virtual machines together without sending the traffic over
-the Internet, and other network services.</p>
-<p>Note that network services can differ greatly. For example, some providers implement private networks on a regional
-basis while other providers offer private networks that can be used to connect virtual machines that are located in
-different regions. </p>
+<p>The most basic of cloud service offerings is IaaS. IaaS means that the cloud provider will manage the infrastructure used by the customer. Infrastructure in this sense means the ability to manage (provision, start,stop) virtual machines. In very rare cases some providers also offer “bare metal” machines in this fashion. However, most bare metal providers do not offer a true IaaS as machines cannot be ordered using an API, have an up-front fee and are billed on a monthly basis.</p>
+<p>IaaS also includes the network connectivity to the Internet. Almost all IaaS providers also offer a built-in firewall, virtual private networks (VPC) that can be used to connect virtual machines together without sending the traffic over the Internet, and other network services.</p>
+<p>Note that network services can differ greatly. For example, some providers implement private networks on a regional basis while other providers offer private networks that can be used to connect virtual machines that are located in different regions.</p>
+<div class="admonition question"><p class="admonition-title">Which of the following do you absolutely need to use an IaaS service?</p><div class="quiz__answers"><div class="quiz__answer"><input id="6483124a-186f-49cd-afc0-3e3e80cd848c" type="checkbox"/><label data-correct="" for="6483124a-186f-49cd-afc0-3e3e80cd848c"> DevOps engineers, Linux or Windows system administrators</label></div><div class="quiz__answer"><input id="87ea642e-e711-4916-87f6-349836a40a74" type="checkbox"/><label data-incorrect="" for="87ea642e-e711-4916-87f6-349836a40a74"> Developers</label></div><div class="quiz__answer"><input id="7679ebea-cd38-4429-a36e-8f5b18958990" type="checkbox"/><label data-incorrect="" for="7679ebea-cd38-4429-a36e-8f5b18958990"> Neither</label></div></div></div>
 <h4 id="managed_services_paas">Managed Services (PaaS)<a class="headerlink" href="#managed_services_paas" title="Permanent link">#</a></h4>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -925,30 +851,16 @@ different regions. </p>
 <li>If problems arise they can be hard to debug.</li>
 </ul>
 </div>
-<p>Apart from offering virtual machines and network infrastructure as a service many cloud providers also offer additional
-services that are typically used by developers such as managed databases. These services are managed in the sense that
-the developer does not need to run the operating system and the database software itself. However, the developer has to
-configure the database such that it works according to the needs of the application. The provider takes over duties like
-installing the service, making backups, monitoring, and restoring the service in case of an outage.</p>
+<p>Apart from offering virtual machines and network infrastructure as a service many cloud providers also offer additional services that are typically used by developers such as managed databases. These services are managed in the sense that the developer does not need to run the operating system and the database software itself. However, the developer has to configure the database such that it works according to the needs of the application. The provider takes over duties like installing the service, making backups, monitoring, and restoring the service in case of an outage.</p>
 <div class="admonition tip">
 <p class="admonition-title">Did you know?</p>
-<p>There are purely PaaS providers that do not offer IaaS, only a developer-friendly platform to run software on.
-Your run of the mill average PHP web hosting provider does qualify if you can order the service using an API. One
-notable example that rose to prominence is <a href="https://www.heroku.com/">Heroku</a>.</p>
+<p>There are purely PaaS providers that do not offer IaaS, only a developer-friendly platform to run software on. Your run of the mill average PHP web hosting provider does qualify if you can order the service using an API. One notable example that rose to prominence is <a href="https://www.heroku.com/">Heroku</a>.</p>
 </div>
-<p>The pricing of these managed services varies greatly but they usually follow the cloud model. Most cloud providers
-offer at least a low cost or even free entry version that has a small markup on top of the IaaS costs. </p>
-<p>The massive benefit of using these managed services is, of course, that you do not need to have in-house knowledge about
-how to operate them. You don't need an in-house database operator, you <em>“just”</em> need to know how to set up
-the database in the cloud. This lets your company focus on the core business they are trying to build and outsource the
-know-how required to build these services on top of the IaaS layer.</p>
-<p>As you might imagine managed servies also have downsides. Most importantly they present a clear vendor lock-in. This
-means that if you want to move to a different cloud provider you will have a hard time doing so if you are using one
-of the more specialized services. In other words the level of standardization across providers matters.</p>
-<p>It is also worth mentioning that managed services tend to work well for a large number of customers but a few number of
-customers can run into hard to debug problems. This debugging difficulty arises out of the inherent opacity of the
-services: you, the customer, don't see what's happening on the IaaS layer. If a database, for example, fills the
-available bandwidth may not be notified and are left guessing why your database misbehaves.</p>
+<p>The pricing of these managed services varies greatly but they usually follow the cloud model. Most cloud providers offer at least a low cost or even free entry version that has a small markup on top of the IaaS costs. </p>
+<p>The massive benefit of using these managed services is, of course, that you do not need to have in-house knowledge about how to operate them. You don't need an in-house database operator, you <em>“just”</em> need to know how to set up the database in the cloud. This lets your company focus on the core business they are trying to build and outsource the know-how required to build these services on top of the IaaS layer.</p>
+<p>As you might imagine managed servies also have downsides. Most importantly they present a clear vendor lock-in. This means that if you want to move to a different cloud provider you will have a hard time doing so if you are using one of the more specialized services. In other words the level of standardization across providers matters.</p>
+<p>It is also worth mentioning that managed services tend to work well for a large number of customers but a few number of customers can run into hard to debug problems. This debugging difficulty arises out of the inherent opacity of the services: you, the customer, don't see what's happening on the IaaS layer. If a database, for example, fills the available bandwidth may not be notified and are left guessing why your database misbehaves.</p>
+<div class="admonition question"><p class="admonition-title">Which of the following do you absolutely need to use a PaaS service?</p><div class="quiz__answers"><div class="quiz__answer"><input id="0bf75eb6-52e2-44ab-ae18-544c3b43bf6f" type="checkbox"/><label data-incorrect="" for="0bf75eb6-52e2-44ab-ae18-544c3b43bf6f"> DevOps engineers, Linux or Windows system administrators</label></div><div class="quiz__answer"><input id="fd18c228-184e-45c3-8f3c-a6f1f42029dc" type="checkbox"/><label data-correct="" for="fd18c228-184e-45c3-8f3c-a6f1f42029dc"> Developers</label></div><div class="quiz__answer"><input id="1e6f90b1-affb-43d1-a678-16c671494cbf" type="checkbox"/><label data-incorrect="" for="1e6f90b1-affb-43d1-a678-16c671494cbf"> Neither</label></div></div></div>
 <h3 id="business_models">Business Models<a class="headerlink" href="#business_models" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -959,43 +871,28 @@ available bandwidth may not be notified and are left guessing why your database 
 <li>Data volume is typically priced based on usage. Some providers charge for data volume even for internal traffic.</li>
 </ul>
 </div>
-<p>The flexibility of cloud providers comes from their usage-based pricing. This can vary depending on the type of service
-used. For example, virtual machines (IaaS) is typically priced on a per-second basis. When you start a virtual machine
-for only 5 minutes you will only pay for 5 minutes of runtime. This lets you optimize the usage costs of the cloud
-<em>if</em> you use <strong>automation</strong> to start and stop machines or services on demand.</p>
+<p>The flexibility of cloud providers comes from their usage-based pricing. This can vary depending on the type of service used. For example, virtual machines (IaaS) is typically priced on a per-second basis. When you start a virtual machine for only 5 minutes you will only pay for 5 minutes of runtime. This lets you optimize the usage costs of the cloud <em>if</em> you use <strong>automation</strong> to start and stop machines or services on demand.</p>
 <p>Typically the cost savings are realized in these scenarios:</p>
 <h4 id="on-off_usage">On-off usage<a class="headerlink" href="#on-off_usage" title="Permanent link">#</a></h4>
 <p><img alt="A graph showing zero usage with two spikes when the service is used." src="/lectures/1-cloud-intro/scaling-on-off.svg"/></p>
-<p>This usage type is typical for batch processing. Machines are only started when there is a workload (e.g. video
-conversion, machine learning training job, etc.) </p>
+<p>This usage type is typical for batch processing. Machines are only started when there is a workload (e.g. video conversion, machine learning training job, etc.) </p>
 <h4 id="growth_usage">Growth usage<a class="headerlink" href="#growth_usage" title="Permanent link">#</a></h4>
 <p><img alt="A graph showing exponential growth." src="/lectures/1-cloud-intro/scaling-growth.svg"/></p>
-<p>Projects that see a growth curve often opt to use a cloud provider as well since buying hardware in larger quantities
-typically takes 2-4 months.</p>
+<p>Projects that see a growth curve often opt to use a cloud provider as well since buying hardware in larger quantities typically takes 2-4 months.</p>
 <h4 id="sudden_spike_usage">Sudden spike usage<a class="headerlink" href="#sudden_spike_usage" title="Permanent link">#</a></h4>
 <p><img alt="A graph showing a sudden usage spike." src="/lectures/1-cloud-intro/scaling-spike.svg"/></p>
-<p>Cloud providers can also be useful if a service encounters a sudden load spike. This is typically the case for webshops
-around Black Friday and other sales events.</p>
+<p>Cloud providers can also be useful if a service encounters a sudden load spike. This is typically the case for webshops around Black Friday and other sales events.</p>
 <h4 id="periodic_spike_usage">Periodic spike usage<a class="headerlink" href="#periodic_spike_usage" title="Permanent link">#</a></h4>
 <p><img alt="A graph showing periodic spikes." src="/lectures/1-cloud-intro/scaling-periodic.svg"/></p>
 <p>Almost every service has usage spikes depending on the time of day. This can be used to scale the service up and down.</p>
 <h4 id="per-request_billing">Per-request billing<a class="headerlink" href="#per-request_billing" title="Permanent link">#</a></h4>
-<p>IaaS services are typically priced based on an allocated amount of resources determined at the start of the virtual
-machines. Some PaaS services also use this billing model. (Typically Databases as a Service.) Other PaaS services
-often opt for a per-request or a data volume based billing approach.</p>
+<p>IaaS services are typically priced based on an allocated amount of resources determined at the start of the virtual machines. Some PaaS services also use this billing model. (Typically Databases as a Service.) Other PaaS services often opt for a per-request or a data volume based billing approach.</p>
 <h4 id="cost_planning_with_the_cloud">Cost planning with the cloud<a class="headerlink" href="#cost_planning_with_the_cloud" title="Permanent link">#</a></h4>
-<p>Cost planning is an important part of the job of a cloud architect. Depending on the billing model the cloud provider
-adopts this can be fairly simple to almost impossible. As a rule of thumb the billing model of larger cloud providers
-(AWS, Azure, Google Cloud) is more complex than smaller cloud providers (DigitalOcean, Exoscale, Upcloud, etc).</p>
-<p>It is worth noting that data transfer is typically charged based on volume. Some cloud providers even charge for
-internal traffic between availability zones.</p>
+<p>Cost planning is an important part of the job of a cloud architect. Depending on the billing model the cloud provider adopts this can be fairly simple to almost impossible. As a rule of thumb the billing model of larger cloud providers (AWS, Azure, Google Cloud) is more complex than smaller cloud providers (DigitalOcean, Exoscale, Upcloud, etc).</p>
+<p>It is worth noting that data transfer is typically charged based on volume. Some cloud providers even charge for internal traffic between availability zones.</p>
 <h4 id="cost-comparison_with_on_premises_systems">Cost-comparison with on premises systems<a class="headerlink" href="#cost-comparison_with_on_premises_systems" title="Permanent link">#</a></h4>
-<p>One of the most important cases for cost analysis will be the comparison with on premises architecture. It is quite
-common to create a cost comparison where the investment required for a hardware purchase is compared with the cloud cost
-over 3 or 5 years.</p>
-<p>These comparisons can be quite misleading because they often don't contain any cost attribution for the required work
-and they also do not use the advantages of the cloud in terms of scaling. Without these factors a hardware purchase
-will almost always be cheaper when calculated over 5 years and be roughly equal when compared over 3 years. </p>
+<p>One of the most important cases for cost analysis will be the comparison with on premises architecture. It is quite common to create a cost comparison where the investment required for a hardware purchase is compared with the cloud cost over 3 or 5 years.</p>
+<p>These comparisons can be quite misleading because they often don't contain any cost attribution for the required work and they also do not use the advantages of the cloud in terms of scaling. Without these factors a hardware purchase will almost always be cheaper when calculated over 5 years and be roughly equal when compared over 3 years. </p>
 <h3 id="private_vs_public_cloud">Private vs. Public Cloud<a class="headerlink" href="#private_vs_public_cloud" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -1005,22 +902,14 @@ will almost always be cheaper when calculated over 5 years and be roughly equal 
 <li>Large cloud providers offer their services “in a box” to host yourself.</li>
 </ul>
 </div>
-<p>Most cloud applications will reside on a public cloud and be accessible from the Internet. However, for some usecases
-access over the public Internet is not desirable or even strictly forbidden by laws or regulations. In order cases
-companies may decide that it is their policy that certain systems must never be connected to the public Internet, or
-only connect via a self-hosted gateway.</p>
-<p>In these cases a private cloud is desirable to minimize the risk of cross-contamination or data exposure due to other
-tenants being on the same infrastructure. Such cross-contamination is not uncommon, for example in recent years there
-have been a litany of CPU bugs such as <a href="https://meltdownattack.com/">Meltdown and Spectre</a>.</p>
-<p>Public cloud providers have extended their offers to address these concerns. Their service offerings now include
-dedicated hypervisors to mitigate CPU bugs, the ability to
-<a href="https://aws.amazon.com/directconnect/">connect the cloud bypassing the Internet</a>, or <a href="https://aws.amazon.com/blogs/compute/introducing-amazon-api-gateway-private-endpoints/">accessing the cloud API's from
-a private network</a>. Some
-cloud providers even went as far offering a <a href="https://aws.amazon.com/outposts/">self-hosted setup</a> where the public
-cloud offering can be brought on-premises.</p>
-<p>These features, especially the connectivity-related features, also allow for the creation of a hybrid cloud where a
-traditional infrastructure can be connected to the cloud. This gives a company the ability to leverage the flexibility
-of the cloud but also keep static / legacy systems for financial or engineering reasons.</p>
+<p>Most cloud applications will reside on a <strong>public cloud</strong> and be accessible from the Internet. However, for some use cases access over the public Internet is not desirable or even strictly forbidden by laws or regulations. In order cases companies may decide that it is their policy that certain systems must never be connected to the public Internet, or only connect via a self-hosted gateway.</p>
+<p>In these cases a <strong>private cloud</strong> is desirable to minimize the risk of cross-contamination or data exposure due to other tenants being on the same infrastructure. Such cross-contamination is not uncommon, for example in recent years there have been a litany of CPU bugs such as <a href="https://meltdownattack.com/">Meltdown and Spectre</a>.</p>
+<p>A special form of a private cloud is a cloud offering that is dedicated to a special set of consumers, such as a research cloud with special hardware, or discounted rates for several research organizations or universities. The NIST classifies this as a <strong>community cloud</strong>.</p>
+<p>Public cloud providers have extended their offers to address these concerns. Their service offerings now include dedicated hypervisors to mitigate CPU bugs, the ability to <a href="https://aws.amazon.com/directconnect/">connect the cloud bypassing the Internet</a>, or <a href="https://aws.amazon.com/blogs/compute/introducing-amazon-api-gateway-private-endpoints/">accessing the cloud API's from a private network</a>. Some cloud providers even went as far offering a <a href="https://aws.amazon.com/outposts/">self-hosted setup</a> where the public cloud offering can be brought on-premises.</p>
+<p>These features, especially the connectivity-related features, also allow for the creation of a <strong>hybrid cloud</strong> where a traditional infrastructure can be connected to the cloud. This gives a company the ability to leverage the flexibility of the cloud but also keep static / legacy systems for financial or engineering reasons.</p>
+<p>While the definitions outlined by NIST and other organizations in this matter are clear, real life rarely is. In a real-world scenario you will find a wide range of mixes comprised from all of the above. To you as a cloud engineer it is more important to understand the benefits and drawbacks of each so you can make a good recommendation depending on the use case.</p>
+<div class="admonition question"><p class="admonition-title">What are the advantages of a public cloud?</p><div class="quiz__answers"><div class="quiz__answer"><input id="b7397f31-dfcf-4936-8019-afc17e52f402" type="checkbox"/><label data-correct="" for="b7397f31-dfcf-4936-8019-afc17e52f402"> Large amount of available resources</label></div><div class="quiz__answer"><input id="c861a062-a4a7-4da0-af69-07318980b9ec" type="checkbox"/><label data-incorrect="" for="c861a062-a4a7-4da0-af69-07318980b9ec"> Public clouds automatically solve scaling problems</label></div><div class="quiz__answer"><input id="20e3f7d0-21cd-4032-89c4-327be2b292c0" type="checkbox"/><label data-incorrect="" for="20e3f7d0-21cd-4032-89c4-327be2b292c0"> They are always cheaper than private clouds</label></div></div></div>
+<div class="admonition question"><p class="admonition-title">What are the advantages of a private cloud?</p><div class="quiz__answers"><div class="quiz__answer"><input id="52eb7921-2931-448f-a574-5bd4fac990e1" type="checkbox"/><label data-correct="" for="52eb7921-2931-448f-a574-5bd4fac990e1"> Greater protection against hardware-bound attacks</label></div><div class="quiz__answer"><input id="2b2fd7e2-3c2d-4383-b103-cdaf38c6f746" type="checkbox"/><label data-correct="" for="2b2fd7e2-3c2d-4383-b103-cdaf38c6f746"> Easier interconnect with an on-premises environment</label></div><div class="quiz__answer"><input id="f7ca9404-a959-47a7-a2f7-1592e36035d1" type="checkbox"/><label data-incorrect="" for="f7ca9404-a959-47a7-a2f7-1592e36035d1"> They are always hosted on-premises</label></div></div></div>
 <h3 id="automation">Automation<a class="headerlink" href="#automation" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -1033,26 +922,14 @@ of the cloud but also keep static / legacy systems for financial or engineering 
   (e.g. Terraform).</li>
 </ul>
 </div>
-<p>As you can see from the previous sections cloud computing doesn't necessarily make it simpler to deploy an application.
-In this regard setting up a server and not documenting it is the same as setting up a cloud and not documenting it. In
-the end in both cases modifications will be hard to carry out later since details of the implementation are lost.</p>
-<p>It will also be hard to create a near-identical copy of the environment for development, testing, etc. purposes. This is
-partially due to the lack of documentation, and partially because of the manual work involved. In the past this problem
-was addressed by <em>cloning</em> virtual machines which was an approach with limited success as customizations were hard to
-make.</p>
-<p>The rise of API's brought a much welcome change: automation tools such as Puppet, Ansible and Terraform not only 
-<em>automate</em> the installation of a certain software but also <em>document</em> how the setup works.</p>
-<p>When engineers first go into automation they tend to reserve a part of the work to be done manually. For example they
-might use Ansible to create virtual machines and install some basic tools and install the rest of the software stack
-by hand. This approach is workable where the software stack cannot be automated but should be avoided for software
-where this is not the case as the lack of automation usually also means a lack of documentation as described above.</p>
-<p>Automation tools are also not equally suited for each task. Terraform, for example, expects full control of the
-infrastructure that is created by it. Manual installation steps afterwards are not supported. This approach gives 
-Terraform the advantage that it can also <em>remove</em> the infrastructure it creates. Removing the infrastructure is 
-paramount when there are multiple temporary environments deployed such as a dev or testing environment.</p>
-<p>Ansible, on the other hand, allows for manual changes but does not automatically implement a tear-down procedure for
-the environment that has been created. This makes Ansible environments, and Ansible code harder to test and maintain but
-more suited for environments where traditional IT is still a concern.    </p>
+<p>As you can see from the previous sections cloud computing doesn't necessarily make it simpler to deploy an application. In this regard setting up a server and not documenting it is the same as setting up a cloud and not documenting it. In the end in both cases modifications will be hard to carry out later since details of the implementation are lost.</p>
+<p>It will also be hard to create a near-identical copy of the environment for development, testing, etc. purposes. This is partially due to the lack of documentation, and partially because of the manual work involved. In the past this problem was addressed by <em>cloning</em> virtual machines which was an approach with limited success as customizations were hard to make.</p>
+<p>The rise of API's brought a much welcome change: automation tools such as Puppet, Ansible and Terraform not only <em>automate</em> the installation of a certain software but also <em>document</em> how the setup works.</p>
+<p>When engineers first go into automation they tend to reserve a part of the work to be done manually. For example they might use Ansible to create virtual machines and install some basic tools and install the rest of the software stack by hand. This approach is workable where the software stack cannot be automated but should be avoided for software where this is not the case as the lack of automation usually also means a lack of documentation as described above.</p>
+<p>Automation tools are also not equally suited for each task. Terraform, for example, expects full control of the infrastructure that is created by it. Manual installation steps afterwards are not supported. This approach gives Terraform the advantage that it can also <em>remove</em> the infrastructure it creates. Removing the infrastructure is paramount when there are multiple temporary environments deployed such as a dev or testing environment.</p>
+<p>Ansible, on the other hand, allows for manual changes but does not automatically implement a tear-down procedure for the environment that has been created. This makes Ansible environments, and Ansible code harder to test and maintain, but more suited for environments where traditional IT is still a concern.    </p>
+<div class="admonition question"><p class="admonition-title">When would you use Ansible?</p><div class="quiz__answers"><div class="quiz__answer"><input id="81c422bd-2203-40b8-8333-d846f5779fe3" type="checkbox"/><label data-incorrect="" for="81c422bd-2203-40b8-8333-d846f5779fe3"> I can use Terraform only once I already have my virtual machines installed.</label></div><div class="quiz__answer"><input id="fca6390d-ff3e-4e73-8cbf-0e34ac88725a" type="checkbox"/><label data-correct="" for="fca6390d-ff3e-4e73-8cbf-0e34ac88725a"> I can use Ansible to partially manage a server and manually configure other parts.</label></div><div class="quiz__answer"><input id="a75336a2-dfcd-49c6-8d1d-37dca95b7506" type="checkbox"/><label data-correct="" for="a75336a2-dfcd-49c6-8d1d-37dca95b7506"> I can use Ansible to fully manage my cloud environment.</label></div></div></div>
+<div class="admonition question"><p class="admonition-title">When would you use Terraform?</p><div class="quiz__answers"><div class="quiz__answer"><input id="4a2677e4-abcf-4b0d-a828-18acbaa9f2f3" type="checkbox"/><label data-incorrect="" for="4a2677e4-abcf-4b0d-a828-18acbaa9f2f3"> I can use it to install servers and then install the software manually.</label></div><div class="quiz__answer"><input id="244daecc-2f97-4977-a800-12d04fed3b05" type="checkbox"/><label data-correct="" for="244daecc-2f97-4977-a800-12d04fed3b05"> I can use Terraform to implement immutable infrastructure.</label></div><div class="quiz__answer"><input id="dbd18ac9-dc1f-47e5-8a34-ecf927dd9cf5" type="checkbox"/><label data-incorrect="" for="dbd18ac9-dc1f-47e5-8a34-ecf927dd9cf5"> I can use Terraform only install software within a virtual machine.</label></div></div></div>
 <h3 id="regulation">Regulation<a class="headerlink" href="#regulation" title="Permanent link">#</a></h3>
 <div class="admonition tldr">
 <p class="admonition-title">In a hurry?</p>
@@ -1084,12 +961,9 @@ more suited for environments where traditional IT is still a concern.    </p>
 </ul>
 </div>
 <h4 id="general_data_protection_regulation_gdpr_eu">General Data Protection Regulation (G.D.P.R., EU)<a class="headerlink" href="#general_data_protection_regulation_gdpr_eu" title="Permanent link">#</a></h4>
-<p>The GDPR (or DSGVO in German-speaking countries) is the general overhaul of privacy protections in the EU. The GDPR
-replaces much of the previously country-specific privacy protections present in the EU.</p>
+<p>The GDPR (or DSGVO in German-speaking countries) is the general overhaul of privacy protections in the EU. The GDPR replaces much of the previously country-specific privacy protections present in the EU.</p>
 <h5 id="jurisdiction">Jurisdiction<a class="headerlink" href="#jurisdiction" title="Permanent link">#</a></h5>
-<p>The GDPR applies to all companies that deal with the data of EU citizens around the globe. This is made possible by 
-trade agreements previously already in place. All companies that handle the data of EU citizens even if the companies
-are not located in the EU.</p>
+<p>The GDPR applies to all companies that deal with the data of EU citizens around the globe. This is made possible by trade agreements previously already in place. All companies that handle the data of EU citizens even if the companies are not located in the EU.</p>
 <h5 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">#</a></h5>
 <ul>
 <li><strong>Data subject:</strong> the person whose data is being handled.</li>
@@ -1101,28 +975,17 @@ are not located in the EU.</p>
   <strong>data processing agreement</strong> (DPA) with the data controller. IaaS and PaaS cloud providers are data processors.</li>
 </ul>
 <h5 id="purposes_of_data_processing">Purposes of data processing<a class="headerlink" href="#purposes_of_data_processing" title="Permanent link">#</a></h5>
-<p>One new limitation the GDPR brings to privacy regulation is the fact that there are fundamental limits to data
-processing. You, the data controller, cannot simply collect data for one purpose and then use that same data for
-another purpose. The purposes to which data is collected have to be clearly defined and in several cases the data
-subject has to provide their explicit consent. (In other words it is not enough to add a text to the signup form that
-says that they agree to everything all at once.)</p>
+<p>One new limitation the GDPR brings to privacy regulation is the fact that there are fundamental limits to data processing. You, the data controller, cannot simply collect data for one purpose and then use that same data for another purpose. The purposes to which data is collected have to be clearly defined and in several cases the data subject has to provide their explicit consent. (In other words it is not enough to add a text to the signup form that says that they agree to everything all at once.)</p>
 <p>Legal grounds to data processing are detailed in
 <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN#d1e1888-1-1">Article 6 of the GDPR</a>.
 These are:</p>
 <ol>
 <li>If the data subject has <strong>given their explicit consent</strong> to process their data for a specific purpose.</li>
-<li>If the processing is necessary to <strong>perform a contract</strong> with the data subject. In other words you do not need
-   additional consent if you are processing data in order to fulfill a service to the data subject.</li>
-<li>To perform a <strong>legal obligation</strong>. For example, you have to keep an archive of your invoices to show in case of
-   a tax audit.</li>
+<li>If the processing is necessary to <strong>perform a contract</strong> with the data subject. In other words you do not need additional consent if you are processing data in order to fulfill a service to the data subject.</li>
+<li>To perform a <strong>legal obligation</strong>. For example, you have to keep an archive of your invoices to show in case of a tax audit.</li>
 <li>To protect the <strong>vial interests of the data subject or another natural person</strong>.</li>
-<li>To perform a task which is in the <strong>public interest</strong>, or if an official authority has been vested in the data
-   controller.</li>
-<li>For the purposes of a <strong>legitimate interest</strong> of the data controller (with exceptions). This might seem like a
-   catch-all but courts have defined legitimate interests very narrowly. The data controller must show that the
-   legitimate interest exists and cannot be achieved in any other way than with the data processing in question.
-   One good example for the legitimate interests clause would be a webshop that is collecting data about their visitors
-   in order to spot fraudulent orders.</li>
+<li>To perform a task which is in the <strong>public interest</strong>, or if an official authority has been vested in the data controller.</li>
+<li>For the purposes of a <strong>legitimate interest</strong> of the data controller (with exceptions). This might seem like a catch-all but courts have defined legitimate interests very narrowly. The data controller must show that the legitimate interest exists and cannot be achieved in any other way than with the data processing in question. One good example for the legitimate interests clause would be a webshop that is collecting data about their visitors in order to spot fraudulent orders.</li>
 </ol>
 <h5 id="data_subjects_rights">Data subjects' rights<a class="headerlink" href="#data_subjects_rights" title="Permanent link">#</a></h5>
 <p><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN#d1e2161-1-1">Chapter 3 of the GDPR</a>
@@ -1141,49 +1004,25 @@ deals with the rights of the data subject. These are:</p>
 </ul>
 </li>
 <li><strong>The right to fix incorrect data.</strong></li>
-<li><strong>The right of deletion.</strong> <em>“The right to be forgotten.”</em>
-   This right puts several architectural limites on cloud systems as, for example, backups must be built in such a way
-   that deletion requests are repeated after a restore. Note that this right is not without limits, legal obligations,
-   for example, override it.</li>
-<li><strong>The right to restrict processing.</strong> If a deletion cannot be requested the data subject can request that their data
-   should only be processed to the purposes that are strictly required.</li>
+<li><strong>The right of deletion.</strong> <em>“The right to be forgotten.”</em> This right puts several architectural limits on cloud systems as, for example, backups must be built in such a way that deletion requests are repeated after a restore. Note that this right is not without limits, legal obligations, for example, override it.</li>
+<li><strong>The right to restrict processing.</strong> If a deletion cannot be requested the data subject can request that their data should only be processed to the purposes that are strictly required.</li>
 <li><strong>The right to data portability.</strong> The data subject has to be provided a copy of their data in a machine-readable form.</li>
 <li><strong>The right to object automated individual decision-making and profiling.</strong></li>
 </ol>
 <h5 id="data_breaches">Data breaches<a class="headerlink" href="#data_breaches" title="Permanent link">#</a></h5>
-<p><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN#d1e3373-1-1">Chapter IV Section 2</a>
-is probably the first legislation around the world that explicitly requires security of data processing from companies
-that handle personal data.
-<a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN#d1e3434-1-1">Article 33</a> of this
-chapter specifically requires that data breaches must be disclosed to the supervisory authorities. Supervisory
-authorities in turn have the right to impose fines up to 4% or 20.000.000 € of the global revenue of a company.</p>
-<p>This means that companies can no longer sweep data breaches under the rug and must spend resources to secure their
-data processing. In the scope of the cloud this means that our cloud environment has to be set up in a secure way to
-avoid data breaches.</p>
+<p><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN#d1e3373-1-1">Chapter IV Section 2</a> is probably the first legislation around the world that explicitly requires security of data processing from companies that handle personal data. <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN#d1e3434-1-1">Article 33</a> of this chapter specifically requires that data breaches must be disclosed to the supervisory authorities. Supervisory authorities in turn have the right to impose fines up to 4% or 20.000.000 € of the global revenue of a company.</p>
+<p>This means that companies can no longer sweep data breaches under the rug and must spend resources to secure their data processing. In the scope of the cloud this means that our cloud environment has to be set up in a secure way to avoid data breaches.</p>
 <h4 id="clarifying_lawful_overseas_use_of_data_act_cloud_2018_usa">Clarifying Lawful Overseas Use of Data Act (C.L.O.U.D., 2018, USA)<a class="headerlink" href="#clarifying_lawful_overseas_use_of_data_act_cloud_2018_usa" title="Permanent link">#</a></h4>
-<p>The CLOUD Act, or House Rule 4943 is the latest addition to the US legislation pertaining to cloud providers. This act
-says that <strong>a cloud provider must hand over data to US authorities if requested even if that data is stored in a
-different country.</strong></p>
-<p>This act has been widely criticized and is, according to several legal scholars, in contradiction of the GDPR. The large
-US cloud providers have opened up subsidiaries in the EU in order to try and shield their european customers from this
-act and a few purely EU cloud providers have also capitalized on this. It remains to be seen how effective this 
-move is. </p>
+<p>The CLOUD Act, or House Rule 4943 is the latest addition to the US legislation pertaining to cloud providers. This act says that <strong>a cloud provider must hand over data to US authorities if requested even if that data is stored in a different country.</strong></p>
+<p>This act has been widely criticized and is, according to several legal scholars, in contradiction of the GDPR. The large US cloud providers have opened up subsidiaries in the EU in order to try and shield their european customers from this act and a few purely EU cloud providers have also capitalized on this. It remains to be seen how effective this move is. </p>
 <h4 id="digital_millennium_copyright_act_dmca_1998_usa">Digital Millennium Copyright Act (D.M.C.A., 1998, USA)<a class="headerlink" href="#digital_millennium_copyright_act_dmca_1998_usa" title="Permanent link">#</a></h4>
-<p>The Digital Millenium Copyright Act clarifies how copyright works in the USA. Since the USA is part of the WIPO
-copyright treaty and a significant amount of providers are based in the USA nowadays all countries align themselves
-with the DMCA when it comes to dealing with online copyright infringement.</p>
-<p>Title II of the DMCA creates a safe harbor for online service providers against copyright infringement committed by
-their users. However, they have to remove infringing content as soon as they are properly notified of it via a DMCA
-takedown notice. The author of a DMCA takedown notice must swear by the penalty of perjury that they are, or are acting
-on behalf of the copyright owner. (If they were to make this pledge in bad faith they could end up in prison.)</p>
-<p>If the DMCA takedown notice has been sent erroneously the original uploader is free to send a counter-notification, also
-swearing under the penalty of perjury. In this case the provider notifies the original sender and restores the content.
-The original sender then has to take the uploader to court to pursue the matter further.</p>
+<p>The Digital Millenium Copyright Act clarifies how copyright works in the USA. Since the USA is part of the WIPO copyright treaty and a significant amount of providers are based in the USA nowadays all countries align themselves with the DMCA when it comes to dealing with online copyright infringement.</p>
+<p>Title II of the DMCA creates a safe harbor for online service providers against copyright infringement committed by their users. However, they have to remove infringing content as soon as they are properly notified of it via a DMCA takedown notice. The author of a DMCA takedown notice must swear by the penalty of perjury that they are, or are acting on behalf of the copyright owner. (If they were to make this pledge in bad faith they could end up in prison.)</p>
+<p>If the DMCA takedown notice has been sent erroneously the original uploader is free to send a counter-notification, also swearing under the penalty of perjury. In this case the provider notifies the original sender and restores the content. The original sender then has to take the uploader to court to pursue the matter further.</p>
 <h4 id="communications_decency_act_section_230_cda_1996_usa">Communications Decency Act, Section 230 (C.D.A., 1996, USA)<a class="headerlink" href="#communications_decency_act_section_230_cda_1996_usa" title="Permanent link">#</a></h4>
 <p>This section of of the CDA is very short:</p>
 <blockquote>
-<p>No provider or user of an interactive computer service shall be treated as the publisher or speaker of any information
-provided by another information content provider.</p>
+<p>No provider or user of an interactive computer service shall be treated as the publisher or speaker of any information provided by another information content provider.</p>
 </blockquote>
 <p>To someone not well versed in US legal lingo this may be sound like gibberish but it is, in fact, one of the most important pieces of legislation pertaining to operating platforms in the cloud.</p>
 <p>In US legal history the speaker or publisher of certain information is responsible for the information being provided. Before the CDA any provider hosting illegal content would be responsible for said content. The CDA changed that by shielding providers from liability. This included web hosting providers as well as newspapers that had a content section.</p>
@@ -1196,6 +1035,11 @@ proactively.</p>
 <p>The first SCC is <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32001D0497&amp;from=en">Decision 2001/497/EC</a> which states that both parties (you as the cloud user, and the cloud provider) are both jointly and severely liable for any data breaches.</p>
 <p>The second SCC is <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32004D0915">Decision 2004/915/EC</a> is more business friendly and merely makes sure that both the European party and the non-European party uphold their obligation to handle data with due care and implement protection measures. Shared liability would only apply if the terms of the SCC were breached. While this is a step forward, it is worth noting that this puts the responsibility <strong>on the cloud customer</strong> if the cloud provider breaches the terms by, for example, handing over data to US authorities covertly.</p>
 <p>The third SCC is <a href="https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32010D0087">Decision 2010/87/EU</a> and was <strong>adopted by Google and AWS</strong>, for example. It creates a safety net for the cloud provider by only requiring them to disclose requests by law enforcement if that would not put criminal liability on them. It also puts any liability for damages on the <em>cloud user</em> unless they, for example, went bankrupt. In that case the cloud provider is only responsible for their own operations, not those of the cloud user. In order words, <strong>you the cloud user are responsible for any breaches of data due to US law enforcement requests</strong>.</p>
+<div class="admonition question"><p class="admonition-title">Who is subject to the GDPR?</p><div class="quiz__answers"><div class="quiz__answer"><input id="6a075124-8aa3-4097-b20a-92142355a1e1" type="checkbox"/><label data-incorrect="" for="6a075124-8aa3-4097-b20a-92142355a1e1"> Any company located in the EU.</label></div><div class="quiz__answer"><input id="d34a1882-cb17-4737-8a97-3748f1a05dca" type="checkbox"/><label data-correct="" for="d34a1882-cb17-4737-8a97-3748f1a05dca"> Any company dealing with privately identifiable information of EU citizens world-wide.</label></div><div class="quiz__answer"><input id="95aee3c0-8da0-4fdc-a6db-4efe9663bf33" type="checkbox"/><label data-incorrect="" for="95aee3c0-8da0-4fdc-a6db-4efe9663bf33"> Any company world-wide.</label></div></div></div>
+<div class="admonition question"><p class="admonition-title">Does an EU citizen have an absolute right to have their data deleted?</p><div class="quiz__answers"><div class="quiz__answer"><input id="bbf8d405-3977-4745-84e2-66e608811417" type="checkbox"/><label data-incorrect="" for="bbf8d405-3977-4745-84e2-66e608811417"> Yes</label></div><div class="quiz__answer"><input id="910627f1-0562-4147-802b-23463e31c1d0" type="checkbox"/><label data-correct="" for="910627f1-0562-4147-802b-23463e31c1d0"> No</label></div></div></div>
+<div class="admonition question"><p class="admonition-title">As a EU-based company can you use US cloud providers to store privately identifiable information?</p><div class="quiz__answers"><div class="quiz__answer"><input id="26a26058-d0f5-4ad4-85ec-0734a7e21318" type="checkbox"/><label data-incorrect="" for="26a26058-d0f5-4ad4-85ec-0734a7e21318"> Yes, under the Privacy Shield.</label></div><div class="quiz__answer"><input id="8d81d25d-65be-40dc-a992-936fda1e8819" type="checkbox"/><label data-correct="" for="8d81d25d-65be-40dc-a992-936fda1e8819"> Yes, under the Standard Contract Clauses.</label></div><div class="quiz__answer"><input id="ffe39383-40d9-4a3c-87c4-390c7cf66657" type="checkbox"/><label data-incorrect="" for="ffe39383-40d9-4a3c-87c4-390c7cf66657"> Yes, but only if the data is stored in an EU datacenter.</label></div><div class="quiz__answer"><input id="1d0a4737-9cb4-43ce-9f79-345eca91b803" type="checkbox"/><label data-incorrect="" for="1d0a4737-9cb4-43ce-9f79-345eca91b803"> No.</label></div></div></div>
+<div class="admonition question"><p class="admonition-title">You are operating a mailing list and someone contacts you to that they want their PII removed. What are your options?</p><div class="quiz__answers"><div class="quiz__answer"><input id="eaebdae7-56df-4d44-871d-09548d02b2c9" type="checkbox"/><label data-incorrect="" for="eaebdae7-56df-4d44-871d-09548d02b2c9"> It is enough if I remove the mails sent by that individual.</label></div><div class="quiz__answer"><input id="e184e222-561c-4cea-8ff2-24da4775686a" type="checkbox"/><label data-correct="" for="e184e222-561c-4cea-8ff2-24da4775686a"> I have to redact or delete all information regarding that persons identity.</label></div><div class="quiz__answer"><input id="7781507a-9370-41c2-b880-0648dfbf3b86" type="checkbox"/><label data-incorrect="" for="7781507a-9370-41c2-b880-0648dfbf3b86"> I do not have to remove anything as archives fall under an exception.</label></div></div></div>
+<div class="admonition question"><p class="admonition-title">You are operating a webshop and a customer contacts you to remove all information about them. What do you have to remove?</p><div class="quiz__answers"><div class="quiz__answer"><input id="426e9548-2d43-4f00-b86a-fdd0ffe45cba" type="checkbox"/><label data-correct="" for="426e9548-2d43-4f00-b86a-fdd0ffe45cba"> I have to them from my marketing mailing list.</label></div><div class="quiz__answer"><input id="160033eb-f431-43f2-a86f-727208c35cdb" type="checkbox"/><label data-correct="" for="160033eb-f431-43f2-a86f-727208c35cdb"> I have to their user account.</label></div><div class="quiz__answer"><input id="a8e443a7-a476-4399-b799-bea0112fb501" type="checkbox"/><label data-incorrect="" for="a8e443a7-a476-4399-b799-bea0112fb501"> I have to delete their invoices.</label></div></div></div>
 </article>
 </div>
 </div>
