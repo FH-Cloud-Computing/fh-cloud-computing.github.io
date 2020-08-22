@@ -668,7 +668,11 @@
 <p>However, it makes very little sense for a small development team in a startup, using a homogeneous technology stack to use microservices. The changes are this team will be violating API boundaries all over the place and disregard the requirements for building a network-based distributed system.</p>
 <div class="admonition tip">
 <p class="admonition-title">Ask the Authors</p>
-<p>If you want a fun story about how microservices can go horribly wrong, ask the authors in the consulting sessions. </p>
+<p>If you want a fun story about how microservices can go horribly wrong, ask the authors in the consulting sessions.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Be careful!</p>
+<p>It is easy to go over-board with microservices to the point where you have more Kubernetes manifests than actual program code! Don't forget, you not only have to write them, but also deploy them. If you go for services that are too small or your team is ill-equipped to handle a large number of tiny services in production you may have one of the many horrible microservices failures on your hand.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Loosely typed languages</p>
