@@ -397,7 +397,7 @@
 <a href="fh-cloud-computing-lecture-4-containers.m4b"><button>Download M4B 🎧</button></a>
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
-<h1>Containers &amp; Kubernetes</h1>
+<h1>Containers &amp; Container Orchestrators</h1>
 <p>In the <a href="../2-iaas/">second lecture</a> we have talked about how applications interact with the kernel and the hardware. By now you know that applications running in ring 3 do not have direct access to things like the disk. To access those details they need to execute a <a href="https://en.wikipedia.org/wiki/System_call">system call</a> to the kernel. The kernel will then give the application the details required, for example a file from the disk.</p>
 <p>Let's play a hypothetical game: process A wants to access a file called <code>test.txt</code>. It calls the kernel, the file is opened, and process A is now free to read the contents. When process B comes along and does the same, it will receive the same file.</p>
 <p>Or does it? In the Linux kernel the filesystem root directory (starting with <code>/</code>) is a virtual construct that can be changed on a per-process basis. It is possible to make process A see a completely different folder structure then process B. This mechanism is called <a href="https://en.wikipedia.org/wiki/Chroot">chroot</a>. It is, in fact, so old that it predates Linux by more than a decade and was first present in Version 7 Unix in 1979.</p>
