@@ -281,6 +281,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#creating_a_virtual_machine_pool">
+    Creating a virtual machine pool
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#destroying_your_instances">
     Destroying your instances
   </a>
@@ -367,6 +372,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#creating_a_virtual_machine_pool">
+    Creating a virtual machine pool
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#destroying_your_instances">
     Destroying your instances
   </a>
@@ -386,7 +396,7 @@
 <a href="fh-cloud-computing-exercise-1-iaas.m4b"><button>Download M4B 🎧</button></a>
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
-<h1>Introduction to the Cloud</h1>
+<h1>Infrastructure as a Service</h1>
 <p>This exercise will guide you through the basics of setting up a cloud account, configuring your first firewall and configuring your first instance. Since the <a href="../../projectwork/">project work</a> is based on Exoscale this account will showcase using Exoscale. The principles shown here can be applied to any cloud provider.</p>
 <p>For the purposes of following this exercise please use the voucher provided. Remember, the voucher is limited to 20 euros, so destroy any resources you create for testing.</p>
 <h3 id="starting_your_first_instance">Starting your first instance<a class="headerlink" href="#starting_your_first_instance" title="Permanent link">#</a></h3>
@@ -457,6 +467,17 @@ Tip of the day:
 <p class="admonition-title">Be careful!</p>
 <p>If you store the user data script on a Windows machine it will do so with Windows line endings. This will not work on Linux systems. Make sure to use an editor that can save the script with Linux line endings.</p>
 </div>
+<h3 id="creating_a_virtual_machine_pool">Creating a virtual machine pool<a class="headerlink" href="#creating_a_virtual_machine_pool" title="Permanent link">#</a></h3>
+<p>Creating a virtual machine pool is very similar to creating an instance. Assuming you have saved your User Data script in a file called <code>userdata.sh</code> you can start a pool with 2 machines with the following command:</p>
+<div class="highlight"><pre><span></span><code>exo instancepool create autoscaling \
+    --service-offering Tiny \
+    --template "Linux Ubuntu 20.04 LTS 64-bit" \
+    --zone at-vie-1 \
+    --security-group autoscaling \
+    --cloud-init userdata.sh \
+    --disk 10 \
+    --size 2 
+</code></pre></div>
 <h3 id="destroying_your_instances">Destroying your instances<a class="headerlink" href="#destroying_your_instances" title="Permanent link">#</a></h3>
 <p>Once you are done with this exercise make sure to destroy your instances to save on the budget.</p>
 </article>
