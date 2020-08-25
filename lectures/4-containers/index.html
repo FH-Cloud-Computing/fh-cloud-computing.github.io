@@ -16,7 +16,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#macro_rendering_error">
+<a class="md-skip" href="#container_images">
           Skip to content
         </a>
 </div>
@@ -237,9 +237,43 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#macro_rendering_error">
-    Macro Rendering Error
+<a class="md-nav__link" href="#container_images">
+    Container images
   </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_container_lifecycle">
+    The container lifecycle
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#orchestration_swarm_kubernetes_etc">
+    Orchestration (Swarm, Kubernetes, etc)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#container_networking">
+    Container networking
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kubernetes">
+    Kubernetes
+  </a>
+<nav aria-label="Kubernetes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#developer_aspect">
+    Developer aspect
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture">
+    Architecture
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -347,9 +381,43 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#macro_rendering_error">
-    Macro Rendering Error
+<a class="md-nav__link" href="#container_images">
+    Container images
   </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_container_lifecycle">
+    The container lifecycle
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#orchestration_swarm_kubernetes_etc">
+    Orchestration (Swarm, Kubernetes, etc)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#container_networking">
+    Container networking
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kubernetes">
+    Kubernetes
+  </a>
+<nav aria-label="Kubernetes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#developer_aspect">
+    Developer aspect
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture">
+    Architecture
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -361,23 +429,115 @@
 <a class="md-content__button md-icon" href="https://github.com/fh-cloud-computing/website/edit/master/docs/lectures/4-containers/index.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1>4. Containers</h1>
-<h2 id="macro_rendering_error"><em>Macro Rendering Error</em><a class="headerlink" href="#macro_rendering_error" title="Permanent link">#</a></h2>
-<p><strong>TemplateSyntaxError</strong>: expected token ',', got 'answer'</p>
-<div class="highlight"><pre><span></span><code>Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/macros/plugin.py", line 261, in render
-    md_template = self.env.from_string(markdown)
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/jinja2/environment.py", line 941, in from_string
-    return cls.from_code(self, self.compile(source), globals, None)
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/jinja2/environment.py", line 638, in compile
-    self.handle_exception(source=source_hint)
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "&lt;unknown&gt;", line 202, in template
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'answer'
+<div class="download"><a download href="index.pdf"><button>Download PDF 🖨️</button></a>
+<a href="fh-cloud-computing-lecture-4-containers.pptx"><button>Download PPTX 💻</button></a>
+<a href="fh-cloud-computing-lecture-4-containers.mp3"><button>Download MP3 🎧</button></a>
+<a href="fh-cloud-computing-lecture-4-containers.m4b"><button>Download M4B 🎧</button></a>
+<a href="#"><button>Watch Video 🎬</button></a>
+</div>
+<h1>Containers &amp; Container Orchestrators</h1>
+<p>In the <a href="../2-iaas/">second lecture</a> we have talked about how applications interact with the kernel and the hardware. By now you know that applications running in ring 3 do not have direct access to things like the disk. To access those details they need to execute a <a href="https://en.wikipedia.org/wiki/System_call">system call</a> to the kernel. The kernel will then give the application the details required, for example a file from the disk.</p>
+<p>Let's play a hypothetical game: process A wants to access a file called <code>test.txt</code>. It calls the kernel, the file is opened, and process A is now free to read the contents. When process B comes along and does the same, it will receive the same file.</p>
+<p>Or does it? In the Linux kernel the filesystem root directory (starting with <code>/</code>) is a virtual construct that can be changed on a per-process basis. It is possible to make process A see a completely different folder structure then process B. This mechanism is called <a href="https://en.wikipedia.org/wiki/Chroot">chroot</a>. It is, in fact, so old that it predates Linux by more than a decade and was first present in Version 7 Unix in 1979.</p>
+<div class="admonition tip">
+<p class="admonition-title">Try it out yourself!</p>
+<p>Run the following command on a 64 bit x86 Linux in an empty folder:</p>
+<div class="highlight"><pre><span></span><code>mkdir -p ./bin &amp;&amp;\
+curl "https://www.busybox.net/downloads/binaries/1.21.1/busybox-x86_64" -o ./bin/busybox &amp;&amp; \
+chmod +x ./bin/busybox &amp;&amp; \
+./bin/busybox --install ./bin &amp;&amp; \
+sudo chroot . /bin/sh
 </code></pre></div>
+<p>You should now be able to run <code>ls -la</code> or similar commands and see that you are in an almost empty filesystem with no ability to access the files outside. </p>
+</div>
+<p>This alone only isolates the two process on a filesystem level, there are still plenty of opportunities for two processes to interact, for example:</p>
+<ul>
+<li>On the network</li>
+<li><a href="https://en.wikipedia.org/wiki/Inter-process_communication">Interprocess Communication (IPC)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Signal_(IPC)">Sending signals to each other by process ID</a></li>
+<li>etc.</li>
+</ul>
+<p>In the early 2000's there were two projects that attempted to implement process isolation in the Linux kernel: <a href="https://en.wikipedia.org/wiki/OpenVZ">OpenVZ</a> and <a href="https://en.wikipedia.org/wiki/Linux-VServer">Linux-VServer</a>. Running these projects required patching and recompiling the Linux kernel from source.</p>
+<p>Starting around 2006 several companies, including Google, IBM, SGI, Bull, and the OpenVZ project itself has put significant effort into taking OpenVZ apart and piece by piece and submitting it to the Linux kernel. The <a href="https://wiki.openvz.org/UBC">User Beancounters</a> from OpenVZ, for example, became <a href="https://en.wikipedia.org/wiki/Cgroups">cgroups</a> and allow resource allocation to a group of processes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Do you want to know more about history?</p>
+<p>The history of containerization is surprisingly hard to piece together despite the relative young age of the technology. If you want a bit of a deeper dive take a look at <a href="https://www.youtube.com/watch?v=doUktZIcXF0">“A Brief History of Containers (by Jeff Victor &amp; Kir Kolyshkin)”</a>.</p>
+</div>
+<p>All these isolation technologies, together, form what's today known as Linux containers. Windows has undergone a similar development in recent years, and has <em>virtualized</em> the typical Windows interaction points between processe: job objects, process table, registry, filesystem, etc.</p>
+<p>In essence, <em>containers don't exist</em>. They are a collection of technologies that provide process-level isolation for an application. These isolation techniques can, among others, include:</p>
+<ul>
+<li>A separate, virtual network card</li>
+<li>Process separation (no ability to send signals to other containers)</li>
+<li>A separate view of the filesystem</li>
+<li>Restricted IPC between containers</li>
+<li>User separation / user ID mapping</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Do you want to build your own container engine?</p>
+<p>You can! Take a look at <a href="https://www.youtube.com/watch?v=Utf-A4rODH8">Liz Rice's Containers From Scratch</a> talk!</p>
+</div>
+<h3 id="container_images">Container images<a class="headerlink" href="#container_images" title="Permanent link">#</a></h3>
+<p><a href="https://www.docker.com/">Docker</a> was not the first technology to create containers using the modern Linux API's, but it was the one that made containers popular. The edge Docker had over its competitors was the way it dealt with images. Other container solutions at the time, like LXC, tried to emulate virtual machines where a full operating system would be installed, and then updated. Docker chose a different route. A <code>Dockerfile</code> would contain the instructions needed to build a container image containing the application that should be containerized. These instructions would be executed and resulted in a container image. This container image could then be used to launch one or more copies of it.</p>
+<p>Since the container image contains everything the application needs to run these images are ideal operating system independent packages. This solves the age-old problem of having to install the correct version of the runtime environment (PHP, Python, Java, etc) as it is contained within the container image.</p>
+<p>When a container is run this container image is the basis for all the data that is contained within. The data is, however, not copied. If the application modifies or creates files only the difference is stored. This makes containers very lightweight on the storage front as well.</p>
+<p>Docker went one step further, they introduced a way to share images between machines using a <em>registry</em>, a server that stores container images. The public <a href="https://hub.docker.com/">Docker hub</a> contains a vast array of images built by the community. These technologies were later all standardized under the <a href="https://opencontainers.org/">Open Container Initiative</a>, creating a company-independent format for containers and technologies around them.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Third party container images should be treated with the same due diligence like installing third party software on your computer! They can contain malicious code and can cause harm despite the containerization.</p>
+</div>
+<div class="admonition question"><p class="admonition-title">Which is not running in a container?</p><div class="quiz__answers"><div class="quiz__answer"><input id="f59798b5-a547-485d-9384-dc000896bbec" type="checkbox"><label for="f59798b5-a547-485d-9384-dc000896bbec"> A CPU</label></input></div><div class="quiz__answer"><input id="0ec3d0cc-a3f6-46aa-8fe3-e02ab7fcd47b" type="checkbox"><label for="0ec3d0cc-a3f6-46aa-8fe3-e02ab7fcd47b"> A userspace</label></input></div><div class="quiz__answer"><input id="2aaced1e-c568-4dca-a9ff-d521a0688f8b" type="checkbox"><label for="2aaced1e-c568-4dca-a9ff-d521a0688f8b"> A kernel</label></input></div></div></div>
+<div class="admonition question"><p class="admonition-title">What is in a Dockerfile</p><div class="quiz__answers"><div class="quiz__answer"><input id="0bcb4e0a-90fd-42c4-be79-48e225d2c637" type="checkbox"><label for="0bcb4e0a-90fd-42c4-be79-48e225d2c637"> A container image</label></input></div><div class="quiz__answer"><input id="eec7fdf5-9917-4e0f-a8cc-07aca5ab7861" type="checkbox"><label for="eec7fdf5-9917-4e0f-a8cc-07aca5ab7861"> A container snapshot</label></input></div><div class="quiz__answer"><input id="8a500559-a89a-4d09-83cf-ec5e16d3d7b4" type="checkbox"><label for="8a500559-a89a-4d09-83cf-ec5e16d3d7b4"> An instruction set how to make a container image</label></input></div></div></div>
+<h3 id="the_container_lifecycle">The container lifecycle<a class="headerlink" href="#the_container_lifecycle" title="Permanent link">#</a></h3>
+<p>You can, of course, update a running container just as you would a traditional virtual machine. However, that is not the intended, or indeed, optimal way to use them. The intention of containers is <em>immutable infrastructure</em>. Immutable infrastructure means that containers are <em>never updated</em>. Instead, they are replaced. When a new version of a software needs to be installed the old container is shut down and a new one is launched from a new image.</p>
+<p>Immutable infrastructure presents a massive benefit: instead of having to deal with a downtime when the upgrade is ran, the updated version can be tested before it is launched.</p>
+<p>However, this concept reaches its limits when it comes to running software that needs to store data in a persistent fashion, for example, databases. For this purpose containers can designate special folders to be mounted as <em>volumes</em>. Volumes can be persisted by either mounting them as a folder from the host machine, or by mounting a network-based storage system.</p>
+<h3 id="orchestration_swarm_kubernetes_etc">Orchestration (Swarm, Kubernetes, etc)<a class="headerlink" href="#orchestration_swarm_kubernetes_etc" title="Permanent link">#</a></h3>
+<p>Docker and other container runtimes do not manage containers across multiple servers by themselves. Docker has received an addon called Docker Swarm, but nowadays the clear winner of the “Container Wars” is <a href="https://kubernetes.io">Kubernetes</a>.</p>
+<p>Container orchestrators are responsible for determining which server has free capacity and schedule containers to run on them. When a server fails these orchestrators are responsible for discovering it and re-launching them on a different server.</p>
+<p>Furthermore, container orchestrators contain a certain amount of integration with the cloud providers. Docker Swarm has very basic integrations, but Kubernetes on the other hand, has integrations with just about anything.</p>
+<p>Depending on the cloud provider Kubernetes can automatically move block storage mounts to a different server when a container is moved, configure cloud load balancers and much more.</p>
+<p>This flexibility comes at a cost: Kubernetes is very complex. A detailed explanation on how to deploy an application on Kubernetes would vastly exceed the bounds of this course. If you are interested in this topic we recommend taking a look at one of the many <a href="https://www.cncf.io/certification/ckad/">Certified Kubernetes Application Developer</a> courses on the Internet.</p>
+<h3 id="container_networking">Container networking<a class="headerlink" href="#container_networking" title="Permanent link">#</a></h3>
+<p>As mentioned previously, containers regularly have their own, virtual network interfaces. This virtual network interface can be connected in a number of ways.</p>
+<p>If we take a look at Docker's default networking model the virtual network interface is connected to an internal <a href="https://en.wikipedia.org/wiki/Bridging_(networking)">network bridge</a>. This enables containers to connect to each other. For connections to the Internet a <a href="https://en.wikipedia.org/wiki/Network_address_translation">NAT</a> is performed.</p>
+<p><img alt='An image illustrating Docker networking. Four containers are connected to an internal docker0 bridge in a virtual machine. Each container sees their own virtual interface as "eth0". A NAT is performed when accessing the public internet.' src="docker-networking-01.svg"/></p>
+<p>More advanced options for container networking create a single virtual network across several hosts and connect the containers to this virtual network. This is an option with <a href="https://docs.docker.com/engine/swarm/">Docker Swarm</a> and is always the case with <a href="https://kubernetes.io/">Kubernetes</a>.</p>
+<p><img alt="An image illustrating Kubernetes networking. There are 3 virtual machines that have a common network that the virtual machines are connected to. The outbound connections are NAT'ed to the public IP of each virtual machine." src="kubernetes-networking-01.svg"/></p>
+<p>When you look at these graphics, one question may come to mind: the cloud is quite dynamic in its nature, so how does a Kubernetes cluster receive incoming connections? After all, each of the nodes may be replaced with a new one, with a new IP address at any time? This is where the immense feature set of Kubernetes begins to show itself. Kubernetes includes several <em>controllers</em> that can interact with cloud providers in a variety of ways. One of these integrations can be, for example, the load balancer integrations. The Kubernetes network can be extended to a load balancer and that load balancer can send traffic directly over the virtual network used by the containers.</p>
+<p>Further helping the dynamic nature of the cloud are features like the ability to create internal firewalls. These firewalls can help mitigate possible security vulnerabilities like <a href="https://pasztor.at/blog/what-is-ssrf">SSRF</a>. Since these firewalls can be created using the same API as the software deployment, the firewall rules for an application can be versioned in Git, for example.</p>
+<p>Since everything required to run an application can be stored in a Dockerfile and a Kubernetes manifest the application source code can be self-contained. This is, of course, only true if the application is written in such a way that workes well with the cloud. This is described <a href="../5-cloud-native/">in the next lecture</a>. </p>
+<h3 id="kubernetes">Kubernetes<a class="headerlink" href="#kubernetes" title="Permanent link">#</a></h3>
+<p>We have talked about Kubernetes before, but we are dedicating this section to more detail as it has become quite apparent that Kubernetes is going to be the de-facto standard for container orchestration in the future.</p>
+<p>The history of Kubernetes lies in the <a href="https://en.wikipedia.org/wiki/Borg_(cluster_manager)">Borg orchestrator from Google</a>. The intention is to be able to orchestrate workloads across thousands of machines. Since Kubernetes is highly scalable its design is difficult to use at small scale.</p>
+<h4 id="developer_aspect">Developer aspect<a class="headerlink" href="#developer_aspect" title="Permanent link">#</a></h4>
+<p>Developers of Kubernetes are only confronted with a subset of Kubernetes' complexity. A developer can create a Kubernetes manifest file (in YAML format) that instructs Kubernetes to run a certain set of containers, network them together, provide load balancers, etc.</p>
+<p>The basic unit of scheduling is a <strong>Pod</strong>. A pod is a unit consisting of one or more containers that share a network namespace and can potentially also share other resources. Pods can either run continuously or can be scheduled to run to completion for one-off jobs or cronjobs.</p>
+<p>However, unlike a simple Docker installation Kubernetes offers a way to manage Pods on a higher level. <strong>Deployments</strong> offer a way to create resource to manage downtimeless deployments and roll back to a previous version with a simple rollback command if desired. They do this by using <strong>ReplicaSets</strong>, an automatic resource creating multiple copies of a Pod.</p>
+<p>As you can already see this highlights what we will discuss in the <a href="../5-cloud-native/">next lecture</a>: a cloud-native application has to be ready to have multiple parallel copies of itself running.</p>
+<p>For more difficult workloads Kubernetes also includes a <strong>StatefulSet</strong>. StatefulSets give a developer the ability to guarantee a predictable startup sequence of multiple Pods as well as a unique ID for each. This is especially important for replicated databases.</p>
+<p><strong>DaemonSets</strong> are, on the other hand, a special workload type more geared towards Kubernetes administrators, offering the ability to run a workload on every node of the cluster. This is often used to run utility Pods such as log collectors, monitoring agents, etc.</p>
+<p>Since some Pods need to store data Kubernetes offers a flexible way to allocate storage in the cloud with the use of <strong>PersistentVolumeClaims</strong> (PVC) and <strong>PersistentVolumes</strong> (PV). A Kubernetes administrator would set up a PV which a developer then uses using a PVC. This decouples the developers and administrators work nicely.</p>
+<p>It is worth remembering though that a single PV can only be used by a single PVC. This makes allocation in a larger cluster cumbersome. Naturally, Kubernetes has a solution for this problem called <strong>provisioners</strong>. These provisioners can dynamically create PVs as needed, usually by creating a network block storage volume in the cloud.</p>
+<p>It is also worth noting that local storage provides no resilience against host machine failure, as we discussed in <a href="../2-iaas/">lecture 2</a>. While using local storage with Kubernetes is possible and Kubernetes won't reschedule a workload with an attached local storage, it also limits the ability for Kubernetes to react to a node failure and move workloads.</p>
+<p>In order to facilitate internal and external load balancing Kubernetes introduces the concept of <strong>Services</strong> to create <em>network load balancers</em> for each service. These services use the Pod labels to track which Pods they should send traffic to. A special type of service is the <strong>Loadbalancer</strong> which, given a cloud integration, dynamically creates an external IP address for a specific service.</p>
+<p>Alternatively, workloads can also make use of the <strong>Ingress</strong> resource that dynamically configures the ingress controller to send HTTP workloads to specific pods. The ingress controller acts as an <em>application load balancer</em> for Kubernetes.</p>
+<p>To augment these capabilities the <strong>Job</strong> resource gives developers the ability to use Kubernetes as a queue system and run one-off workloads. To run regular jobs the <strong>CronJob</strong> resource can be used.</p>
+<div class="admonition question"><p class="admonition-title">Which Kubernetes resource do you use to run a container on every node in a cluster?</p><div class="quiz__answers"><div class="quiz__answer"><input id="24ae3088-8855-4b7c-81e3-e792db44c626" type="checkbox"><label for="24ae3088-8855-4b7c-81e3-e792db44c626"> Pod</label></input></div><div class="quiz__answer"><input id="fb38f048-1468-4863-8121-57278f1d8526" type="checkbox"><label for="fb38f048-1468-4863-8121-57278f1d8526"> Deployment</label></input></div><div class="quiz__answer"><input id="297a4cc1-7554-4de5-aa56-4d602c738a2e" type="checkbox"/><label for="297a4cc1-7554-4de5-aa56-4d602c738a2e"> ReplicaSet</label></div><div class="quiz__answer"><input id="0f14947e-a57a-406d-b8f9-aa8e945e5e0a" type="checkbox"/><label for="0f14947e-a57a-406d-b8f9-aa8e945e5e0a"> DaemonSet</label></div><div class="quiz__answer"><input id="508b7cd3-8079-415a-89b8-e58a2f086855" type="checkbox"/><label for="508b7cd3-8079-415a-89b8-e58a2f086855"> Job</label></div><div class="quiz__answer"><input id="662664d1-b1c0-407c-8783-f647b089148a" type="checkbox"/><label for="662664d1-b1c0-407c-8783-f647b089148a"> CronJob</label></div></div></div>
+<div class="admonition question"><p class="admonition-title">Which of the following resources are managed by a Deployment in Kubernetes?</p><div class="quiz__answers"><div class="quiz__answer"><input id="dfb01668-2df3-49a3-a758-d2b41697082d" type="checkbox"/><label for="dfb01668-2df3-49a3-a758-d2b41697082d"> Pod</label></div><div class="quiz__answer"><input id="498a8d3c-a675-4b6c-a171-42bd59a0931f" type="checkbox"/><label for="498a8d3c-a675-4b6c-a171-42bd59a0931f"> ReplicaSet</label></div><div class="quiz__answer"><input id="cace60d1-aa51-46d8-bb40-db693ee788f5" type="checkbox"/><label for="cace60d1-aa51-46d8-bb40-db693ee788f5"> DaemonSet</label></div><div class="quiz__answer"><input id="ab6c1873-0642-486a-8da6-179c3e99c285" type="checkbox"/><label for="ab6c1873-0642-486a-8da6-179c3e99c285"> Job</label></div><div class="quiz__answer"><input id="240fd43b-e188-4c0b-b6c4-c9b04f2fdab6" type="checkbox"/><label for="240fd43b-e188-4c0b-b6c4-c9b04f2fdab6"> CronJob</label></div></div></div>
+<div class="admonition question"><p class="admonition-title">Which of the following is the smallest unit in Kubernetes?</p><div class="quiz__answers"><div class="quiz__answer"><input id="e81d21c8-58a2-4918-967a-de6ad7972e1d" type="checkbox"/><label for="e81d21c8-58a2-4918-967a-de6ad7972e1d"> Pod</label></div><div class="quiz__answer"><input id="2796108d-25d5-4cf4-b886-78c8b4aaaea9" type="checkbox"/><label for="2796108d-25d5-4cf4-b886-78c8b4aaaea9"> Deployment</label></div><div class="quiz__answer"><input id="a5477879-b941-4e87-b979-0b972d287aa2" type="checkbox"/><label for="a5477879-b941-4e87-b979-0b972d287aa2"> ReplicaSet</label></div><div class="quiz__answer"><input id="d8fffb65-b9a2-4b8c-ba52-d224d4ab7389" type="checkbox"/><label for="d8fffb65-b9a2-4b8c-ba52-d224d4ab7389"> DaemonSet</label></div><div class="quiz__answer"><input id="29f9fba9-7dcd-48cf-b982-2d8b86b64a9c" type="checkbox"/><label for="29f9fba9-7dcd-48cf-b982-2d8b86b64a9c"> Job</label></div><div class="quiz__answer"><input id="47aac4c3-abb0-42f1-8394-e72f18287c9b" type="checkbox"/><label for="47aac4c3-abb0-42f1-8394-e72f18287c9b"> CronJob</label></div></div></div>
+<h4 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">#</a></h4>
+<p>The Kubernetes architecture is highly modular and the description given here is fairly generic. Individual Kubernetes distributions may differ greatly in their use of tools.</p>
+<p><img alt="An illustration of Kubernetes components. The API server is the central piece that talks to the controller-manager, the scheduler and the kubelet." src="kubernetes.svg"/></p>
+<p>At the core of Kubernetes is the <strong>API server</strong>. This central piece is the endpoint for both the clients (for example the Kubernetes CLI called <code>kubectl</code>), other orchestrator components such as the controller-manager, cloud controller, or scheduler, and also the workload coordinator called the `kubelet.</p>
+<p>The <strong>scheduler</strong> is responsible for deciding which container is supposed to run on which worker node. As the name says, it <em>schedules</em> the workload.</p>
+<p>The <strong>controller-manager</strong> is a component if many small parts that decides what to run. For example, the ReplicaSet controller is responsible for creating multiple copies of the same pod.</p>
+<p>The <strong>cloud controller</strong> is responsible for the cloud provider integration. This is optional for a static cluster, but required if autoscaling, or a load balancer integration is required.</p>
+<p>The <strong>kubelet</strong> runs on every node and is presponsible for talking to the Container Runtime (e.g. containerd) to run the containers the scheduler deems necessary. It is worth mentioning that the Kubelet must be able to reach the API server on a network level, and vice versa. HTTP request flow in both directions in order to make a Kubernetes cluster work.</p>
+<p>The <strong>kube-proxy</strong> service also often runs on each Kubernetes node to provide load balancing services, but there are replacements for this component.</p>
+<p>The <strong>Container Network Interface</strong> (CNI) is a network plugin deployed alongside the kubelet and provides the previously-described overlay network. There is a wide range of CNI plugins from bare metal routing to <a href="https://www.projectcalico.org/">Calico</a>.</p>
+<p>As a final piece of the puzzle <strong>Container Storage Interfaces</strong> (CSI) provide a way to integrate just about any storage provider as a driver for PVs.</p>
+<div class="admonition question"><p class="admonition-title">Which Kubernetes component talks to the container runtime?</p><div class="quiz__answers"><div class="quiz__answer"><input id="410ed06f-2b2c-4e49-b478-3c651084bd9a" type="checkbox"/><label for="410ed06f-2b2c-4e49-b478-3c651084bd9a"> Controller-Manager</label></div><div class="quiz__answer"><input id="e0c77277-1c54-47c2-be7c-9aa6a8a8138a" type="checkbox"/><label for="e0c77277-1c54-47c2-be7c-9aa6a8a8138a"> Cloud Controller</label></div><div class="quiz__answer"><input id="48ec59f3-6b14-4166-8326-09ba0eb0438f" type="checkbox"/><label for="48ec59f3-6b14-4166-8326-09ba0eb0438f"> API server</label></div><div class="quiz__answer"><input id="bc50f7ef-d560-409e-9e1a-d14a4ecff172" type="checkbox"/><label for="bc50f7ef-d560-409e-9e1a-d14a4ecff172"> Scheduler</label></div><div class="quiz__answer"><input id="32cf82b3-48d9-4555-b27b-7650563a4f50" type="checkbox"/><label for="32cf82b3-48d9-4555-b27b-7650563a4f50"> Kubelet</label></div><div class="quiz__answer"><input id="8e175cef-f6e4-46a9-809b-e01150b7f9eb" type="checkbox"/><label for="8e175cef-f6e4-46a9-809b-e01150b7f9eb"> kubectl</label></div><div class="quiz__answer"><input id="86514132-5f4f-4231-8d9e-df468f3b0052" type="checkbox"/><label for="86514132-5f4f-4231-8d9e-df468f3b0052"> kube-proxy</label></div></div></div>
+<div class="admonition question"><p class="admonition-title">Which Kubernetes component is responsible for managing internal load balancers?</p><div class="quiz__answers"><div class="quiz__answer"><input id="44fb7e6d-8dd6-41ed-affe-a7c8ab7cf7fe" type="checkbox"/><label for="44fb7e6d-8dd6-41ed-affe-a7c8ab7cf7fe"> Controller-Manager</label></div><div class="quiz__answer"><input id="f8a7cfa2-06da-4a1c-a7e2-ac397ddc0ca1" type="checkbox"/><label for="f8a7cfa2-06da-4a1c-a7e2-ac397ddc0ca1"> Cloud Controller</label></div><div class="quiz__answer"><input id="d3a5ae55-92db-4f7d-b0f5-34eacf40ad1f" type="checkbox"/><label for="d3a5ae55-92db-4f7d-b0f5-34eacf40ad1f"> API server</label></div><div class="quiz__answer"><input id="13ebde9c-08ff-4598-a2a3-cea497e442c5" type="checkbox"/><label for="13ebde9c-08ff-4598-a2a3-cea497e442c5"> Scheduler</label></div><div class="quiz__answer"><input id="42201354-4d46-4f07-b3d6-6d256a91ba3a" type="checkbox"/><label for="42201354-4d46-4f07-b3d6-6d256a91ba3a"> Kubelet</label></div><div class="quiz__answer"><input id="f4f8e446-d383-4b38-b975-9343d568981d" type="checkbox"/><label for="f4f8e446-d383-4b38-b975-9343d568981d"> kubectl</label></div><div class="quiz__answer"><input id="db0a0259-aa28-4596-b68b-c657564445c6" type="checkbox"/><label for="db0a0259-aa28-4596-b68b-c657564445c6"> kube-proxy</label></div></div></div>
 </article>
 </div>
 </div>
