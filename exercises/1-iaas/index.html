@@ -16,6 +16,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#starting_your_first_instance">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -250,9 +253,40 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        1. IaaS
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"></path></svg>
+</span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./" title="1. IaaS">
       1. IaaS
     </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#starting_your_first_instance">
+    Starting your first instance
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting_up_the_cli">
+    Setting up the CLI
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#destroying_your_instances">
+    Destroying your instances
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../2-terraform/" title="2. Terraform">
@@ -311,6 +345,37 @@
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#starting_your_first_instance">
+    Starting your first instance
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting_up_the_cli">
+    Setting up the CLI
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#destroying_your_instances">
+    Destroying your instances
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/fh-cloud-computing/website/edit/master/docs/exercises/1-iaas/index.md" title="Edit this page">
@@ -322,6 +387,78 @@
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
 <h1>Introduction to the Cloud</h1>
+<p>This exercise will guide you through the basics of setting up a cloud account, configuring your first firewall and configuring your first instance. Since the <a href="../../projectwork/">project work</a> is based on Exoscale this account will showcase using Exoscale. The principles shown here can be applied to any cloud provider.</p>
+<p>For the purposes of following this exercise please use the voucher provided. Remember, the voucher is limited to 20 euros, so destroy any resources you create for testing.</p>
+<h3 id="starting_your_first_instance">Starting your first instance<a class="headerlink" href="#starting_your_first_instance" title="Permanent link">#</a></h3>
+<p>Once you log in to the Exoscale interface you will find several services on the left side: Compute, Storage, DNS, etc. Compute is the name for the <a href="../../lectures/2-iaas/">IaaS platform discussed in lecture 2</a>.</p>
+<p>When you look at the Compute interface you will find left hand menu with several options: Instances, Instance pools, Templates, Firewalling, IP addresses, and so on. As a first exercise we will launch a single instance, so please open the Instances option and click the "Add" button on the interface.</p>
+<p>The "New instance" interface presents you with several options. Most importantly, you will select the operating system template, instance size and storage size. These options will be present on any cloud provider and affect the pricing. Instances on Exoscale, and on many other providers, are priced per-second for the instance size (Micro, Tiny, etc), and the storage is priced separately. When an instance is stopped, but not destroyed, only the storage price is charged <em>when the account is not in trial</em>. Since your account is in trial your instance is also charged-for when it is stopped.</p>
+<p>For the purposes of this exercise please select "Linux Ubuntu 20.04 LTS 64-bit", Micro, and a 10 GB disk. You can start the instance in any zone, but we recommend starting it in Vienna for latency reasons.</p>
+<p>The next option is the key pair. Key pairs are SSH keys used for passwordless authentication (more on that later). For now, please ignore the Keypair, Private Networks and IPv6 options.</p>
+<p>The next option is important: Security Groups. For now we will stick with the <code>default</code> security group, but remember this option for later as it will become important to building your architecture. As discussed <a href="../../lectures/2-iaas/">in lecture 2</a>, security groups provide network firewalling.</p>
+<p>You can also ignore Anti-Affinity groups for now. Remember for later, anti-affinity groups are useful when you are building a redundant service and you don't want two instances to run on the same physical hardware. That's what anti-affinity groups guarantee.</p>
+<p>The last item in the list is <code>User Data</code>. Again, as discussed in <a href="../../lectures/2-iaas/">in lecture 2</a>, <code>User Data</code> is a way to pass an initialization script to the virtual machine. For our exercise let's put a very simple Bash script here:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nb">set</span> -e
+
+apt update
+apt install -y nginx
+</code></pre></div>
+<p>Once you are done with the configuration, please click the "Create" button. The instance will now be installed and the initialization script will run.</p>
+<p>Please note the "Password" field. Since you have not provided an SSH key the password is the only way to log in to your instance now. Wait until the instance has booted and make a note of the password!</p>
+<p>While you wait for the installation script to run please go to the "Firewalling" option on the left side and click the "default" security group. Here you can create a firewall rule that lets HTTP traffic in. Please click the "New Rule" button in the top right hand corner and add a rule with the following options:</p>
+<ul>
+<li>Type: <code>Ingress</code></li>
+<li>Protocol: <code>TCP</code></li>
+<li>Source type: <code>CIDR</code></li>
+<li>Source: <code>0.0.0.0/0</code></li>
+<li>Port(s): <code>80</code> - <code>80</code></li>
+</ul>
+<p>This will allow web traffic in from the whole internet.</p>
+<div class="admonition warning">
+<p class="admonition-title">Networking know-how needed!</p>
+<p>For the purposes of this course it is assumed you have a basic understanding of computer networks, including IP addresses and CIDR masks. If you feel like you need a refresher, please give the <a href="https://geek-university.com/ccna/computer-network-explained/">Geek University CCNA course a quick read</a> or ask us in the tutoring sessions.</p>
+</div>
+<p>For later use please also add an SSH rule (port 22). Make sure that SSH is only allowed from your IP address. Opening SSH to the whole internet will incur a flood of hacking attempts that increase the log size needlessly. Alternatively, you can also move SSH to a different port.</p>
+<p>In the mean time your instance should be up and running. Please go to the "Instances" option and copy the IP address of your server. Open a new browser tab and insert the IP address there. If you did everything correctly an nginx welcome page should show up.</p>
+<p>If you now wish to log in to the server you can use the command prompt / console depending on your operating system. Please copy the command from the "SSH command" field in the interface into your command prompt. When you are prompted the password, insert the password. (Unlike on the graphical interfaces, an SSH login won't show you the stars for the characters you typed.)</p>
+<h3 id="setting_up_the_cli">Setting up the CLI<a class="headerlink" href="#setting_up_the_cli" title="Permanent link">#</a></h3>
+<p>Using the graphical interface is not the preferred way to interact with the cloud. In case of more complex cloud providers (Azure, etc) the user interface may not contain all features, or may be too complex to use. Command line interfaces provider a developer-friendly way to interact with the cloud provider.</p>
+<p>In case of Exoscale you will have to install the <a href="https://community.exoscale.com/documentation/tools/exoscale-command-line-interface/">exo cli</a> on your computer. Once you have it installed, add it to the <code>PATH</code> of your machine and then open a command prompt / terminal.</p>
+<p>In the terminal please type <code>exo config</code> to set up the configuration. During the setup you will be prompted for an API key which you can create in the Exoscale interface in the <a href="https://portal.exoscale.com/iam/api-keys">IAM menu</a>.</p>
+<p>Once your exo CLI is configured you can create the firewall rules we created previously using the following commands:</p>
+<div class="highlight"><pre><span></span><code>exo firewall add default --protocol tcp --port 80
+exo firewall add default --protocol tcp --port 22
+</code></pre></div>
+<p>Provisioning an instance is similarly simple:</p>
+<div class="highlight"><pre><span></span><code>&gt; exo vm create test -d 10 -o micro -t "Linux Ubuntu 20.04 LTS 64-bit"
+Creating private SSH key
+Deploying "test" ⠦                                                                                done
+
+What to do now?
+
+1. Connect to the machine
+
+        exo ssh test
+
+2. Put the following SSH configuration into ".ssh/config"
+
+Host test
+        HostName 194.182.174.84
+        User ubuntu
+        IdentityFile C:\Users\janos\AppData\Roaming\exoscale/instances/34df135d-8ff1-47b5-81a9-194c71233941/id_rsa
+
+Tip of the day:
+        You're the sole owner of the private key. Be cautious with it.
+</code></pre></div>
+<p>"test" in this example is the name of the instance. The benefit of using the exo cli is the automatic use of an SSH key. You can now use the <code>exo ssh test</code> command to SSH into your instance securely with an SSH key instead of a password. If you want to add a User Data you will have to store the script in a file and then pass the <code>-f filename.sh</code> option.</p>
+<div class="admonition warning">
+<p class="admonition-title">Be careful!</p>
+<p>If you store the user data script on a Windows machine it will do so with Windows line endings. This will not work on Linux systems. Make sure to use an editor that can save the script with Linux line endings.</p>
+</div>
+<h3 id="destroying_your_instances">Destroying your instances<a class="headerlink" href="#destroying_your_instances" title="Permanent link">#</a></h3>
+<p>Once you are done with this exercise make sure to destroy your instances to save on the budget.</p>
 </article>
 </div>
 </div>
