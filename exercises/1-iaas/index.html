@@ -470,10 +470,10 @@ Tip of the day:
 <h3 id="creating_a_virtual_machine_pool">Creating a virtual machine pool<a class="headerlink" href="#creating_a_virtual_machine_pool" title="Permanent link">#</a></h3>
 <p>Creating a virtual machine pool is very similar to creating an instance. Assuming you have saved your User Data script in a file called <code>userdata.sh</code> you can start a pool with 2 machines with the following command:</p>
 <div class="highlight"><pre><span></span><code>exo instancepool create autoscaling \
-    --service-offering Tiny \
+    --service-offering Micro \
     --template "Linux Ubuntu 20.04 LTS 64-bit" \
     --zone at-vie-1 \
-    --security-group autoscaling \
+    --security-group default \
     --cloud-init userdata.sh \
     --disk 10 \
     --size 2 
