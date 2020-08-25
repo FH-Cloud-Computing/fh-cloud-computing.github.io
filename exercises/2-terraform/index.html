@@ -16,6 +16,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#setting_up_the_exoscale_provider">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -255,9 +258,45 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        2. Terraform
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"></path></svg>
+</span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./" title="2. Terraform">
       2. Terraform
     </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting_up_the_exoscale_provider">
+    Setting up the Exoscale provider
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating_a_virtual_machine">
+    Creating a virtual machine
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#about_your_state_file">
+    About your state file
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#destroying_resources">
+    Destroying resources
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../3-containers/" title="3. Containers">
@@ -311,6 +350,42 @@
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting_up_the_exoscale_provider">
+    Setting up the Exoscale provider
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating_a_virtual_machine">
+    Creating a virtual machine
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#about_your_state_file">
+    About your state file
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#destroying_resources">
+    Destroying resources
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/fh-cloud-computing/website/edit/master/docs/exercises/2-terraform/index.md" title="Edit this page">
@@ -322,6 +397,166 @@
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
 <h1>Terraform</h1>
+<p>In the <a href="../1-iaas/">previous exercise</a> we have discussed how to set up an infrastructure manually. For the purposes of this lecture <a href="https://terraform.io">Terraform</a> is our tool of choice when it comes to cloud automation. There are, of course, many other open source tools like <a href="https://www.ansible.com/">Ansible</a>, or provider-dependent tools like <a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a>. We specifically chose Terraform because it is provider-independent and can be used to provision cloud resources with a <a href="https://registry.terraform.io/browse/providers">wide range of providers</a></p>
+<p>You can download Terraform to your own computer. As it is a program written in Go you can simply unpack it and use it. We recommend adding it to your <code>PATH</code> environment variable for easy access. Since Terraform is capable of using multiple files we also recommend using an IDE or an editor with a directory listing function. The <a href="https://www.jetbrains.com/idea/download/">Intellij IDEA Community Edition</a> has a plugin for Terraform that also offers code completion.</p>
+<p>At it's core Terraform reads all <code>*.tf</code> files in a directory and merges them together. This provides an efficient way of structuring a project.</p>
+<p>Each Terraform file contains a number of <code>data</code> and <code>resource</code> sections which describe the cloud environment. For example, you could create the Exoscale instance from the <a href="../1-iaas/">previous exercise</a> using the following Terraform code:</p>
+<div class="highlight"><pre><span></span><code>data "exoscale_compute_template" "ubuntu" {
+  zone = "at-vie-1"
+  name = "Linux Ubuntu 20.04 LTS 64-bit"
+}
+
+resource "exoscale_compute" "mymachine" {
+  zone         = "at-vie-1"
+  display_name = "test"
+  template_id  = data.exoscale_compute_template.ubuntu.id
+  size         = "Micro"
+  disk_size    = 10
+  key_pair     = ""
+
+  affinity_groups = []
+  security_groups = ["default"]
+
+  user_data = &lt;&lt;EOF
+#!/bin/bash
+set -e
+apt update
+apt install -y nginx
+EOF
+}
+</code></pre></div>
+<p>This exercise will guide you through the basics of using Terraform to provision cloud servers.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The entire source code for this exercise is <a href="https://github.com/FH-Cloud-Computing/exercise-2">available on GitHub</a>.</p>
+</div>
+<h3 id="setting_up_the_exoscale_provider">Setting up the Exoscale provider<a class="headerlink" href="#setting_up_the_exoscale_provider" title="Permanent link">#</a></h3>
+<p>Before you can begin you will need to configure your cloud provider. In our case that will be Exoscale, so our first piece of code in a file called <code>provider.tf</code> will be as follows:</p>
+<div class="highlight"><pre><span></span><code>provider "exoscale" {
+  key = "EXO..."
+  secret = "..."
+}
+</code></pre></div>
+<p>This configures the Exoscale provider. We can make sure the provider loads correctly by running <code>terraform init</code> in the directory of the project.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You need to run <code>terraform init</code> every time the provider configuration changes.</p>
+</div>
+<p>The above example is not ideal as it contains hard-coded credentials. As any code Terraform should be stored in a code versioning system such as Git so having hard-coded credentials is not ideal. Instead, let's create a separate variable section:</p>
+<div class="highlight"><pre><span></span><code>variable "exoscale_key" {
+  description = "The Exoscale API key" 
+  type = string
+}
+variable "exoscale_secret" {
+  description = "The Exoscale API secret"
+  type = string
+}
+provider "exoscale" {
+  key = var.exoscale_key
+  secret = "${var.exoscale_secret}"
+}
+</code></pre></div>
+<p>As you can see variables and other resources can be referenced in Terraform. This is important as it lets us write reusable and modular cloud manifests. Variables can be referenced in two formats: either by directly writing their name, or by including them in a string with the dollar sign.</p>
+<h3 id="creating_a_virtual_machine">Creating a virtual machine<a class="headerlink" href="#creating_a_virtual_machine" title="Permanent link">#</a></h3>
+<p>Unlike in our <a href="../1-iaas/">previous exercise</a>, we will take a little more elaborate route and actually create our own security group this time. We start by creating a file called <code>sg.tf</code> to hold the following security group configuration:</p>
+<div class="highlight"><pre><span></span><code>resource "exoscale_security_group" "sg" {
+  name = "exercise-2"
+}
+</code></pre></div>
+<p>We will add the rules in a separate step:</p>
+<div class="highlight"><pre><span></span><code>resource "exoscale_security_group_rule" "http" {
+  security_group_id = exoscale_security_group.sg.id
+  type = "INGRESS"
+  protocol = "tcp"
+  cidr = "0.0.0.0/0"
+  start_port = 80
+  end_port = 80
+}
+</code></pre></div>
+<p>Once you have this small amount of code complete you can try and run the Terraform config:</p>
+<div class="highlight"><pre><span></span><code>terraform apply
+</code></pre></div>
+<p>This step will query you for the variables:</p>
+<div class="highlight"><pre><span></span><code>$ terraform apply
+var.exoscale_key
+  The Exoscale API key
+
+  Enter a value: EXO...
+
+var.exoscale_secret
+  The Exoscale API secret
+
+  Enter a value: ...
+</code></pre></div>
+<p>If you wish to automate this step you can create a file called <code>terraform.tfvars</code> with the following content:</p>
+<div class="highlight"><pre><span></span><code>exoscale_key = "EXO..."
+exoscale_secret = "..."
+</code></pre></div>
+<p>After inserting the variables Terraform will present you with a plan. It is very important that you always read this plan as it is a list of things Terraform intends to do. This may very well include destroying and re-creating a server! In our case the plan looks like this:</p>
+<div class="highlight"><pre><span></span><code>Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # exoscale_security_group.sg will be created
+  + resource "exoscale_security_group" "sg" {
+      + id   = (known after apply)
+      + name = "exercise-2"
+    }
+
+  # exoscale_security_group_rule.http will be created
+  + resource "exoscale_security_group_rule" "http" {
+      + cidr                = "0.0.0.0/0"
+      + end_port            = 80
+      + id                  = (known after apply)
+      + protocol            = "tcp"
+      + security_group      = (known after apply)
+      + security_group_id   = (known after apply)
+      + start_port          = 80
+      + type                = "INGRESS"
+      + user_security_group = (known after apply)
+    }
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+</code></pre></div>
+<p>This looks good, so you can enter "yes" to have Terraform execute the plan.</p>
+<div class="highlight"><pre><span></span><code>exoscale_security_group.sg: Creating...
+exoscale_security_group.sg: Creation complete after 1s [id=beac3948-dc6f-44a9-89cb-d3ff8ea1c319]
+exoscale_security_group_rule.http: Creating...
+exoscale_security_group_rule.http: Creation complete after 3s [id=33b86aea-a64e-4708-82c8-43e88242f73f]
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+</code></pre></div>
+<p>Sweet! Now, on to creating a virtual machine:</p>
+<div class="highlight"><pre><span></span><code>data "exoscale_compute_template" "ubuntu" {
+  zone = "at-vie-1"
+  name = "Linux Ubuntu 20.04 LTS 64-bit"
+}
+
+resource "exoscale_compute" "mymachine" {
+  zone         = "at-vie-1"
+  display_name = "test"
+  template_id  = data.exoscale_compute_template.ubuntu.id
+  size         = "Micro"
+  disk_size    = 10
+  key_pair     = ""
+
+  affinity_groups = []
+  security_groups = [exoscale_security_group.sg.name]
+
+  user_data = &lt;&lt;EOF
+#!/bin/bash
+set -e
+apt update
+apt install -y nginx
+EOF
+}
+</code></pre></div>
+<p>As you can see we are referencing the previously-created security groups by name. This reference is important as Terraform attempts to execute resource creation <em>in parallel</em> and uses variables to determine which resources depend on each other. In other words, if you do not use a variable reference but hard-code the name Terraform will not be able to execute the instructions in the correct order.</p>
+<h3 id="about_your_state_file">About your state file<a class="headerlink" href="#about_your_state_file" title="Permanent link">#</a></h3>
+<p>You may have noticed that a new file called <code>terraform.tfstate</code> appeared in your project folder. This file is <em>very</em> important as it contains links to the cloud resources you created. If you lose it Terraform will not know what servers it already created and attempt to re-create everything. Also, <strong>do not put this file in Git!</strong> It contains sensitive information like passwords!</p>
+<h3 id="destroying_resources">Destroying resources<a class="headerlink" href="#destroying_resources" title="Permanent link">#</a></h3>
+<p>Once you are done with this exercise please run <code>terraform destroy</code> to tear down the infrastructure you just created.</p>
 </article>
 </div>
 </div>
