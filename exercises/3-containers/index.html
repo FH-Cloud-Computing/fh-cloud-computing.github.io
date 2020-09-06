@@ -6,9 +6,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../favicon.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-5.5.8" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-5.5.12" name="generator"/>
 <title>3. Containers - Cloud Computing 2020</title>
-<link href="../../assets/stylesheets/main.01afc2df.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.4dd2dd8d.min.css" rel="stylesheet"/>
 <link href="../../custom.css" rel="stylesheet"/>
 </head>
 <body dir="ltr">
@@ -16,6 +16,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#installing_docker">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -133,15 +136,11 @@
 <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" id="nav-1" type="checkbox"/>
 <label class="md-nav__link" for="nav-1">
       About the course
-      <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
-</span>
+      <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="About the course" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="nav-1">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</span>
+<span class="md-nav__icon md-icon"></span>
         About the course
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -182,15 +181,11 @@
 <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" id="nav-2" type="checkbox"/>
 <label class="md-nav__link" for="nav-2">
       Lectures
-      <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
-</span>
+      <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Lectures" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="nav-2">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</span>
+<span class="md-nav__icon md-icon"></span>
         Lectures
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -231,15 +226,11 @@
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
 <label class="md-nav__link" for="nav-3">
       Exercises
-      <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
-</span>
+      <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Exercises" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="nav-3">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</span>
+<span class="md-nav__icon md-icon"></span>
         Exercises
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -260,9 +251,31 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        3. Containers
+        <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./" title="3. Containers">
       3. Containers
     </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installing_docker">
+    Installing Docker
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating_a_basic_dockerfile">
+    Creating a basic Dockerfile
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../4-prometheus/" title="4. Prometheus">
@@ -286,15 +299,11 @@
 <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
 <label class="md-nav__link" for="nav-4">
       Glossary
-      <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
-</span>
+      <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Glossary" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="nav-4">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</span>
+<span class="md-nav__icon md-icon"></span>
         Glossary
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -311,17 +320,82 @@
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installing_docker">
+    Installing Docker
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating_a_basic_dockerfile">
+    Creating a basic Dockerfile
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/fh-cloud-computing/website/edit/master/docs/exercises/3-containers/index.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <div class="download"><a download href="index.pdf"><button>Download PDF 🖨️</button></a>
-<a href="fh-cloud-computing-exercise-3-containers.mp3"><button>Download MP3 🎧</button></a>
-<a href="fh-cloud-computing-exercise-3-containers.m4b"><button>Download M4B 🎧</button></a>
 <a href="#"><button>Watch Video 🎬</button></a>
 </div>
 <h1>Containers</h1>
+<p>As described in <a href="../../lectures/4-containers/">lecture 4</a> containers are a staple of packaging applications in a self-contained fashion. Linux containers contain everything a Linux application needs to run on a Linux kernel in an isolated fashion. This exercise will run you through the basics of packaging an application in a container and running it on a Linux server.</p>
+<p>This guide is an abridged version of <a href="https://pasztor.at/blog/docker-for-beginners/">“Getting started with Docker for the Inquisitive Mind&amp;rdqou</a> by Janos Pasztor, one of the lecturers on this course. We highly recommend reading the original version for more detail.</p>
+<h3 id="installing_docker">Installing Docker<a class="headerlink" href="#installing_docker" title="Permanent link">#</a></h3>
+<p>One of the most popular small-scale container runtimes, and indeed the first to popularize build recipes is <a href="https://www.docker.com/">Docker</a>. Docker can be installed on Linux as well as Windows and MacOS, but the latter two have several issues a user needs to work around so we recommend using an Ubuntu Linux 20.04 virtual machine for the purposes of this exercise.</p>
+<p>To install Docker you can either follow the <a href="https://docs.docker.com/engine/install/ubuntu/">installation guide</a> or use the <a href="https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script">convenience script</a> to do so:</p>
+<div class="highlight"><pre><span></span><code>curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+</code></pre></div>
+<p>Please note that this script is not recommended for production use, but will be accepted in a solution to the <a href="../../projectwork/">project work</a>.</p>
+<h3 id="creating_a_basic_dockerfile">Creating a basic Dockerfile<a class="headerlink" href="#creating_a_basic_dockerfile" title="Permanent link">#</a></h3>
+<p>In order to package an application you can create a <code>Dockerfile</code> containing the instructions to install the dependencies and package an application. This file consists of the following format:</p>
+<div class="highlight"><pre><span></span><code>COMMAND PARAMETERS
+</code></pre></div>
+<p>The first command is the <code>FROM</code> command. This command specifies which base image to use, for example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">ubuntu:20.04</span>
+</code></pre></div>
+<p>As mentioned before, containers are not virtual machines. This command only pulls in the userland piece of an Ubuntu system. It can be used to install libraries and packages required for an application to run.</p>
+<p>As this file has now been created we can build our container image as follows:</p>
+<div class="highlight"><pre><span></span><code>docker build -t myimagename .
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The dot at the end is important! It tells Docker to look for the Dockerfile in the current directory.</p>
+</div>
+<p>Now that the image is built it can be launched:</p>
+<div class="highlight"><pre><span></span><code>docker run -ti myimagename
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code>-ti</code> parameter is only required for interactive sessions. For non-interactive sessions it is not required.</p>
+</div>
+<p>Inside the container you can do operations just as you normally would. For example, you could run <code>apt update</code>, then <code>apt install mc</code>, and finally <code>mc</code> to launch the midnight commander. Once you are finished with the interactive session you can use the <code>exit</code> command or <kbd>Ctrl</kbd><kbd>D</kbd>` to exit.</p>
+<p>However, as discussed in <a href="../../lectures/4-containers/">lecture 4</a> the main benefit containers bring to the table is reusability. If you treat a container like you would treat a virtual machine, updating, installing things manually, you lose the main benefit of using containers.</p>
+<p>Let's extend our <code>Dockerfile</code> to install the <code>nginx</code> webserver:</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">ubuntu:20.04</span>
+
+<span class="k">ENV</span> <span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive
+
+<span class="k">RUN</span> apt update
+<span class="k">RUN</span> apt install nginx
+</code></pre></div>
+<p>There are two new commands here: the <code>ENV</code> and the <code>RUN</code> command. The <code>ENV</code> command instructs Docker to set an environment variable. The <code>DEBIAN_FRONTEND=noninteractive</code> environment variable instructs the <code>apt</code> and <code>dpkg</code> packaging utilities in Ubuntu to run in non-interactive mode and not ask questions. Instead, these commands will use default values. The <code>RUN</code> command simply runs the specified command.</p>
+<p>If you run <code>docker build .</code> command now the build will fail:</p>
 </article>
 </div>
 </div>
@@ -373,14 +447,14 @@
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.df0def68.min.js"></script>
-<script src="../../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../../assets/javascripts/vendor.3636a4ec.min.js"></script>
+<script src="../../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
           base: "../..",
           features: ["tabs"],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
