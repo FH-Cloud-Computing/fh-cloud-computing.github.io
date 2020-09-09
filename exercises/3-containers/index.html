@@ -274,6 +274,26 @@
     Creating a basic Dockerfile
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#a_word_about_cmd">
+    A word about CMD
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#getting_nginx_running">
+    Getting nginx running
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#applying_configuration_files">
+    Applying configuration files
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#building_a_software_in_a_container">
+    Building a software in a container
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -339,6 +359,26 @@
     Creating a basic Dockerfile
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#a_word_about_cmd">
+    A word about CMD
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#getting_nginx_running">
+    Getting nginx running
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#applying_configuration_files">
+    Applying configuration files
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#building_a_software_in_a_container">
+    Building a software in a container
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -354,7 +394,7 @@
 </div>
 <h1>Containers</h1>
 <p>As described in <a href="../../lectures/4-containers/">lecture 4</a> containers are a staple of packaging applications in a self-contained fashion. Linux containers contain everything a Linux application needs to run on a Linux kernel in an isolated fashion. This exercise will run you through the basics of packaging an application in a container and running it on a Linux server.</p>
-<p>This guide is an abridged version of <a href="https://pasztor.at/blog/docker-for-beginners/">“Getting started with Docker for the Inquisitive Mind&amp;rdqou</a> by Janos Pasztor, one of the lecturers on this course. We highly recommend reading the original version for more detail.</p>
+<p>This guide is an abridged version of <a href="https://pasztor.at/blog/docker-for-beginners/">“Getting started with Docker for the Inquisitive Mind”</a> by Janos Pasztor, one of the lecturers on this course. We highly recommend reading the original version for more detail.</p>
 <h3 id="installing_docker">Installing Docker<a class="headerlink" href="#installing_docker" title="Permanent link">#</a></h3>
 <p>One of the most popular small-scale container runtimes, and indeed the first to popularize build recipes is <a href="https://www.docker.com/">Docker</a>. Docker can be installed on Linux as well as Windows and MacOS, but the latter two have several issues a user needs to work around so we recommend using an Ubuntu Linux 20.04 virtual machine for the purposes of this exercise.</p>
 <p>To install Docker you can either follow the <a href="https://docs.docker.com/engine/install/ubuntu/">installation guide</a> or use the <a href="https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script">convenience script</a> to do so:</p>
@@ -384,7 +424,7 @@ sudo sh get-docker.sh
 <p class="admonition-title">Tip</p>
 <p>The <code>-ti</code> parameter is only required for interactive sessions. For non-interactive sessions it is not required.</p>
 </div>
-<p>Inside the container you can do operations just as you normally would. For example, you could run <code>apt update</code>, then <code>apt install mc</code>, and finally <code>mc</code> to launch the midnight commander. Once you are finished with the interactive session you can use the <code>exit</code> command or <kbd>Ctrl</kbd><kbd>D</kbd>` to exit.</p>
+<p>Inside the container you can do operations just as you normally would. For example, you could run <code>apt update</code>, then <code>apt install mc</code>, and finally <code>mc</code> to launch the midnight commander. Once you are finished with the interactive session you can use the <code>exit</code> command or <kbd>Ctrl</kbd> + <kbd>D</kbd> to exit.</p>
 <p>However, as discussed in <a href="../../lectures/4-containers/">lecture 4</a> the main benefit containers bring to the table is reusability. If you treat a container like you would treat a virtual machine, updating, installing things manually, you lose the main benefit of using containers.</p>
 <p>Let's extend our <code>Dockerfile</code> to install the <code>nginx</code> webserver:</p>
 <div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">ubuntu:20.04</span>
@@ -395,7 +435,124 @@ sudo sh get-docker.sh
 <span class="k">RUN</span> apt install nginx
 </code></pre></div>
 <p>There are two new commands here: the <code>ENV</code> and the <code>RUN</code> command. The <code>ENV</code> command instructs Docker to set an environment variable. The <code>DEBIAN_FRONTEND=noninteractive</code> environment variable instructs the <code>apt</code> and <code>dpkg</code> packaging utilities in Ubuntu to run in non-interactive mode and not ask questions. Instead, these commands will use default values. The <code>RUN</code> command simply runs the specified command.</p>
-<p>If you run <code>docker build .</code> command now the build will fail:</p>
+<p>If you run the <code>docker build .</code> command now the build will fail:</p>
+<div class="highlight"><pre><span></span><code>...
+After this operation, 60.8 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Abort.
+The command '/bin/sh -c apt install nginx' returned a non-zero code: 1
+</code></pre></div>
+<p>As you can see, the <code>apt install</code> command is asking for permission to continue with the installation. This teaches us an important aspect of containerization: the <code>Dockerfile</code> must contain only commands that run <em>automatically</em>. Let's fix the file:</p>
+<div class="highlight"><pre><span></span><code>...
+<span class="k">RUN</span> apt install -y nginx
+</code></pre></div>
+<p>The <code>-y</code> is specific to <code>apt</code> and means that the user wishes to answer <code>yes</code> to everything.</p>
+<p>OK, so let's run the build again:</p>
+<div class="highlight"><pre><span></span><code>docker build -t mynginx .
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>...
+ ---&gt; 85e4def234e1
+Successfully built 85e4def234e1
+</code></pre></div>
+<p>So, we run our image:</p>
+<div class="highlight"><pre><span></span><code>docker run -ti -p <span class="m">80</span>:80 mynginx
+</code></pre></div>
+<p>The <code>-p</code> flag tells Docker to map the port 80 of the container to the port 80 of the host. This will allow you to access the service on the IP address of your server. However, we didn't tell Docker to run nginx, so we receive a shell and nothing else. Sure enough, we can <em>start</em> nginx manually, but that's not what we want. Before we exit our container let's find out where nginx is located:</p>
+<div class="highlight"><pre><span></span><code>which nginx
+</code></pre></div>
+<p>This will print the full path of the nginx binary which we will need in a moment. Let's exit the container with <kbd>Ctrl</kbd> + <kbd>D</kbd>.</p>
+<p>In order to make Docker actually <em>run</em> nginx we need to employ the <code>CMD</code> command in our <code>Dockerfile</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CMD</span> <span class="p">[</span><span class="s2">"/usr/sbin/nginx"</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="a_word_about_cmd">A word about <code>CMD</code><a class="headerlink" href="#a_word_about_cmd" title="Permanent link">#</a></h3>
+<p>The <code>CMD</code> command has a second form: <code>CMD nginx parameters here</code>. In this form Docker cannot pass the parameters directly to the underlying <a href="https://linux.die.net/man/3/execv">execv</a> call that will ultimately launch the application. <code>execv</code> expects all parameters in a separated list. The binary itself has to be passed as a full path as the first parameter.</p>
+<p>To transform the <code>CMD</code> parameter Docker launches a <em>shell</em> in the container, for example Bash. This shell will then parse the parameters and ultimately launch the desired program.</p>
+<p>This may seem like a reasonable approach at first, but can cause problems. The first process in a container is responsible for handling <a href="https://man7.org/linux/man-pages/man7/signal.7.html">signals</a>, such as the <code>TERM</code> signal that indicates that a process should stop gracefully. Bash does not do this. Instead, Bash will ignore the signal and Docker will wait for 30 seconds and then forcefully kill the container.</p>
+<p>This is the same reason why you need to be careful when running a shell script in your <code>CMD</code>. If you want to do that you must either handle signals correctly, or launch your subsequent program with the <code>exec</code> stanza. The <code>exec</code> stanza <em>replaces</em> the current shell with the new program instead of launching a child process:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nb">set</span> -e
+
+<span class="c1"># Do some initialization here</span>
+
+<span class="nb">exec</span> /usr/sbin/nginx
+</code></pre></div>
+<p>There is also a second command in Docker called <code>ENTRYPOINT</code>. The <code>ENTRYPOINT</code> command allows you to specify an additional program that acts as a <em>wrapper</em> for <code>CMD</code>. Let's say you have the <code>CMD</code> from above, and you specify the <code>ENTRYPOINT</code> of <code>/init.sh</code>. In this case the full command that will be launched is <code>/init.sh /usr/sbin/nginx</code>. In other words, the contents of <code>CMD</code> are passed to the <code>ENTRYPOINT</code>.</p>
+<h3 id="getting_nginx_running">Getting nginx running<a class="headerlink" href="#getting_nginx_running" title="Permanent link">#</a></h3>
+<p>Back to the nginx example. If you launch the container you will see that it exits immediately. As mentioned before, the first process in a container has a special role. This special role is not only to handle signals, but also extends to running the container. If the first process exits the container will stop.</p>
+<p>In our case, nginx is doing something called <em>daemonization</em>. Daemonization on Linux means that a process launches a second copy of itself and exits from the first copy in order to give back control over the console to the user. In a container we want exactly the opposite: we do not want nginx to daemonize. This is achieved by setting the <code>daemon off;</code> parameter in the configuration file, or passing it via the command line:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CMD</span> <span class="p">[</span><span class="s2">"/usr/sbin/nginx"</span><span class="p">,</span> <span class="s2">"-g"</span><span class="p">,</span> <span class="s2">"daemon off;"</span><span class="p">]</span>
+</code></pre></div>
+<p>If you now build and run the container you will see that it stays up and you can access the web service on the IP address of your machine running Docker.</p>
+<h3 id="applying_configuration_files">Applying configuration files<a class="headerlink" href="#applying_configuration_files" title="Permanent link">#</a></h3>
+<p>Having a container with only nginx in it is not very useful, so let's see how we can put some <em>content</em> on the web server. First, let's figure out where the <em>document root</em> of our web server is. We do this by <em>overriding</em> the <code>CMD</code> for out container and launching a shell in it:</p>
+<div class="highlight"><pre><span></span><code>docker run -ti mynginx /bin/bash
+</code></pre></div>
+<p>This will land us in a shell inside a new container. In the container we can search for the document root:</p>
+<div class="highlight"><pre><span></span><code>grep -nr <span class="s1">'root '</span> /etc/nginx <span class="p">|</span> grep -v <span class="s1">'#'</span>
+</code></pre></div>
+<p>This will give us the following result:</p>
+<div class="highlight"><pre><span></span><code><span class="k">/etc/nginx/sites-available/default:41:</span>  <span class="s">root</span> <span class="s">/var/www/html</span><span class="p">;</span>
+</code></pre></div>
+<p>So, the document root is in <code>/var/www/html</code>. Let's create an <code>index.html</code> file which we will copy to the container in the next step:</p>
+<div class="highlight"><pre><span></span><code>&lt;h1&gt;Hello world!&lt;/h1&gt;
+</code></pre></div>
+<p>Copying files to the container:</p>
+<div class="highlight"><pre><span></span><code><span class="k">COPY</span> index.html /var/www/html/index.html
+</code></pre></div>
+<p>If you rebuild and relaunch the container you will see that the default nginx page is replaced by our <code>Hello world!</code>.</p>
+<p>Before we proceed, let's document that our container exposes a service on port 80:</p>
+<div class="highlight"><pre><span></span><code><span class="k">EXPOSE</span><span class="s"> 80</span>
+</code></pre></div>
+<p>This is not strictly necessary and only serves a documentation purpose, but it is nevertheless useful.</p>
+<h3 id="building_a_software_in_a_container">Building a software in a container<a class="headerlink" href="#building_a_software_in_a_container" title="Permanent link">#</a></h3>
+<p>To summarize: in order to containerize our application we need to install the dependencies of your application (e.g. a web server), then copy your compiled application in your container, and then set your <code>CMD</code> to launch your application.</p>
+<p>You also have the option to compile your application inside the container. To avoid creating extremely large containers with the build tools we will use <a href="https://docs.docker.com/develop/develop-images/multistage-build/">multistage builds</a>.</p>
+<p>Let's create a very simple Go application in a file called <code>main.go</code>:</p>
+<div class="highlight"><pre><span></span><code>package main
+
+import (
+    "fmt"
+    "log"
+    "net/http"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Hello world!")
+}
+
+func main() {
+    http.HandleFunc("/", handler)
+    log.Fatal(http.ListenAndServe(":8080", nil))
+}
+</code></pre></div>
+<p>This program will launch a simple web server on port 8080. Let's also add a <code>go.mod</code> file to enable Go modules:</p>
+<div class="highlight"><pre><span></span><code>module github.com/yourusername/smaple
+
+go 1.14
+</code></pre></div>
+<p>Let's create a <code>Dockerfile</code> that compiles this application:</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">alpine</span> <span class="k">AS</span> <span class="s">build</span>
+<span class="k">RUN</span> apk add --update go
+<span class="k">RUN</span> mkdir -p /srv/myapp
+<span class="k">WORKDIR</span><span class="s"> /srv/myapp</span>
+<span class="k">COPY</span> main.go .
+<span class="k">COPY</span> go.mod .
+<span class="k">ENV</span> <span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span>
+<span class="k">RUN</span> go build -tags netgo -a -v main.go
+<span class="k">RUN</span> chmod +x main
+</code></pre></div>
+<p>In the next stage we will copy our compiled application from the first stage and run it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">alpine</span> <span class="k">AS</span> <span class="s">run</span>
+<span class="k">RUN</span> apk add --no-cache libc6-compat
+<span class="k">COPY</span> --from<span class="o">=</span>build /srv/myapp/main /app
+<span class="k">CMD</span> <span class="p">[</span><span class="s2">"/app"</span><span class="p">]</span>
+<span class="k">EXPOSE</span><span class="s"> 8080</span>
+</code></pre></div>
+<p>Finally, let's run it:</p>
+<div class="highlight"><pre><span></span><code>docker build -t myapp .
+docker run -d -p 8080:8080 myapp
+</code></pre></div>
+<p>There you go! That's your app built and running in a single file. You can see a few additional commands above, feel free to look them up in the <a href="https://docs.docker.com/engine/reference/builder/">official documentation</a>.</p>
 </article>
 </div>
 </div>
