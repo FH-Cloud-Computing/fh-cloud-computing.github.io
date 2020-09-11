@@ -284,6 +284,45 @@
     Setting up Grafana with Prometheus
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating_a_cpu_graph">
+    Creating a CPU graph
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating_an_alert">
+    Creating an alert
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting_up_a_notification_channel">
+    Setting up a notification channel
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploying_grafana_in_an_automated_fashion">
+    Deploying Grafana in an automated fashion
+  </a>
+<nav aria-label="Deploying Grafana in an automated fashion" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#provisioning_data_sources">
+    Provisioning data sources
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#provisioning_a_notification_channel">
+    Provisioning a notification channel
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#provisioning_dashboards">
+    Provisioning dashboards
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -339,6 +378,45 @@
     Setting up Grafana with Prometheus
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating_a_cpu_graph">
+    Creating a CPU graph
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating_an_alert">
+    Creating an alert
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting_up_a_notification_channel">
+    Setting up a notification channel
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploying_grafana_in_an_automated_fashion">
+    Deploying Grafana in an automated fashion
+  </a>
+<nav aria-label="Deploying Grafana in an automated fashion" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#provisioning_data_sources">
+    Provisioning data sources
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#provisioning_a_notification_channel">
+    Provisioning a notification channel
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#provisioning_dashboards">
+    Provisioning dashboards
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -362,6 +440,66 @@
 </code></pre></div>
 <p>This will launch Grafana on port 3000 of your node.</p>
 <h3 id="setting_up_grafana_with_prometheus">Setting up Grafana with Prometheus<a class="headerlink" href="#setting_up_grafana_with_prometheus" title="Permanent link">#</a></h3>
+<p>Grafana is an aggregator for information from many different systems. Data sources can be configured in the Configuration → Data sources menu on the left side. When adding a Prometheus data source you simply have to provide Grafana with your Prometheus URL. If you did not deploy any additional changes in the previous exercise you can leave everything else on default settings.</p>
+<p><img alt="A screenshot of the Prometheus data source. The URL field contains the value of http://prometheus:9090" src="prometheus-datasource.png"/></p>
+<h3 id="creating_a_cpu_graph">Creating a CPU graph<a class="headerlink" href="#creating_a_cpu_graph" title="Permanent link">#</a></h3>
+<p>Once you have the data source set up you can create a new dashboard and add a panel. The panel can have different visualization types, but will always draw its data from a query in the bottom box. Make sure to select the Prometheus data source and you will be presented with an option to enter your PromQL query. In addition, you can also provide sophisticated legend information, such as `` to list the instance name.</p>
+<p><img alt="A screenshot of the Grafana panel adjustment screen. It features a graph, as well as a PromQL input from the previous lecture." src="panel.png"/></p>
+<p>On the right hand side you can adjust various display options, for example what range and display format the Axis' should have in the graph.</p>
+<h3 id="creating_an_alert">Creating an alert<a class="headerlink" href="#creating_an_alert" title="Permanent link">#</a></h3>
+<p>In the same interface as above you can create an alert. The alert will allow you to set an evaluation period to determine how often the rule is evaluated. You can also set the <code>For</code> field to allow a grace period before the alert triggers. The conditions give you a way to create a flexible set of rules when an alert should be triggered.</p>
+<p><img alt="A screenshot of the alert configuration panel." src="alerts.png"/></p>
+<p>You can also set up notifications to send the alert to various notification channels. This functionality can be used to trigger the scaling behavior required in the project work.</p>
+<h3 id="setting_up_a_notification_channel">Setting up a notification channel<a class="headerlink" href="#setting_up_a_notification_channel" title="Permanent link">#</a></h3>
+<p>Before you can set up an alert notification you have to create a notification channel. This can be done from the left hand menu by going to Alerting → Notification channels. For the purposes of the project work the notification type should be "webhook". The URL should point to your custom web server that triggers Exoscale to increase the instance pool size. Finally, you should also set up the "Send reminders" option to keep triggering the scale up/down behavior if the CPU usage is still high/low.</p>
+<p><img alt="A screenshot of the notification channel configuration interface. The Disable Resolve Message and Send Reminders options are on. The Url points to http://autoscaler:8090/up ." src="notification.png"/></p>
+<h3 id="deploying_grafana_in_an_automated_fashion">Deploying Grafana in an automated fashion<a class="headerlink" href="#deploying_grafana_in_an_automated_fashion" title="Permanent link">#</a></h3>
+<p>Since our project work revolves around Terraform we need a way to deploy Grafana with all settings in an automated fashion. Thankfully, the Grafana developers have thought of this and <a href="https://grafana.com/docs/grafana/latest/administration/provisioning/">provided us with a way to do that</a>.</p>
+<h4 id="provisioning_data_sources">Provisioning data sources<a class="headerlink" href="#provisioning_data_sources" title="Permanent link">#</a></h4>
+<p>To provision data sources we must place or mount the data source configuration file in the <code>/etc/grafana/provisioning/datasources/</code> directory inside the Grafana container in YAML format. For Prometheus this data source could look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">datasources</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Prometheus</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">prometheus</span>
+  <span class="nt">access</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">proxy</span>
+  <span class="nt">orgId</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://prometheus:9090</span>
+  <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">editable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+<h4 id="provisioning_a_notification_channel">Provisioning a notification channel<a class="headerlink" href="#provisioning_a_notification_channel" title="Permanent link">#</a></h4>
+<p>Notification channels can also be provisioned by placing the appropriate YAML file in <code>/etc/grafana/provisioning/notifiers/</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">notifiers</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Scale up</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">webhook</span>
+    <span class="nt">uid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scale-up</span>
+    <span class="nt">org_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="nt">is_default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">send_reminder</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">disable_resolve_message</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">frequency</span><span class="p">:</span> <span class="s">"2m"</span>
+    <span class="nt">settings</span><span class="p">:</span>
+      <span class="nt">autoResolve</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">httpMethod</span><span class="p">:</span> <span class="s">"POST"</span>
+      <span class="nt">severity</span><span class="p">:</span> <span class="s">"critical"</span>
+      <span class="nt">uploadImage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+      <span class="nt">url</span><span class="p">:</span> <span class="s">"http://autoscaler:8090/up"</span>
+</code></pre></div>
+<p>Note, that the <code>uid</code> field of the notifier matters as this will be referenced from the dashboard.</p>
+<h4 id="provisioning_dashboards">Provisioning dashboards<a class="headerlink" href="#provisioning_dashboards" title="Permanent link">#</a></h4>
+<p>Provisioning dashboards is slightly more complex. As a first step we must tell Grafana to look in a certain directory for the dashboard configuration file. Grafana will periodically check this directory. This can be done from a YAML file in the <code>/etc/grafana/provisioning/dashboards/</code> directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">providers</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">'Home'</span>
+  <span class="nt">orgId</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">folder</span><span class="p">:</span> <span class="s">''</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file</span>
+  <span class="nt">updateIntervalSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+  <span class="nt">options</span><span class="p">:</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/grafana/dashboards</span>
+</code></pre></div>
+<p>We can then place the dashboard JSON file in the specified directory. The easiest way to create a JSON file is to manually create it in Grafana and then copy the JSON from the Grafana dashboard. Keep in mind that you may have to adjust the JSON manually to match your notification channel <code>uid</code> values.</p>
 </article>
 </div>
 </div>
