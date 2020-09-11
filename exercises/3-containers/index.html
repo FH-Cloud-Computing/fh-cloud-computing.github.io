@@ -294,6 +294,16 @@
     Building a software in a container
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#volumes">
+    Volumes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#security_hardening">
+    Security hardening
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -377,6 +387,16 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#building_a_software_in_a_container">
     Building a software in a container
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#volumes">
+    Volumes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#security_hardening">
+    Security hardening
   </a>
 </li>
 </ul>
@@ -553,6 +573,25 @@ go 1.14
 docker run -d -p 8080:8080 myapp
 </code></pre></div>
 <p>There you go! That's your app built and running in a single file. You can see a few additional commands above, feel free to look them up in the <a href="https://docs.docker.com/engine/reference/builder/">official documentation</a>.</p>
+<h3 id="volumes">Volumes<a class="headerlink" href="#volumes" title="Permanent link">#</a></h3>
+<p>One last item we need to talk about are <em>volumes</em>. Containers are designed to be <em>immutable</em>. When a new version comes along we simply destroy the existing container and create a new one. Some services like database, however, need to store data in a persistent fashion. That's what we need volumes for.</p>
+<p>In the container world we can mount volumes directly from the host machine, or we can mount a network-based storage as discussed in the lectures. In our example we will showcase how to mount a volume from a local folder using Docker.</p>
+<p>Assuming we want to launch a webserver we can mount the document root from our previous example:</p>
+<div class="highlight"><pre><span></span><code>docker run -d -p 80:80 -v /srv/www:/var/www/html mynginx
+</code></pre></div>
+<p>In this case the <code>/srv/www</code> folder of the host machine will be mounted in <code>/var/www/html</code> inside the container. This can be used to persist data, but also during development when files change frequently.</p>
+<h3 id="security_hardening">Security hardening<a class="headerlink" href="#security_hardening" title="Permanent link">#</a></h3>
+<p>One more aspect of containerization we need to talk about is security. With our configuration above our container is running as root. While the container has a security boundary, running as root can still present a security risk. In fact, enterprise Kubernetes setups like <a href="https://www.openshift.com/">OpenShift</a> do not allow containers to run as root.</p>
+<p>Let's change our Go container so it doesn't run as root:</p>
+<div class="highlight"><pre><span></span><code>...
+<span class="k">FROM</span> <span class="s">alpine</span> <span class="k">AS</span> <span class="s">run</span>
+<span class="k">RUN</span> addgroup -S --gid <span class="m">1000</span> app <span class="o">&amp;&amp;</span> adduser -S app --uid <span class="m">1000</span> -G app
+<span class="k">COPY</span> --from<span class="o">=</span>build /srv/myapp/main /app
+<span class="k">CMD</span> <span class="p">[</span><span class="s2">"/app"</span><span class="p">]</span>
+<span class="k">USER</span><span class="s"> 1000:1000</span>
+<span class="k">EXPOSE</span><span class="s"> 8080</span>
+</code></pre></div>
+<p>Note that we are specifying the user ID and group ID to run as in numeric form (<code>1000</code>). The <code>USER</code> command allows user names to be passed as well, but in a hardened Kubernetes setup this will not be accepted.</p>
 </article>
 </div>
 </div>
