@@ -399,7 +399,7 @@
 <p>After running the previous command you can now enter the IP address of your server into your browser and access Prometheus on port 9000. The interface looks like this:</p>
 <p><img alt="An image displaying the Prometheus user interface. It has a navigation bar on top and a query interface below." src="prometheus-ui.png"/></p>
 <h3 id="querying_prometheus">Querying Prometheus<a class="headerlink" href="#querying_prometheus" title="Permanent link">#</a></h3>
-<p>Prometheus is running and gathering its own metrics. You can check the successful metrics scraping bynavigating to Status → Targets. You can also visualize the gathered metrics from the Graph interface by clicking the <code>- insert metric at cursor -</code> dropdown. For example, you can add the <code>prometheus_http_requests_total</code> metric to show the HTTP requests Prometheus has received on each endpoint:</p>
+<p>Prometheus is running and gathering its own metrics. You can check the successful metrics scraping by navigating to Status → Targets. You can also visualize the gathered metrics from the Graph interface by clicking the <code>- insert metric at cursor -</code> dropdown. For example, you can add the <code>prometheus_http_requests_total</code> metric to show the HTTP requests Prometheus has received on each endpoint:</p>
 <p><img alt="A screenshot of Prometheus showing the interface with the prometheus_http_requests_total metric selected and a graph displayed below. The graph contains multiple growing lines, one for each HTTP endpoint." src="prometheus-http-requests.png"/></p>
 <p>You can also summarize the HTTP requests by using the <code>sum(prometheus_http_requests_total)</code> formula:</p>
 <p><img alt="A screenshot of Prometheus with the summary formula of HTTP request, containing a single ever growing line." src="prometheus-sum.png"/></p>
@@ -407,7 +407,7 @@
 <p><img alt="A screenshot of Prometheus showing the applied rate function. The graph is now more or less flat, with some spikes in it, showing the per-minute rate." src="prometheus-rate.png"/></p>
 <p>You can read more about the available query functions in PromQL <a href="https://prometheus.io/docs/prometheus/latest/querying/functions/">in the official documentation</a>.</p>
 <h3 id="configuring_a_node_exporter">Configuring a node exporter<a class="headerlink" href="#configuring_a_node_exporter" title="Permanent link">#</a></h3>
-<p>Prometheus in and of itself does not do anything. It needs to read from an exporter. The easiest and probably most useful exporter to start with is the <a href="https://github.com/prometheus/node_exporter">node exporter</a>. The node exporter exposes the the basic metrics of a machine, such as CPU and memory usage.</p>
+<p>Prometheus in and of itself does not do anything. It needs to read from an exporter. The easiest and probably most useful exporter to start with is the <a href="https://github.com/prometheus/node_exporter">node exporter</a>. The node exporter exposes the basic metrics of a machine, such as CPU and memory usage.</p>
 <p>Let's start by launching the node exporter on the same host as Prometheus:</p>
 <div class="highlight"><pre><span></span><code>docker run -d <span class="se">\</span>
   --net<span class="o">=</span><span class="s2">"host"</span> <span class="se">\</span>
