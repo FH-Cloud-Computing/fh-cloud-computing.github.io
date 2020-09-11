@@ -16,7 +16,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#macro_rendering_error">
+<a class="md-skip" href="#using_the_cli">
           Skip to content
         </a>
 </div>
@@ -280,8 +280,18 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#macro_rendering_error">
-    Macro Rendering Error
+<a class="md-nav__link" href="#using_the_cli">
+    Using the CLI
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using_go">
+    Using Go
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#python">
+    Python
   </a>
 </li>
 </ul>
@@ -325,8 +335,18 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#macro_rendering_error">
-    Macro Rendering Error
+<a class="md-nav__link" href="#using_the_cli">
+    Using the CLI
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using_go">
+    Using Go
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#python">
+    Python
   </a>
 </li>
 </ul>
@@ -339,23 +359,104 @@
 <a class="md-content__button md-icon" href="https://github.com/fh-cloud-computing/website/edit/master/docs/exercises/6-api-integration/index.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1>6. API integration</h1>
-<h2 id="macro_rendering_error"><em>Macro Rendering Error</em><a class="headerlink" href="#macro_rendering_error" title="Permanent link">#</a></h2>
-<p><strong>TemplateSyntaxError</strong>: unexpected '.'</p>
-<div class="highlight"><pre><span></span><code>Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/macros/plugin.py", line 261, in render
-    md_template = self.env.from_string(markdown)
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/jinja2/environment.py", line 941, in from_string
-    return cls.from_code(self, self.compile(source), globals, None)
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/jinja2/environment.py", line 638, in compile
-    self.handle_exception(source=source_hint)
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "&lt;unknown&gt;", line 17, in template
-jinja2.exceptions.TemplateSyntaxError: unexpected '.'
+<div class="download"><a download href="index.pdf"><button>Download PDF 🖨️</button></a>
+<a href="#"><button>Watch Video 🎬</button></a>
+</div>
+<h1>API integration</h1>
+<p>Cloud providers offer a wide range of tools to interact with their API's. Most importantly, every cloud provider offers a command line tool. With larger cloud providers this is often the better choice compared to their web interface. The cloud provider for the project work, Exoscale, offers <a href="https://community.exoscale.com/documentation/tools/exoscale-command-line-interface/">a CLI for all major platforms</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The source code for this exercise is available <a href="https://github.com/FH-Cloud-Computing/exercise-6">on GitHub</a>.</p>
+</div>
+<h3 id="using_the_cli">Using the CLI<a class="headerlink" href="#using_the_cli" title="Permanent link">#</a></h3>
+<p>When basic scripting is required the CLI may entirely be enough for the task. For example, you can query the list of instances in an instace pool as follows:</p>
+<div class="highlight"><pre><span></span><code>exo instancepool show INSTANCE-POOL-NAME --output-format json
 </code></pre></div>
+<p>You can use this command to generate your service discovery JSON file. Similarly, you could change the instance pool size:</p>
+<div class="highlight"><pre><span></span><code>exo instancepool update <span class="nb">test</span> --size <span class="m">5</span>
+</code></pre></div>
+<h3 id="using_go">Using Go<a class="headerlink" href="#using_go" title="Permanent link">#</a></h3>
+<p>When it comes to creating a web server the CLI solution usually goes out the window because it is quite hard to create a webserver that calls a shell script. (It involves creating a CGI script, which is an easy way to also create a security hole.) Go being a popular language for the cloud world many cloud providers offer an SDK for this language. It also has <a href="https://gobyexample.com/http-servers">a built-in library for creating web servers</a> which makes it ideal to receive webhooks and react on them. </p>
+<p>As a first step for this exercise let's create a file called <code>go.mod</code> to enable Go module support. (If you are unfamiliar with Go you really, really don't want to write Go code without this.)</p>
+<div class="highlight"><pre><span></span><code>module github.com/yourname/go-example
+
+go 1.14
+
+require github.com/exoscale/egoscale v0.27.0
+</code></pre></div>
+<p>As you can see, we already pulled in the <code>egoscale</code> library. This is the SDK for Exoscale in Go.</p>
+<p>Let's create a simple <code>main.go</code> that increases the size of an instance pool:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">"context"</span>
+    <span class="s">"flag"</span>
+    <span class="s">"log"</span>
+
+    <span class="s">"github.com/exoscale/egoscale"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">zoneId</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">egoscale</span><span class="p">.</span><span class="nx">ParseUUID</span><span class="p">(</span><span class="s">"zone-id-here"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">"invalid zone ID (%v)"</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">poolId</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">egoscale</span><span class="p">.</span><span class="nx">ParseUUID</span><span class="p">(</span><span class="s">"instance-pool-id-here"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">"invalid pool ID (%v)"</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Create a new client</span>
+    <span class="nx">client</span> <span class="o">:=</span> <span class="nx">egoscale</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="s">"https://api.exoscale.ch/v1/"</span><span class="p">,</span> <span class="s">"api-key-here"</span><span class="p">,</span> <span class="s">"secret-here"</span><span class="p">)</span>
+    <span class="nx">ctx</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">()</span>
+
+    <span class="c1">//Request the current size of the instance pool</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">RequestWithContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">egoscale</span><span class="p">.</span><span class="nx">GetInstancePool</span><span class="p">{</span>
+        <span class="nx">ZoneID</span><span class="p">:</span> <span class="nx">zoneId</span><span class="p">,</span>
+        <span class="nx">ID</span><span class="p">:</span>     <span class="nx">poolId</span><span class="p">,</span>
+    <span class="p">})</span>
+    <span class="nx">response</span> <span class="o">:=</span> <span class="nx">resp</span><span class="p">.(</span><span class="nx">egoscale</span><span class="p">.</span><span class="nx">GetInstancePoolResponse</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">InstancePools</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">"instance pool not found"</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">InstancePools</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">1</span> <span class="p">{</span>
+        <span class="c1">//This should never happen</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">"more than one instance pool returned"</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">instancePool</span> <span class="o">:=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">InstancePools</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1">//Resize the instance pool</span>
+    <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">RequestWithContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">egoscale</span><span class="p">.</span><span class="nx">ScaleInstancePool</span><span class="p">{</span>
+        <span class="nx">ZoneID</span><span class="p">:</span> <span class="nx">zoneId</span><span class="p">,</span>
+        <span class="nx">ID</span><span class="p">:</span>     <span class="nx">poolId</span><span class="p">,</span>
+        <span class="nx">Size</span><span class="p">:</span>   <span class="nx">instancePool</span><span class="p">.</span><span class="nx">Size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="p">})</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">"Failed to increase instance pool size (%v)"</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This little program will increase the instance pool size by 1. You can run it with <code>go run main.go</code>.</p>
+<h3 id="python">Python<a class="headerlink" href="#python" title="Permanent link">#</a></h3>
+<p>A second popular language for cloud programming is Python. Exoscale also <a href="https://exoscale.github.io/python-exoscale/">has an SDK for Python</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Python library for Exoscale currently <a href="https://github.com/exoscale/python-exoscale/issues/22">does not work on Windows</a>.</p>
+</div>
+<p>First, let's create a <code>requirements.txt</code>:</p>
+<div class="highlight"><pre><span></span><code>exoscale
+</code></pre></div>
+<p>Then we can run <code>pip install -r requirements.txt</code> and then implement this simple program:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">exoscale</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">exo</span> <span class="o">=</span> <span class="n">exoscale</span><span class="o">.</span><span class="n">Exoscale</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">"api-key-here"</span><span class="p">,</span> <span class="n">api_secret</span><span class="o">=</span><span class="s2">"api-secret-here"</span><span class="p">,</span> <span class="n">config_file</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+
+    <span class="n">zone</span> <span class="o">=</span> <span class="n">exo</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">get_zone</span><span class="p">(</span><span class="s2">"zone-name-here"</span><span class="p">)</span>
+
+    <span class="n">ip</span> <span class="o">=</span> <span class="n">exo</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">get_instance_pool</span><span class="p">(</span><span class="s2">"instance-pool-id-here"</span><span class="p">,</span> <span class="n">zone</span><span class="o">=</span><span class="n">zone</span><span class="p">)</span>
+    <span class="n">ip</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">ip</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>That's it!</p>
 </article>
 </div>
 </div>
