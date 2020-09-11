@@ -609,6 +609,10 @@
 <p>In practice each application contains at least some basic logic to filter logs to make it easier to configure the logging level.</p>
 <h4 id="12_tooling">12. Tooling<a class="headerlink" href="#12_tooling" title="Permanent link">#</a></h4>
 <p>The <a href="https://12factor.net/admin-processes">admin process recommendation</a> concerns itself with the command line tools needed to operate the application. These are things like running database migrations, etc. The recommendation says that these tools should be runnable directly from the applications directory without much extra configuration or installation.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>These factors are, of course, not exhaustive. IBM has published a whole host of <a href="https://medium.com/ibm-cloud/7-missing-factors-from-12-factor-application-2a3e1169bd9d">additional factors</a>.</p>
+</div>
 <h3 id="monitoring_and_metrics_collection">Monitoring and metrics collection<a class="headerlink" href="#monitoring_and_metrics_collection" title="Permanent link">#</a></h3>
 <p>The above 12 factors are, by necessity, limited in scope. The author(s) of those 12 factors have taken many things into account, yet left out others.</p>
 <p>One of the most important aspects left out of the list above is monitoring. Any developer wanting to working a cloud-native environment needs to consider monitoring. After all, the journey to the cloud is supposed to bring greater stability and facilitate rapid development cycles.</p>

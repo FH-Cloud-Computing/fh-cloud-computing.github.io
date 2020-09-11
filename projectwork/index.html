@@ -16,6 +16,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#handing_in_your_project_work">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -153,9 +156,36 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        Project work
+        <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./" title="Project work">
       Project work
     </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#handing_in_your_project_work">
+    Handing in your project work
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acceptance_criteria">
+    Acceptance criteria
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#getting_help">
+    Getting help
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../deadlines/" title="Deadlines">
@@ -295,6 +325,35 @@
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#handing_in_your_project_work">
+    Handing in your project work
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acceptance_criteria">
+    Acceptance criteria
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#getting_help">
+    Getting help
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/fh-cloud-computing/website/edit/master/docs/projectwork/index.md" title="Edit this page">
@@ -302,6 +361,7 @@
 </a>
 <h1>Project work</h1>
 <p>You are the cloud architect for a small work-for-hire company. A client wants to hire you but they are sceptical about your abilities to build an <em>autoscaling</em> service. They propose a proof of concept: build a service that runs a web application that is <em>deliberately slow</em> and load test it. Your cloud management should automatically launch new cloud servers when the load is high and remove servers when demand is low.</p>
+<p><img alt="" src="projectwork.png"/></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Do not continuously run your setup on Exoscale or you will run out of budget! Budget limitations are part of building cloud system so you have to learn to deal with it.</p>
@@ -319,11 +379,31 @@
 </ul>
 <p>As you also have to demonstrate to the client that you can work in an agile methodology you agree in 4 week sprints with a demo at the end of each sprint as outlined in the <a href="/deadlines">deadlines</a> document.</p>
 <p>As a dummy service to generate load you will use <a href="https://github.com/FH-Cloud-Computing/http-load-generator">http-load-generator</a>.</p>
-<p>Optionally, you can make use of the following (incurs a 5% point-penalty each):</p>
+<p>The manual way to implement this architecture is described <a href="https://www.exoscale.com/syslog/autoscaling-with-grafana-and-prometheus/">on the Exoscale blog</a>. We recommend reading and doing the steps described in the blog post at least once.</p>
+<p>Optionally, you can make use of the following (<strong>incurs a 5% point-penalty each</strong>):</p>
 <ul>
 <li><a href="https://github.com/FH-Cloud-Computing/prometheus-sd-exoscale-instance-pools">prometheus-sd-exoscale-instance-pools</a> to feed instance pool data into Prometheus</li>
 <li><a href="https://github.com/FH-Cloud-Computing/exoscale-grafana-autoscaler">exoscale-grafana-autoscaler</a> to drive the autoscaling behavior.</li>
 </ul>
+<h3 id="handing_in_your_project_work">Handing in your project work<a class="headerlink" href="#handing_in_your_project_work" title="Permanent link">#</a></h3>
+<p>In order to hand in your project work you must upload your code to a Git repository, for example on GitHub. Submit the link of the Git repository <a href="https://moodle.fh-campuswien.ac.at/course/view.php?id=14657">in Moodle</a></p>
+<p>Your Terraform code <strong>must</strong> be able to install the complete infrastructure into an empty Exoscale account. It <strong>must</strong> ask for the Exoscale API key and secret using the <code>exoscale_key</code> and <code>exoscale_secret</code> variable.</p>
+<p>If you opt to only implement the manual method (without Terraform) please enter <code>manual</code> in instead of the text field and we will contact you for a manual review appointment.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Keep in mind that only submitting a manual solution will give you minimal points. We strongly recommend you ask for help if you are stuck rather than implementing the manual solution.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The automated version has to run without manual intervention beyond inserting variables. Additionally, the solutions will be spot-checked for duplication, and you may be required to jump on a 10 minute call to quickly explain your call.</p>
+</div>
+<h3 id="acceptance_criteria">Acceptance criteria<a class="headerlink" href="#acceptance_criteria" title="Permanent link">#</a></h3>
+<p>The system will be tested with Apache Benchmark using the following command line:</p>
+<div class="highlight"><pre><span></span><code>ab -c 2 -n 1000 http://your-nlb-ip/load
+</code></pre></div>
+<p>Your system must be able to launch enough instances within 10 minutes to get the average load back under 80%. When AB is stopped, your system must scale down the instance pool to 1 instance within 10 minutes.</p>
+<h3 id="getting_help">Getting help<a class="headerlink" href="#getting_help" title="Permanent link">#</a></h3>
+<p>Please see the <a href="../help/">getting help page</a>.</p>
 </article>
 </div>
 </div>

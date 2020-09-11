@@ -295,6 +295,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#service_discovery">
+    Service discovery
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#volumes">
     Volumes
   </a>
@@ -387,6 +392,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#building_a_software_in_a_container">
     Building a software in a container
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#service_discovery">
+    Service discovery
   </a>
 </li>
 <li class="md-nav__item">
@@ -573,6 +583,16 @@ go 1.14
 docker run -d -p 8080:8080 myapp
 </code></pre></div>
 <p>There you go! That's your app built and running in a single file. You can see a few additional commands above, feel free to look them up in the <a href="https://docs.docker.com/engine/reference/builder/">official documentation</a>.</p>
+<h3 id="service_discovery">Service discovery<a class="headerlink" href="#service_discovery" title="Permanent link">#</a></h3>
+<p>Docker has a built-in service discovery model. Containers can address each other by their <em>names</em> as long as you specify the <code>--name</code> parameter when creating or running the container, and the containers are attached to the same network.</p>
+<p>Let's take the following example:</p>
+<div class="highlight"><pre><span></span><code>docker run --name a -ti ubuntu
+docker run --name b -ti ubuntu
+docker network create <span class="nb">test</span>
+docker network connect <span class="nb">test</span> a
+docker network connect <span class="nb">test</span> b
+</code></pre></div>
+<p>In this case both A and B containers will be able to talk to each other over the network with their respective names. Alternatively, you can also provide the <code>--network</code> option to <code>docker run</code></p>
 <h3 id="volumes">Volumes<a class="headerlink" href="#volumes" title="Permanent link">#</a></h3>
 <p>One last item we need to talk about are <em>volumes</em>. Containers are designed to be <em>immutable</em>. When a new version comes along we simply destroy the existing container and create a new one. Some services like database, however, need to store data in a persistent fashion. That's what we need volumes for.</p>
 <p>In the container world we can mount volumes directly from the host machine, or we can mount a network-based storage as discussed in the lectures. In our example we will showcase how to mount a volume from a local folder using Docker.</p>
