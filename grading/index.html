@@ -97,6 +97,32 @@
 </nav>
 </header>
 <div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs md-tabs--active" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="..">
+          About the course
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../lectures/">
+          Lectures
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../exercises/">
+          Exercises
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../glossary/">
+          Glossary
+        </a>
+</li>
+</ul>
+</div>
+</nav>
 <main class="md-main" data-md-component="main">
 <div class="md-main__inner md-grid">
 <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
@@ -490,7 +516,7 @@
 <script>
         app = initialize({
           base: "..",
-          features: ['tabs'],
+          features: ['navigation.tabs'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.4ac00218.min.js"
           }, typeof search !== "undefined" && search)
