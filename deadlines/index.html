@@ -7,9 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Course material for the Cloud Computing course of Fall 2020 at the FH Campus Wien. This course goes through the theory and practice of implementing applications for the cloud." name="description"/>
 <link href="../favicon.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-5.5.13" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-6.0.1" name="generator"/>
 <title>Deadlines - Cloud Computing 2020</title>
-<link href="../assets/stylesheets/main.077507d7.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.38780c08.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.3f72e892.min.css" rel="stylesheet"/>
 <link href="../custom.css" rel="stylesheet"/>
 <meta content="website" property="og:type">
 <meta content="Cloud Computing 2020" name="title" property="og:title">
@@ -24,7 +25,7 @@
 <meta content="social.png" name="twitter:image"/>
 <meta content="2020-09-14" name="date"/>
 </meta></meta></meta></meta></meta></head>
-<body dir="ltr">
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -96,32 +97,6 @@
 </nav>
 </header>
 <div class="md-container" data-md-component="container">
-<nav aria-label="Tabs" class="md-tabs md-tabs--active" data-md-component="tabs">
-<div class="md-tabs__inner md-grid">
-<ul class="md-tabs__list">
-<li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="..">
-          About the course
-        </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../lectures/">
-          Lectures
-        </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../exercises/">
-          Exercises
-        </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../glossary/">
-          Glossary
-        </a>
-</li>
-</ul>
-</div>
-</nav>
 <main class="md-main" data-md-component="main">
 <div class="md-main__inner md-grid">
 <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
@@ -191,6 +166,29 @@
 <a class="md-nav__link" href="#sprint_1_instance_pools">
     Sprint 1: Instance Pools
   </a>
+<nav aria-label="Sprint 1: Instance Pools" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pass_criteria">
+    Pass criteria:
+  </a>
+<nav aria-label="Pass criteria:" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#manual_solution_5">
+    Manual solution (5%)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automated_solution_15">
+    Automated solution (15%)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sprint_2_monitoring">
@@ -351,6 +349,29 @@
 <a class="md-nav__link" href="#sprint_1_instance_pools">
     Sprint 1: Instance Pools
   </a>
+<nav aria-label="Sprint 1: Instance Pools" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pass_criteria">
+    Pass criteria:
+  </a>
+<nav aria-label="Pass criteria:" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#manual_solution_5">
+    Manual solution (5%)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automated_solution_15">
+    Automated solution (15%)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sprint_2_monitoring">
@@ -378,7 +399,19 @@
 <h3 id="sprint_1_instance_pools">Sprint 1: Instance Pools<a class="headerlink" href="#sprint_1_instance_pools" title="Permanent link">#</a></h3>
 <p><strong>Deadline:</strong> 15<sup>th</sup> of October 2020 </p>
 <p>In this sprint you must demonstrate your ability to set up an instance pool and a network load balancer.</p>
-<p><strong>Pass criteria:</strong> your webservice must answer on an IP address and balance traffic across all instances running in an instance pool. The number of instances will be changed in the demonstration and your web service must adapt accordingly.</p>
+<h4 id="pass_criteria">Pass criteria:<a class="headerlink" href="#pass_criteria" title="Permanent link">#</a></h4>
+<h5 id="manual_solution_5">Manual solution (5%)<a class="headerlink" href="#manual_solution_5" title="Permanent link">#</a></h5>
+<p>You must demonstrate on a call how you set up your Exoscale environment in detail. Otherwise, the requirements are identical as with the automated solution.</p>
+<h5 id="automated_solution_15">Automated solution (15%)<a class="headerlink" href="#automated_solution_15" title="Permanent link">#</a></h5>
+<p>You must upload your Terraform to GitHub or an alternative Git service and submit your link in Moodle. Your code must accept two input variables, <code>exoscale_key</code> and <code>exoscale_secret</code>. The automated checking system will run your code against a completely empty Exoscale account from a standard Ubuntu 20.04 environment. The automated system will check the following:</p>
+<ul>
+<li>The Terraform code must execute successfully,</li>
+<li>The presence of a single NLB with a single service listening on port 80,</li>
+<li>The presence of a single instance pool,</li>
+<li>That all backends on the NLB are green within 5 minutes of running Terraform,</li>
+<li>When deleting all instances from the instance pool, the instance pool must provision the new instances and the health check must become green within 5 minutes,</li>
+<li>When accessing the IP address of the NLB with the <code>/health</code> URL, that URL should respond with "OK" and a HTTP status code 200. (The easiest way to achieve this is to run the <a href="https://github.com/FH-Cloud-Computing/http-load-generator">http load generator</a>.)</li>
+</ul>
 <h3 id="sprint_2_monitoring">Sprint 2: Monitoring<a class="headerlink" href="#sprint_2_monitoring" title="Permanent link">#</a></h3>
 <p><strong>Deadline:</strong> 15<sup>th</sup> of November 2020</p>
 <p>In this sprint you must demonstrate your ability to monitor a varying number of instances set up on an instance pool in the previous sprint.</p>
@@ -439,14 +472,14 @@ Prometheus must track the instances in the instance pool using custom service di
 </div>
 </footer>
 </div>
-<script src="../assets/javascripts/vendor.2d1db4bd.min.js"></script>
-<script src="../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
+<script src="../assets/javascripts/bundle.aa3f9871.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
 <script>
         app = initialize({
           base: "..",
           features: ['tabs'],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

@@ -7,9 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Course material for the Cloud Computing course of Fall 2020 at the FH Campus Wien. This course goes through the theory and practice of implementing applications for the cloud." name="description"/>
 <link href="../favicon.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-5.5.13" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-6.0.1" name="generator"/>
 <title>Project work - Cloud Computing 2020</title>
-<link href="../assets/stylesheets/main.077507d7.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.38780c08.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.3f72e892.min.css" rel="stylesheet"/>
 <link href="../custom.css" rel="stylesheet"/>
 <meta content="website" property="og:type">
 <meta content="Cloud Computing 2020" name="title" property="og:title">
@@ -24,7 +25,7 @@
 <meta content="social.png" name="twitter:image"/>
 <meta content="2020-09-14" name="date"/>
 </meta></meta></meta></meta></meta></head>
-<body dir="ltr">
+<body data-md-color-accent="none" data-md-color-primary="none" data-md-color-scheme="" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -96,32 +97,6 @@
 </nav>
 </header>
 <div class="md-container" data-md-component="container">
-<nav aria-label="Tabs" class="md-tabs md-tabs--active" data-md-component="tabs">
-<div class="md-tabs__inner md-grid">
-<ul class="md-tabs__list">
-<li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="..">
-          About the course
-        </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../lectures/">
-          Lectures
-        </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../exercises/">
-          Exercises
-        </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../glossary/">
-          Glossary
-        </a>
-</li>
-</ul>
-</div>
-</nav>
 <main class="md-main" data-md-component="main">
 <div class="md-main__inner md-grid">
 <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
@@ -185,11 +160,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#handing_in_your_project_work">
     Handing in your project work
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#acceptance_criteria">
-    Acceptance criteria
   </a>
 </li>
 <li class="md-nav__item">
@@ -353,11 +323,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#acceptance_criteria">
-    Acceptance criteria
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#getting_help">
     Getting help
   </a>
@@ -414,11 +379,6 @@
 <p class="admonition-title">Note</p>
 <p>If your code does not run after handing it in and that error is due to a <strong>minor</strong> mistake in your Terraform code you will be given a chance to fix it within 5 days.</p>
 </div>
-<h3 id="acceptance_criteria">Acceptance criteria<a class="headerlink" href="#acceptance_criteria" title="Permanent link">#</a></h3>
-<p>The system will be tested with Apache Benchmark using the following command line:</p>
-<div class="highlight"><pre><span></span><code>ab -c 2 -n 1000 http://your-nlb-ip/load
-</code></pre></div>
-<p>Your system must be able to launch enough instances within 10 minutes to get the average load back under 80%. When AB is stopped, your system must scale down the instance pool to 1 instance within 10 minutes.</p>
 <h3 id="getting_help">Getting help<a class="headerlink" href="#getting_help" title="Permanent link">#</a></h3>
 <p>Please see the <a href="../help/">getting help page</a>.</p>
 </article>
@@ -472,14 +432,14 @@
 </div>
 </footer>
 </div>
-<script src="../assets/javascripts/vendor.2d1db4bd.min.js"></script>
-<script src="../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
+<script src="../assets/javascripts/bundle.aa3f9871.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
 <script>
         app = initialize({
           base: "..",
           features: ['tabs'],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
