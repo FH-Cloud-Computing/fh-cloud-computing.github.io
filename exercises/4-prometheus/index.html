@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Course material for the Cloud Computing course of Fall 2020 at the FH Campus Wien. This course goes through the theory and practice of implementing applications for the cloud." name="description"/>
 <link href="../../favicon.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-6.0.2" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-6.1.0" name="generator"/>
 <title>4. Prometheus - Cloud Computing 2020</title>
-<link href="../../assets/stylesheets/main.38780c08.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.3f72e892.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.bc7e593a.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab28b872.min.css" rel="stylesheet"/>
 <link href="../../custom.css" rel="stylesheet"/>
 <meta content="website" property="og:type">
 <meta content="Cloud Computing 2020" name="title" property="og:title">
@@ -469,18 +469,18 @@ sum(rate(node_cpu_seconds_total[1m]))
   <span class="p p-Indicator">-</span> <span class="nt">job_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Custom</span>
     <span class="nt">file_sd_configs</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="nt">files</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/custom_servers.json</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/service-discovery/custom_servers.json</span>
         <span class="nt">refresh_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10s</span>
 </code></pre></div>
 <p>To make this work you will have to mount an additional volume for Prometheus:</p>
 <div class="highlight"><pre><span></span><code>docker run <span class="se">\</span>
     -d <span class="se">\</span>
     -p <span class="m">9090</span>:9090 <span class="se">\</span>
-    -v /srv/custom_servers.json:/custom_servers.json <span class="se">\</span>
+    -v /srv/service-discovery/:/service-discovery/custom_servers.json <span class="se">\</span>
     -v /srv/prometheus.yml:/etc/prometheus/prometheus.yml <span class="se">\</span>
     prom/prometheus
 </code></pre></div>
-<p>Finally, let's place the following file in <code>/srv/custom_servers.json</code> on the host:</p>
+<p>Finally, let's place the following file in <code>/srv/service-discovery/custom_servers.json</code> on the host:</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
   <span class="p">{</span>
     <span class="nt">"targets"</span><span class="p">:</span> <span class="p">[</span> <span class="s2">"1.2.3.4:9100"</span> <span class="p">]</span>
@@ -548,8 +548,8 @@ sum by (instance) (rate(node_cpu_seconds_total[1m]))
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.77e55a48.min.js"></script>
-<script src="../../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+<script src="../../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+<script src="../../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
 <script>
         app = initialize({
           base: "../..",
