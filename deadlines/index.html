@@ -494,6 +494,7 @@ sum by (instance) (rate(node_cpu_seconds_total[1m]))</code></li>
 <li>The service discovery agent must detect changes in the instance pool within 2 minutes and write the appropriate service discovery file.</li>
 </ul>
 <p><strong>How the service discovery is tested:</strong> the service discovery agent is tested separately outside of the cluster provisioned by Terraform. The hand in automation builds a container image from the <code>Dockerfile</code> located in the <code>servicediscovery</code> folder and runs it with the correct environment variables, then observes if the service discovery file (<code>/srv/service-discovery/config.json</code>) inside the container contains the correct details as instances are stopped and started.</p>
+<p>We recommend creating an account on the <a href="https://hub.docker.com">Docker hub</a> to <code>docker push</code> your image. You can then pull the image from your <code>userdata</code> instead of uploading the code directly.</p>
 </details>
 <h3 id="sprint_3_autoscaling">Sprint 3: Autoscaling<a class="headerlink" href="#sprint_3_autoscaling" title="Permanent link">#</a></h3>
 <p><strong>Deadline:</strong> 15<sup>th</sup> of December 2020 23:59</p>
