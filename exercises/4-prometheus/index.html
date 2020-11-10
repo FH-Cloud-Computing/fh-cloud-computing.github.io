@@ -476,7 +476,7 @@ sum(rate(node_cpu_seconds_total[1m]))
 <div class="highlight"><pre><span></span><code>docker run <span class="se">\</span>
     -d <span class="se">\</span>
     -p <span class="m">9090</span>:9090 <span class="se">\</span>
-    -v /srv/service-discovery/:/service-discovery/custom_servers.json <span class="se">\</span>
+    -v /srv/service-discovery/:/service-discovery/ <span class="se">\</span>
     -v /srv/prometheus.yml:/etc/prometheus/prometheus.yml <span class="se">\</span>
     prom/prometheus
 </code></pre></div>
