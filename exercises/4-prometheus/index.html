@@ -454,7 +454,7 @@ sum(rate(node_cpu_seconds_total[1m]))
 </code></pre></div>
 <h3 id="dynamic_scraping">Dynamic scraping<a class="headerlink" href="#dynamic_scraping" title="Permanent link">#</a></h3>
 <p>There is a <a href="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file">wide range of service discovery options available</a>. In our case we will implement the <a href="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#file_sd_config">file SD</a>. The file service discovery periodically checks a file for changes and reads the IP addresses in that file.</p>
-<p>Let's extend our configuration my the file SD configuration:</p>
+<p>Let's extend our configuration by the file SD configuration:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">global</span><span class="p">:</span>
   <span class="nt">scrape_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15s</span>
 <span class="nt">scrape_configs</span><span class="p">:</span>
