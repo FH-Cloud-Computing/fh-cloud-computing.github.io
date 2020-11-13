@@ -409,7 +409,7 @@
 <p class="admonition-title">Warning</p>
 <p>This will run Prometheus on your host machine on port 9090. Prometheus itself does not have any authentication. Make sure to secure your server with security groups as needed.</p>
 </div>
-<p>After running the previous command you can now enter the IP address of your server into your browser and access Prometheus on port 9000. The interface looks like this:</p>
+<p>After running the previous command you can now enter the IP address of your server into your browser and access Prometheus on port 9090. The interface looks like this:</p>
 <p><img alt="An image displaying the Prometheus user interface. It has a navigation bar on top and a query interface below." src="prometheus-ui.png"/></p>
 <h3 id="querying_prometheus">Querying Prometheus<a class="headerlink" href="#querying_prometheus" title="Permanent link">#</a></h3>
 <p>Prometheus is running and gathering its own metrics. You can check the successful metrics scraping by navigating to Status → Targets. You can also visualize the gathered metrics from the Graph interface by clicking the <code>- insert metric at cursor -</code> dropdown. For example, you can add the <code>prometheus_http_requests_total</code> metric to show the HTTP requests Prometheus has received on each endpoint:</p>
