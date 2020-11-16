@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Course material for the Cloud Computing course of Fall 2020 at the FH Campus Wien. This course goes through the theory and practice of implementing applications for the cloud." name="description"/>
 <link href="../favicon.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-6.1.4" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-6.1.5" name="generator"/>
 <title>Testing - Cloud Computing 2020</title>
-<link href="../assets/stylesheets/main.358818c7.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.f0267088.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.21aed14c.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.196e0c26.min.css" rel="stylesheet"/>
 <link href="../custom.css" rel="stylesheet"/>
 <meta content="website" property="og:type">
 <meta content="Cloud Computing 2020" name="title" property="og:title">
@@ -30,6 +30,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#what_will_be_asked_in_the_test">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -60,7 +63,7 @@
 <label class="md-search__overlay" for="__search"></label>
 <div class="md-search__inner" role="search">
 <form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" spellcheck="false" type="text"/>
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
 <label class="md-search__icon md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
@@ -99,23 +102,23 @@
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
 <a class="md-tabs__link md-tabs__link--active" href="..">
-          About the course
-        </a>
+        About the course
+      </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../lectures/">
-          Lectures
-        </a>
+        Lectures
+      </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../exercises/">
-          Exercises
-        </a>
+        Exercises
+      </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../glossary/">
-          Glossary
-        </a>
+        Glossary
+      </a>
 </li>
 </ul>
 </div>
@@ -177,9 +180,55 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        Testing
+        <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
       Testing
     </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what_will_be_asked_in_the_test">
+    What will be asked in the test?
+  </a>
+<nav aria-label="What will be asked in the test?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fundamentals">
+    Fundamentals
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#iaas">
+    IaaS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#beyond_iaas">
+    Beyond IaaS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#containers">
+    Containers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cloud-native_app_development">
+    Cloud-native app development
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../help/">
@@ -309,6 +358,54 @@
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what_will_be_asked_in_the_test">
+    What will be asked in the test?
+  </a>
+<nav aria-label="What will be asked in the test?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fundamentals">
+    Fundamentals
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#iaas">
+    IaaS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#beyond_iaas">
+    Beyond IaaS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#containers">
+    Containers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cloud-native_app_development">
+    Cloud-native app development
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/fh-cloud-computing/website/edit/master/docs/testing/index.md" title="Edit this page">
@@ -323,11 +420,85 @@ test.</p>
 <li>Close all other applications except for the single browser window the test runs in.</li>
 <li>Remove all electronic devices and notes from your desk and person. No phones, no smartwatches of any kind are allowed.</li>
 <li>Unless medically required no food is allowed during the test and only clear liquids in clear, unlabeled containers
-  are allowed.</li>
+  are allowed. No mugs, no coke, etc.</li>
 <li>During the test you will not be allowed to talk.</li>
 <li>You will be required to turn on your camera the entire time during the test. You will also be required to show that
   your environment suits the criteria described above.</li>
-<li>You will be required to turn on your screen sharing during the entire test.</li>
+<li>You may be required to turn on your screen sharing during the entire test.</li>
+</ul>
+<h3 id="what_will_be_asked_in_the_test">What will be asked in the test?<a class="headerlink" href="#what_will_be_asked_in_the_test" title="Permanent link">#</a></h3>
+<p><strong>This is a non-exhaustive list.</strong> Use it as a learning guide to be better prepared for the test. Remember: if you don't know something, <strong>ask</strong>. That's what Slack is for.</p>
+<h4 id="fundamentals">Fundamentals<a class="headerlink" href="#fundamentals" title="Permanent link">#</a></h4>
+<p>As indicated in the first lecture you will need to demonstrate an understanding of computer networking to the level
+that is required to configure a cloud environment:</p>
+<ul>
+<li>Protocols: Ethernet, IP, TCP, UDP, DNS, HTTP. Know everything that is required to create a firewall configuration.</li>
+<li>What is a server? What are the components of a server?</li>
+<li>Anatomy of the Internet: How does a packet get to its target and back?</li>
+<li>What are the components of a typical software stack?</li>
+<li>What makes a cloud a cloud? What differentiates it from a virtual machines offering?</li>
+<li>What classes of cloud providers are there? What's the difference?</li>
+<li>What are the typical use cases where cloud can be used for cost savings? What are the typical workload examples?</li>
+<li>What are the different cloud models based on access/customer patterns? Who do they offer service to?</li>
+<li>How does cloud automation work, what is the difference between the discussed tools, and why are they important?</li>
+<li>What regulation is relevant to the cloud? What are the rights and duties of each party?</li>
+</ul>
+<h4 id="iaas">IaaS<a class="headerlink" href="#iaas" title="Permanent link">#</a></h4>
+<ul>
+<li>What are virtual machines? How do they differ from containers?</li>
+<li>What are the typical instance types cloud providers offer? What workloads are suitable for these instance types?</li>
+<li>How does automation work in the cloud?</li>
+<li>What are virtual machine pools?</li>
+<li>What storage models are on offer? How do they differ? What workloads are good for which storage type?</li>
+<li>What networking models are typically offered? How do you access the Internet? in each of these?</li>
+<li>What are security groups? How do they work? Know how to configure them properly for access from a specific IP range.</li>
+<li>What are network load balancers? What protocol(s) do they support and what differentiates them from application load balancers?</li>
+<li>What VPN and interconnect types do you know? How are they used? What are the pitfalls of each?</li>
+<li>What is DNS and how does a DNS service work? What are the advanced features some DNS providers offer?</li>
+</ul>
+<h4 id="beyond_iaas">Beyond IaaS<a class="headerlink" href="#beyond_iaas" title="Permanent link">#</a></h4>
+<ul>
+<li>What are application load balancers and how do they differ from NLBs? Which layer do they work on and which protocol do they typically use?</li>
+<li>What is session stickyness? How does it work?</li>
+<li>What is a CDN? Why do you need one? What are the typical round trip times to the other side of the globe?</li>
+<li>What content is well suited for a CDN?</li>
+<li>What is an object storage? What is it good for? What is it not good for? Why?</li>
+<li>What is database consistency and why does it matter? What are the components of ACID and BASE? What do they mean?</li>
+<li>What is the CAP theorem? What does it say?</li>
+<li>What are relational databases? How do they differ from other database types? Can you name a few?</li>
+<li>What are key-value stores? Can you name a few? When would you use one?</li>
+<li>What are document databases? Can you name a few? When would you use one?</li>
+<li>What are time series databases? Can you name one? When would you use one?</li>
+<li>What are graph databases? Can you name one? When would you use one?</li>
+<li>What are functions as a service? When would you use one? Can you imagine an architecture that uses FaaS?</li>
+</ul>
+<h4 id="containers">Containers<a class="headerlink" href="#containers" title="Permanent link">#</a></h4>
+<ul>
+<li>What is a container and how does it differ from a virtual machine?</li>
+<li>What provides isolation in case of a container? Can you name a few mechanisms?</li>
+<li>What are container images and how are they constructed? Which software popularized them and how are they standardized?</li>
+<li>What parts go into building a container?</li>
+<li>How is data storage solved in containers? How do you persist data?</li>
+<li>How do you deploy a container? What is immutable infrastructure?</li>
+<li>What is container orchestration and why do you need it? What is Kubernetes and what are the advantages and disadvantages over Docker Swarm.</li>
+<li>What is the basic networking model of containers? How can a network be extended over multiple hosts?</li>
+<li>Why do you need internal firewalls in a Kubernetes cluster?</li>
+<li>What are the components of deploying an application on Kubernetes? What is the difference between them?</li>
+<li>What are the core components of a Kubernetes cluster? What do they do?</li>
+</ul>
+<h4 id="cloud-native_app_development">Cloud-native app development<a class="headerlink" href="#cloud-native_app_development" title="Permanent link">#</a></h4>
+<ul>
+<li>What is state in an application? Why is it a problem for scaling and how do you solve it?</li>
+<li>What are the 12 factors? Can you imagine how to put them into practice?</li>
+<li>How do you build a self-healing system with containers? What are the components that you need for it?</li>
+<li>What are feature tests? How do they work? </li>
+<li>How does metrics collection work in practice?</li>
+<li>What is Prometheus? How can you integrate it into your application?</li>
+<li>How are logs typically collected? Can you name a log aggregator?</li>
+<li>Can you name a software that provides dashboards?</li>
+<li>What are the benefits and drawbacks of microservices? What are good and bad use cases for microservices? What is the circuit breaker pattern and why do you need it?</li>
+<li>What is Conway's Law?</li>
+<li>What are service meshes?</li>
 </ul>
 </article>
 </div>

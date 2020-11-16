@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Course material for the Cloud Computing course of Fall 2020 at the FH Campus Wien. This course goes through the theory and practice of implementing applications for the cloud." name="description"/>
 <link href="../favicon.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-6.1.4" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-6.1.5" name="generator"/>
 <title>Deadlines - Cloud Computing 2020</title>
-<link href="../assets/stylesheets/main.358818c7.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.f0267088.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.21aed14c.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.196e0c26.min.css" rel="stylesheet"/>
 <link href="../custom.css" rel="stylesheet"/>
 <meta content="website" property="og:type">
 <meta content="Cloud Computing 2020" name="title" property="og:title">
@@ -63,7 +63,7 @@
 <label class="md-search__overlay" for="__search"></label>
 <div class="md-search__inner" role="search">
 <form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" spellcheck="false" type="text"/>
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
 <label class="md-search__icon md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
@@ -102,23 +102,23 @@
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
 <a class="md-tabs__link md-tabs__link--active" href="..">
-          About the course
-        </a>
+        About the course
+      </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../lectures/">
-          Lectures
-        </a>
+        Lectures
+      </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../exercises/">
-          Exercises
-        </a>
+        Exercises
+      </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../glossary/">
-          Glossary
-        </a>
+        Glossary
+      </a>
 </li>
 </ul>
 </div>
@@ -235,6 +235,25 @@
 <a class="md-nav__link" href="#sprint_3_autoscaling">
     Sprint 3: Autoscaling
   </a>
+<nav aria-label="Sprint 3: Autoscaling" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#minimum_requirements_6">
+    Minimum requirements (5%)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automated_solution_6">
+    Automated solution (+5%)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#autoscaler_implementation_5">
+    Autoscaler implementation (+5%)
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -428,6 +447,25 @@
 <a class="md-nav__link" href="#sprint_3_autoscaling">
     Sprint 3: Autoscaling
   </a>
+<nav aria-label="Sprint 3: Autoscaling" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#minimum_requirements_6">
+    Minimum requirements (5%)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automated_solution_6">
+    Automated solution (+5%)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#autoscaler_implementation_5">
+    Autoscaler implementation (+5%)
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -499,7 +537,40 @@ sum by (instance) (rate(node_cpu_seconds_total[1m]))</code></li>
 <h3 id="sprint_3_autoscaling">Sprint 3: Autoscaling<a class="headerlink" href="#sprint_3_autoscaling" title="Permanent link">#</a></h3>
 <p><strong>Deadline:</strong> 15<sup>th</sup> of January 2021 23:59 <strike>15<sup>th</sup> of December 2020 23:59</strike></p>
 <p>In this sprint you must demonstrate your ability to receive a webhook from Grafana and adjust the number of instances in the instance pool from the previous sprint under load.</p>
-<p><strong>Pass criteria:</strong> Your service will be hit with a large number of requests and it must scale up as outlined in the <a href="/projectwork">project work document</a>. Details will be published on the 20<sup>th</sup> of November 2020</p>
+<p>Your service will be hit with a large number of requests and it must scale up as outlined in the <a href="/projectwork">project work document</a>.</p>
+<details class="note"><summary>Pass criteria</summary><h5 id="minimum_requirements_6">Minimum requirements (5%)<a class="headerlink" href="#minimum_requirements_6" title="Permanent link">#</a></h5>
+<p><strong>Note:</strong> If you only fulfill your minimum requirements please contact us for a review appointment.</p>
+<ul>
+<li>All items from Sprint 1 and 2 must still work.</li>
+<li>You must install Grafana on your monitoring server such that it is publicly available on port 3000 of your monitoring server.</li>
+<li>You must add your Prometheus server as a datasource to Grafana.</li>
+<li>You must create a dashboard in Grafana with two graphs that both show the average CPU usage across all the instances in the instance pool from Sprint 1. The graph must not include the CPU usage of the monitoring server.</li>
+<li>One of the graphs must have an alert set to trigger when the average CPU usage is over 80% over 1 minute after 1 minute of "pending".</li>
+<li>The second graph must have an alert set to trigger when the average CPU usage is below 20% over 1 minute after 1 minute of "pending".</li>
+<li>The 80% alert must trigger send a webhook to the autoscaler of the monitoring host on the <code>/up</code> URL. If the CPU usage is still high after 5 minutes the webhook must be repeated. It MUST NOT send a webhook for resolution (when the CPU usage drops below 80%).</li>
+<li>The 20% alert must trigger a webhook to the <code>/down</code> URL of the autoscaler in the same manner as described above.</li>
+<li>When the NLB IP is hit on the <code>/load</code> endpoint by a client and the average CPU usage climbs over 80% it must start new instances periodically until the CPU usage drops below 80%.</li>
+</ul>
+<h5 id="automated_solution_6">Automated solution (+5%)<a class="headerlink" href="#automated_solution_6" title="Permanent link">#</a></h5>
+<p>In addition to the criteria above, the entire setup must be fully automated using Terraform, and the Terraform code must be uploaded to a Git repository accessible by the lecturers. The following criteria must also be true:</p>
+<ul>
+<li>Your code <em>must</em> be on the <code>master</code> branch and in the main folder.</li>
+<li><code>terraform init</code> must succeed.</li>
+<li><code>terraform apply</code> must succeed with the <code>exoscale_key</code> and <code>exoscale_secret</code> variables passed to it.</li>
+<li><code>terraform destroy</code> must succeed and must leave no resources behind.</li>
+</ul>
+<h5 id="autoscaler_implementation_5">Autoscaler implementation (+5%)<a class="headerlink" href="#autoscaler_implementation_5" title="Permanent link">#</a></h5>
+<p>To achieve this goal, you must implement the autoscaler yourself. (Do not copy code from the Internet or from fellow students.) You can pick the programming language of your choice. </p>
+<ul>
+<li>Upload your code to the repository with the Terraform code in the <code>autoscaler</code> folder.</li>
+<li>Your code must be containerized with a <code>Dockerfile</code>. The <code>docker build</code> command must execute successfully.</li>
+<li>Your container built from the Dockerfile must accept the <code>EXOSCALE_KEY</code>, <code>EXOSCALE_SECRET</code>, <code>EXOSCALE_ZONE</code> (e.g. <code>at-vie-1</code>), <code>EXOSCALE_ZONE_ID</code>, <code>EXOSCALE_INSTANCEPOOL_ID</code>, and <code>LISTEN_PORT</code> environment variables as configuration.</li>
+<li>When an HTTP request is sent to the <code>LISTEN_PORT</code> on the <code>/up</code> endpoint your autoscaler must increase the size of the instance pool given in <code>EXOSCALE_INSTANCEPOOL_ID</code> by 1 and respond with a HTTP 200 status code.</li>
+<li>When an HTTP request is sent to the <code>LISTEN_PORT</code> on the <code>/down</code> endpoint your autoscaler must decrease the size of the instance pool given in <code>EXOSCALE_INSTANCEPOOL_ID</code> by 1 and respond with a HTTP 200 status code.</li>
+<li>If the instance pool size is 1 and scaling down is requested the autoscaler must ignore the request and respond with an HTTP 200 status code.</li>
+<li>Your autoscaler must stop gracefully with an exit code of 0 when sent a TERM signal in less than 30 seconds.</li>
+</ul>
+</details>
 </article>
 </div>
 </div>
