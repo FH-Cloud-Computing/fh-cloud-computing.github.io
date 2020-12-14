@@ -7,9 +7,9 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Course material for the Cloud Computing course of Fall 2020 at the FH Campus Wien. This course goes through the theory and practice of implementing applications for the cloud." name="description"/>
 <link href="../../favicon.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-6.1.5" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-6.1.7" name="generator"/>
 <title>5. Cloud-native software development - Cloud Computing 2020</title>
-<link href="../../assets/stylesheets/main.21aed14c.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.19753c6b.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.196e0c26.min.css" rel="stylesheet"/>
 <link href="../../custom.css" rel="stylesheet"/>
 <meta content="website" property="og:type">
@@ -638,7 +638,7 @@
 <h4 id="periodic_checks">Periodic checks<a class="headerlink" href="#periodic_checks" title="Permanent link">#</a></h4>
 <p><audio controls="" preload="none" src="audio/05-periodic-checks.mp3"></audio></p>
 <p>One of the most classic forms of monitoring are periodic checks. Periodic checks run a certain check, for example a connection, against the application. If the connection succeeds the check is green, if not the check is red and an alert is sent out. The check types are varied, ranging from a simple connection attempt to a fully blown interaction with the application.</p>
-<p>These checks not only serve the purpose of alerting the administrator but can also work as a trigger for a self-healing system. In a containerized environment, for example, we have several options to implement a self-healing system. You can add the <a href="https://docs.docker.com/engine/reference/builder/#healthcheck"><code>HEALTHCHECK</code></a> directive in the <code>Dockerfile</code> for example, or you can implement <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/">Liveness, Readiness, and Startup Probles</a> in Kubernetes.</p>
+<p>These checks not only serve the purpose of alerting the administrator but can also work as a trigger for a self-healing system. In a containerized environment, for example, we have several options to implement a self-healing system. You can add the <a href="https://docs.docker.com/engine/reference/builder/#healthcheck"><code>HEALTHCHECK</code></a> directive in the <code>Dockerfile</code> for example, or you can implement <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/">Liveness, Readiness, and Startup Probes</a> in Kubernetes.</p>
 <p>The important question to consider with periodic checks is the rate of false positives. An intermittent network failure may not be a signal for an application failing and can still raise alarms. In order to avoid <a href="https://www.pagerduty.com/blog/lets-talk-about-alert-fatigue/">alert fatigue</a> a well designed monitoring system keeps false alerts to a minimum.</p>
 <h4 id="feature_tests">Feature tests<a class="headerlink" href="#feature_tests" title="Permanent link">#</a></h4>
 <p><audio controls="" preload="none" src="audio/06-feature-tests.mp3"></audio></p>
@@ -710,7 +710,7 @@
 </li>
 </ul>
 </div>
-<div class="admonition question"><p class="admonition-title">What is the Circuit-Breaker Pattern?</p><div class="quiz__answers"><div class="quiz__answer"><input id="6804a308-0543-4aaa-83d3-0471cb9b6253" type="checkbox"><label for="6804a308-0543-4aaa-83d3-0471cb9b6253"> It ensures there are no loops when microservices call each other</label></input></div><div class="quiz__answer"><input id="45377d60-5a5c-4f64-a6b7-2411cb572132" type="checkbox"><label for="45377d60-5a5c-4f64-a6b7-2411cb572132"> It cancels API calls to other services if they take too long</label></input></div></div></div>
+<div class="admonition question"><p class="admonition-title">What is the Circuit-Breaker Pattern?</p><div class="quiz__answers"><div class="quiz__answer"><input id="01f29141-377c-4d0d-ab9d-394e2c02d399" type="checkbox"><label for="01f29141-377c-4d0d-ab9d-394e2c02d399"> It ensures there are no loops when microservices call each other</label></input></div><div class="quiz__answer"><input id="ad670d7f-e78e-44fb-a10c-28976c67dc1c" type="checkbox"><label for="ad670d7f-e78e-44fb-a10c-28976c67dc1c"> It cancels API calls to other services if they take too long</label></input></div></div></div>
 <h3 id="service_meshes_frameworks_and_tools">Service meshes, Frameworks, and Tools<a class="headerlink" href="#service_meshes_frameworks_and_tools" title="Permanent link">#</a></h3>
 <p><audio controls="" preload="none" src="audio/11-service-mesh.mp3"></audio></p>
 <p>Service meshes are a tool to help with building microservices. As mentioned before, microservices are hard. Not only do you have to take the network into account, not only do you have to make the API work together across many different components, you also have to make sure that components find each other.</p>
@@ -769,8 +769,8 @@
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.7e0ee788.min.js"></script>
-<script src="../../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+<script src="../../assets/javascripts/vendor.0ac82a11.min.js"></script>
+<script src="../../assets/javascripts/bundle.f81dfb4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
 <script>
         app = initialize({
           base: "../..",
