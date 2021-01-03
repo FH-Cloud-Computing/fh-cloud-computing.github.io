@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Course material for the Cloud Computing course of Fall 2020 at the FH Campus Wien. This course goes through the theory and practice of implementing applications for the cloud." name="description"/>
 <link href="../favicon.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-6.1.7" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-6.2.3" name="generator"/>
 <title>Deadlines - Cloud Computing 2020</title>
-<link href="../assets/stylesheets/main.19753c6b.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.196e0c26.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.3b61ea93.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.39b8e14a.min.css" rel="stylesheet"/>
 <link href="../custom.css" rel="stylesheet"/>
 <meta content="website" property="og:type">
 <meta content="Cloud Computing 2020" name="title" property="og:title">
@@ -46,14 +46,18 @@
 </label>
 <div class="md-header-nav__title" data-md-component="header-title">
 <div class="md-header-nav__ellipsis">
-<span class="md-header-nav__topic md-ellipsis">
+<div class="md-header-nav__topic">
+<span class="md-ellipsis">
             Cloud Computing 2020
           </span>
-<span class="md-header-nav__topic md-ellipsis">
+</div>
+<div class="md-header-nav__topic">
+<span class="md-ellipsis">
             
               Deadlines
             
           </span>
+</div>
 </div>
 </div>
 <label class="md-header-nav__button md-icon" for="__search">
@@ -97,7 +101,7 @@
 </nav>
 </header>
 <div class="md-container" data-md-component="container">
-<nav aria-label="Tabs" class="md-tabs md-tabs--active" data-md-component="tabs">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
 <div class="md-tabs__inner md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
@@ -128,7 +132,7 @@
 <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="Cloud Computing 2020" class="md-nav__button md-logo" href=".." title="Cloud Computing 2020">
 <img alt="logo" src="../logo-wide.svg"/>
@@ -500,7 +504,7 @@
 <h3 id="sprint_2_monitoring">Sprint 2: Monitoring<a class="headerlink" href="#sprint_2_monitoring" title="Permanent link">#</a></h3>
 <p><strong>Deadline:</strong> 15<sup>th</sup> of November 2020 23:59</p>
 <p>In this sprint you must demonstrate your ability to monitor a varying number of instances set up on an instance pool in the previous sprint using Prometheus.</p>
-<details class="note" open="open"><summary>Pass criteria</summary><p><strong>Note:</strong> Grafana has been moved to Sprint 3.</p>
+<details class="note"><summary>Pass criteria</summary><p><strong>Note:</strong> Grafana has been moved to Sprint 3.</p>
 <h5 id="minimum_requirements_5">Minimum requirements (5%)<a class="headerlink" href="#minimum_requirements_5" title="Permanent link">#</a></h5>
 <p>For manual method only: You must demonstrate on a call that everything from Sprint 1 still works, as well as the following points.</p>
 <p>For both manual and automated systems:</p>
@@ -538,7 +542,7 @@ sum by (instance) (rate(node_cpu_seconds_total[1m]))</code></li>
 <p><strong>Deadline:</strong> 15<sup>th</sup> of January 2021 23:59 <strike>15<sup>th</sup> of December 2020 23:59</strike></p>
 <p>In this sprint you must demonstrate your ability to receive a webhook from Grafana and adjust the number of instances in the instance pool from the previous sprint under load.</p>
 <p>Your service will be hit with a large number of requests and it must scale up as outlined in the <a href="/projectwork">project work document</a>.</p>
-<details class="note"><summary>Pass criteria</summary><h5 id="minimum_requirements_6">Minimum requirements (5%)<a class="headerlink" href="#minimum_requirements_6" title="Permanent link">#</a></h5>
+<details class="note" open="open"><summary>Pass criteria</summary><h5 id="minimum_requirements_6">Minimum requirements (5%)<a class="headerlink" href="#minimum_requirements_6" title="Permanent link">#</a></h5>
 <p><strong>Note:</strong> If you only fulfill your minimum requirements please contact us for a review appointment.</p>
 <ul>
 <li>All items from Sprint 1 and 2 must still work.</li>
@@ -622,14 +626,14 @@ sum by (instance) (rate(node_cpu_seconds_total[1m]))</code></li>
 </div>
 </footer>
 </div>
-<script src="../assets/javascripts/vendor.0ac82a11.min.js"></script>
-<script src="../assets/javascripts/bundle.f81dfb4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+<script src="../assets/javascripts/vendor.08c56446.min.js"></script>
+<script src="../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
 <script>
         app = initialize({
           base: "..",
           features: ['navigation.tabs'],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+            worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

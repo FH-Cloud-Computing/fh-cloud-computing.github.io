@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Course material for the Cloud Computing course of Fall 2020 at the FH Campus Wien. This course goes through the theory and practice of implementing applications for the cloud." name="description"/>
 <link href="../../favicon.svg" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-6.1.7" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-6.2.3" name="generator"/>
 <title>5. Cloud-native software development - Cloud Computing 2020</title>
-<link href="../../assets/stylesheets/main.19753c6b.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.196e0c26.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.3b61ea93.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.39b8e14a.min.css" rel="stylesheet"/>
 <link href="../../custom.css" rel="stylesheet"/>
 <meta content="website" property="og:type">
 <meta content="Cloud Computing 2020" name="title" property="og:title">
@@ -46,14 +46,18 @@
 </label>
 <div class="md-header-nav__title" data-md-component="header-title">
 <div class="md-header-nav__ellipsis">
-<span class="md-header-nav__topic md-ellipsis">
+<div class="md-header-nav__topic">
+<span class="md-ellipsis">
             Cloud Computing 2020
           </span>
-<span class="md-header-nav__topic md-ellipsis">
+</div>
+<div class="md-header-nav__topic">
+<span class="md-ellipsis">
             
               5. Cloud-native software development
             
           </span>
+</div>
 </div>
 </div>
 <label class="md-header-nav__button md-icon" for="__search">
@@ -97,7 +101,7 @@
 </nav>
 </header>
 <div class="md-container" data-md-component="container">
-<nav aria-label="Tabs" class="md-tabs md-tabs--active" data-md-component="tabs">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
 <div class="md-tabs__inner md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
@@ -128,7 +132,7 @@
 <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="Cloud Computing 2020" class="md-nav__button md-logo" href="../.." title="Cloud Computing 2020">
 <img alt="logo" src="../../logo-wide.svg"/>
@@ -710,7 +714,7 @@
 </li>
 </ul>
 </div>
-<div class="admonition question"><p class="admonition-title">What is the Circuit-Breaker Pattern?</p><div class="quiz__answers"><div class="quiz__answer"><input id="01f29141-377c-4d0d-ab9d-394e2c02d399" type="checkbox"><label for="01f29141-377c-4d0d-ab9d-394e2c02d399"> It ensures there are no loops when microservices call each other</label></input></div><div class="quiz__answer"><input id="ad670d7f-e78e-44fb-a10c-28976c67dc1c" type="checkbox"><label for="ad670d7f-e78e-44fb-a10c-28976c67dc1c"> It cancels API calls to other services if they take too long</label></input></div></div></div>
+<div class="admonition question"><p class="admonition-title">What is the Circuit-Breaker Pattern?</p><div class="quiz__answers"><div class="quiz__answer"><input id="8f352c03-497b-4f2f-8b31-9e15e27634bf" type="checkbox"><label for="8f352c03-497b-4f2f-8b31-9e15e27634bf"> It ensures there are no loops when microservices call each other</label></input></div><div class="quiz__answer"><input id="f61cc89e-3262-43dc-a5cc-c693cda81a8d" type="checkbox"><label for="f61cc89e-3262-43dc-a5cc-c693cda81a8d"> It cancels API calls to other services if they take too long</label></input></div></div></div>
 <h3 id="service_meshes_frameworks_and_tools">Service meshes, Frameworks, and Tools<a class="headerlink" href="#service_meshes_frameworks_and_tools" title="Permanent link">#</a></h3>
 <p><audio controls="" preload="none" src="audio/11-service-mesh.mp3"></audio></p>
 <p>Service meshes are a tool to help with building microservices. As mentioned before, microservices are hard. Not only do you have to take the network into account, not only do you have to make the API work together across many different components, you also have to make sure that components find each other.</p>
@@ -769,14 +773,14 @@
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.0ac82a11.min.js"></script>
-<script src="../../assets/javascripts/bundle.f81dfb4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+<script src="../../assets/javascripts/vendor.08c56446.min.js"></script>
+<script src="../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
 <script>
         app = initialize({
           base: "../..",
           features: ['navigation.tabs'],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
